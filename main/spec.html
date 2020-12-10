@@ -100,8 +100,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#epoch">epoch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deme">deme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pulse">pulse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#asymmetric-migration">asymmetric_migration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#symmetric-migration">symmetric_migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#migration">migration</a></li>
 </ul>
 </li>
 </ul>
@@ -268,7 +267,7 @@ units of generations. Unless <code class="docutils literal notranslate"><span cl
 the <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> must be specified.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>number</em></p></td>
+<td colspan="2"><p><em>number</em> / <em>null</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>examples</p></td>
 <td colspan="2"><p>1</p></td>
@@ -314,50 +313,23 @@ the <code class="docutils literal notranslate"><span class="pre">generation_time
 <tr class="row-odd"><td><p>items</p></td>
 <td colspan="2"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="11"><ul class="simple">
+<tr class="row-even"><td rowspan="4"><ul class="simple">
 <li><p>migrations</p></li>
 </ul>
 </td>
-<td colspan="3"><p>Migrations occurring <em>continuously</em> over a time interval.
-Continuous migrations may be symmetric, or asymmetric.</p></td>
+<td colspan="3"><p>A list of migrations occurring <em>continuously</em> over a time interval.
+Each specified migration can define symmetric migration among all
+pairs in a set of demes, or alternately can define asymmetric migration
+from one deme to another.</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
-<td colspan="2"><p><em>object</em></p></td>
+<td colspan="2"><p><em>array</em></p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>properties</p></td>
+<tr class="row-even"><td><p>default</p></td>
+<td colspan="2"></td>
 </tr>
-<tr class="row-odd"><td rowspan="4"><ul class="simple">
-<li><p>symmetric</p></li>
-</ul>
-</td>
-<td colspan="2"><p>A list of continuous migrations occuring symmetrically among
-a set of demes. Symmetric migrations offer a convenient shorthand,
-that would be more cumbersome to define using asymmetric migrations.</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>array</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>default</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>items</p></td>
-<td><p><a class="reference internal" href="#symmetric-migration">symmetric_migration</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="4"><ul class="simple">
-<li><p>asymmetric</p></li>
-</ul>
-</td>
-<td colspan="2"><p>A list of continuous migrations occuring unidirectionally from
-a source deme to a destination deme.</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>array</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>default</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>items</p></td>
-<td><p><a class="reference internal" href="#asymmetric-migration">asymmetric_migration</a></p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="2"><p><a class="reference internal" href="#migration">migration</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -630,7 +602,7 @@ graph.</p></td>
 <td colspan="2"><p>A concise description of the deme.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
+<td><p><em>string</em> / <em>null</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
 <td><p>None</p></td>
@@ -840,78 +812,15 @@ immediately after the <code class="docutils literal notranslate"><span class="pr
 </tbody>
 </table>
 </div>
-<div class="section" id="asymmetric-migration">
-<span id="asymmetric-migration"></span><h3>asymmetric_migration<a class="headerlink" href="#asymmetric-migration" title="Permalink to this headline">¶</a></h3>
-<p>Continuous migration from the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme to the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme,
-over an the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>object</em></p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p>properties</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>source</strong></p></li>
-</ul>
-</td>
-<td><p>The deme ID of the migration source.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id">id</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>dest</strong></p></li>
-</ul>
-</td>
-<td><p>The deme ID of the migration destination.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id">id</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>start_time</p></li>
-</ul>
-</td>
-<td><p>The time at which migration begins, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
-The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
-and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
-If not specified, the migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be the minimum
-<code class="docutils literal notranslate"><span class="pre">deme.start_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#start-time">start_time</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>end_time</p></li>
-</ul>
-</td>
-<td><p>The time at which migration stops, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
-The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
-and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
-If not specified, the migration <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the maximum
-<code class="docutils literal notranslate"><span class="pre">deme.end_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#end-time">end_time</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>rate</strong></p></li>
-</ul>
-</td>
-<td><p>The rate of migration per generation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rate">rate</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="symmetric-migration">
-<span id="symmetric-migration"></span><h3>symmetric_migration<a class="headerlink" href="#symmetric-migration" title="Permalink to this headline">¶</a></h3>
-<p>Continuous migration among a set of demes over the half-open time
-interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.</p>
+<div class="section" id="migration">
+<span id="migration"></span><h3>migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
+<p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
+pairs of demes with deme IDs in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
+specified instead, migration shall be asymmetric from the deme with ID
+<code class="docutils literal notranslate"><span class="pre">source</span></code> to the deme with ID <code class="docutils literal notranslate"><span class="pre">dest</span></code>. Either <code class="docutils literal notranslate"><span class="pre">demes</span></code>, or alternately
+both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code>, must be specified. If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified,
+neither <code class="docutils literal notranslate"><span class="pre">source</span></code> nor <code class="docutils literal notranslate"><span class="pre">dest</span></code> may be specified.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -925,10 +834,10 @@ interval <code class="docutils literal notranslate"><span class="pre">(start_tim
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
-<li><p><strong>demes</strong></p></li>
+<li><p>demes</p></li>
 </ul>
 </td>
-<td colspan="2"><p>The deme IDs of the migrating demes.</p></td>
+<td colspan="2"><p>The deme IDs of the symmetrically migrating demes.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td><p><em>array</em></p></td>
@@ -940,14 +849,31 @@ interval <code class="docutils literal notranslate"><span class="pre">(start_tim
 <td><p>2</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>source</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the asymmetric migration source.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>dest</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the asymmetric migration destination.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>start_time</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The time at which migration begins, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
 The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of every deme in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.
+<code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
 If not specified, the migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be the minimum
-<code class="docutils literal notranslate"><span class="pre">deme.start_time</span></code> over the demes in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.</p></td>
+<code class="docutils literal notranslate"><span class="pre">deme.start_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
 </tr>
@@ -957,9 +883,10 @@ If not specified, the migration <code class="docutils literal notranslate"><span
 </td>
 <td colspan="2"><p>The time at which migration stops, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
 The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of every deme in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.
+<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
 If not specified, the migration <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the maximum
-<code class="docutils literal notranslate"><span class="pre">deme.end_time</span></code> over the demes in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.</p></td>
+<code class="docutils literal notranslate"><span class="pre">deme.end_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
 </tr>

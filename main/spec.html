@@ -200,30 +200,31 @@ demes are described using <cite>pulses</cite> for instantaneous migrations, and
 <cite>migrations</cite> for continuous migration over a time interval.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>type</p></td>
-<td colspan="3"><p><em>object</em></p></td>
+<td colspan="4"><p><em>object</em></p></td>
 </tr>
-<tr class="row-even"><td colspan="4"><p>properties</p></td>
+<tr class="row-even"><td colspan="5"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
-<li><p><strong>description</strong></p></li>
+<li><p>description</p></li>
 </ul>
 </td>
-<td colspan="3"><p>A concise description of the demographic model.</p></td>
+<td colspan="4"><p>A concise description of the demographic model.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>string</em></p></td>
+<td colspan="3"><p><em>string</em> / <em>null</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>examples</p></td>
-<td colspan="2"><p>An island stepping stone model with 5 demes.</p></td>
+<td colspan="3"><p>An island stepping stone model with 5 demes.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>The Example et al. (3140) model of Tringuul expansion out of the
+<tr class="row-even"><td colspan="3"><p>The Example et al. (3140) model of Tringuul expansion out of the
 Interrezella Nebula. Includes successive bottlenecks associated with
 colonisations throughout the system.</p></td>
 </tr>
@@ -231,105 +232,182 @@ colonisations throughout the system.</p></td>
 <li><p>doi</p></li>
 </ul>
 </td>
-<td colspan="3"><p>The DOI(s) of the publication(s) in which the model was inferred or
+<td colspan="4"><p>The DOI(s) of the publication(s) in which the model was inferred or
 originally described.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>array</em></p></td>
+<td colspan="3"><p><em>array</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
-<td colspan="2"></td>
+<td colspan="3"></td>
 </tr>
 <tr class="row-even"><td><p>items</p></td>
 <td><p>type</p></td>
-<td><p><em>string</em></p></td>
+<td colspan="2"><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p><strong>time_units</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>The units of time used to specify times and time intervals.</p></td>
+<td colspan="4"><p>The units of time used to specify times and time intervals.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>string</em></p></td>
+<td colspan="3"><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>examples</p></td>
-<td colspan="2"><p>generations</p></td>
+<td colspan="3"><p>generations</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>years</p></td>
+<tr class="row-even"><td colspan="3"><p>years</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="7"><ul class="simple">
 <li><p>generation_time</p></li>
 </ul>
 </td>
-<td colspan="3"><p>The number by which times must be divided, to convert them to have
+<td colspan="4"><p>The number by which times must be divided, to convert them to have
 units of generations. Unless <code class="docutils literal notranslate"><span class="pre">time_units</span></code> are <code class="docutils literal notranslate"><span class="pre">generations</span></code>,
 the <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> must be specified.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>number</em> / <em>null</em></p></td>
+<td colspan="3"><p><em>number</em> / <em>null</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>examples</p></td>
-<td colspan="2"><p>1</p></td>
+<td colspan="3"><p>1</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>29.5</p></td>
+<tr class="row-even"><td colspan="3"><p>29.5</p></td>
 </tr>
 <tr class="row-odd"><td><p>exclusiveMaximum</p></td>
-<td colspan="2"><p>inf</p></td>
+<td colspan="3"><p>inf</p></td>
 </tr>
 <tr class="row-even"><td><p>exclusiveMinimum</p></td>
-<td colspan="2"><p>0</p></td>
+<td colspan="3"><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
-<td colspan="2"><p>None</p></td>
+<td colspan="3"><p>None</p></td>
 </tr>
-<tr class="row-even"><td rowspan="4"><ul class="simple">
+<tr class="row-even"><td rowspan="15"><ul class="simple">
+<li><p>defaults</p></li>
+</ul>
+</td>
+<td colspan="4"><p>The default values for omitted properties in demes, epochs, migrations and pulses.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>epoch</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#epoch">epoch</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>migration</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#migration">migration</a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>pulse</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="7"><ul class="simple">
+<li><p>deme</p></li>
+</ul>
+</td>
+<td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>ancestors</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#id">id</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>proportions</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#proportion">proportion</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>start_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="3"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p><strong>demes</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>A list of demes in the demographic model.</p></td>
+<td colspan="4"><p>A list of demes in the demographic model.</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td colspan="2"><p><em>array</em></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
 </tr>
-<tr class="row-even"><td><p>items</p></td>
-<td colspan="2"><p><a class="reference internal" href="#deme">deme</a></p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#deme">deme</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>minItems</p></td>
-<td colspan="2"><p>1</p></td>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="3"><p>1</p></td>
 </tr>
-<tr class="row-even"><td rowspan="4"><ul class="simple">
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>pulses</p></li>
 </ul>
 </td>
-<td colspan="3"><p>A list of <em>instantaneous</em> pulses of migration between demes.</p></td>
+<td colspan="4"><p>A list of <em>instantaneous</em> pulses of migration between demes.</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td colspan="2"><p><em>array</em></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
 </tr>
-<tr class="row-even"><td><p>default</p></td>
-<td colspan="2"></td>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"></td>
 </tr>
-<tr class="row-odd"><td><p>items</p></td>
-<td colspan="2"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
+<tr class="row-even"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="4"><ul class="simple">
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>migrations</p></li>
 </ul>
 </td>
-<td colspan="3"><p>A list of migrations occurring <em>continuously</em> over a time interval.
+<td colspan="4"><p>A list of migrations occurring <em>continuously</em> over a time interval.
 Each specified migration can define symmetric migration among all
 pairs in a set of demes, or alternately can define asymmetric migration
 from one deme to another.</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td colspan="2"><p><em>array</em></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
 </tr>
-<tr class="row-even"><td><p>default</p></td>
-<td colspan="2"></td>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"></td>
 </tr>
-<tr class="row-odd"><td><p>items</p></td>
-<td colspan="2"><p><a class="reference internal" href="#migration">migration</a></p></td>
+<tr class="row-even"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#migration">migration</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="4"><p>False</p></td>
 </tr>
 </tbody>
 </table>
@@ -522,7 +600,7 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>initial_size</p></li>
+<li><p>start_size</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></td>
@@ -530,14 +608,14 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>final_size</p></li>
+<li><p>end_size</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
 <li><p>size_function</p></li>
 </ul>
 </td>
@@ -552,17 +630,23 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 <tr class="row-even"><td><p>exponential</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>exponential</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
 <li><p>cloning_rate</p></li>
 </ul>
 </td>
 <td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td><ul class="simple">
 <li><p>selfing_rate</p></li>
 </ul>
 </td>
 <td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
 </table>
@@ -647,22 +731,6 @@ reasonable tolerance, e.g. 1e-9).</p></td>
 <td><p><a class="reference internal" href="#proportion">proportion</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>initial_size</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The population size at the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>final_size</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The population size at the deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>start_time</p></li>
 </ul>
 </td>
@@ -706,45 +774,49 @@ start time is specified.</p></li>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>end_time</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The most recent time at which the deme exists, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code>
-before the present.
-If <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is specified, and the deme’s last epoch’s
-<code class="docutils literal notranslate"><span class="pre">end_time</span></code> is also specified, they must have the same value.</p>
-<p>If not specified, the deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be obtained
-according to the following rules (the first matching rule shall
-be used).</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>If the last epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is specified, its value
-shall be used.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the present. I.e. the <code class="docutils literal notranslate"><span class="pre">end_time</span></code>
-shall have the value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
-</ul>
-</div></blockquote>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
 <li><p>epochs</p></li>
 </ul>
 </td>
-<td colspan="2"><p>The list of epochs applying to the deme. If not specified,
-a single epoch shall be constructed from the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>,
-<code class="docutils literal notranslate"><span class="pre">end_time</span></code>, <code class="docutils literal notranslate"><span class="pre">initial_size</span></code>, and <code class="docutils literal notranslate"><span class="pre">final_size</span></code> properties.</p></td>
+<td colspan="2"><p>The list of epochs for this deme.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td><p><em>array</em></p></td>
 </tr>
-<tr class="row-odd"><td><p>items</p></td>
+<tr class="row-odd"><td><p>default</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
 <td><p><a class="reference internal" href="#epoch">epoch</a></p></td>
 </tr>
-<tr class="row-even"><td><p>minItems</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>minItems</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><ul class="simple">
+<li><p>defaults</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The default values for omitted properties in epochs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>epoch</p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#epoch">epoch</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
 </table>
@@ -766,7 +838,7 @@ into the <code class="docutils literal notranslate"><span class="pre">dest</span
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>source</strong></p></li>
+<li><p>source</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The deme ID of the migration source.</p></td>
@@ -774,7 +846,7 @@ into the <code class="docutils literal notranslate"><span class="pre">dest</span
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>dest</strong></p></li>
+<li><p>dest</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The deme ID of the migration destination.</p></td>
@@ -782,7 +854,7 @@ into the <code class="docutils literal notranslate"><span class="pre">dest</span
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
-<li><p><strong>time</strong></p></li>
+<li><p>time</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The time of migration, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
@@ -801,13 +873,16 @@ deme and the <code class="docutils literal notranslate"><span class="pre">dest</
 <td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>proportion</strong></p></li>
+<li><p>proportion</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The proportion of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme’s ancestry in the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme
 immediately after the <code class="docutils literal notranslate"><span class="pre">time</span></code> of migration.</p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#proportion">proportion</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
 </table>
@@ -891,12 +966,15 @@ If not specified, the migration <code class="docutils literal notranslate"><span
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>rate</strong></p></li>
+<li><p>rate</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The rate of migration per generation.</p></td>
 </tr>
 <tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
 </table>

@@ -570,7 +570,7 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </div>
 <div class="section" id="epoch">
 <span id="epoch"></span><h3>epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
-<p>A deme-specific period of time spanning the half-open interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters apply.</p>
+<p>A deme-specific period of time spanning the half-open interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the previous epoch, or the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> if it is the first epoch.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -582,14 +582,6 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>start_time</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The most ancient time of the epoch, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.</p></td>
-</tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>end_time</p></li>
@@ -657,7 +649,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 The deme may be a descendant of one or more demes in the graph, and may
 be an ancestor to others. The deme exists over the half-open time interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, and it may continue to exist after
-contributing ancestry to a descendant deme.</p>
+contributing ancestry to a descendant deme. The deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is
+defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the deme’s last epoch.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -739,16 +732,12 @@ before the present.
 The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must correspond with the interval of existence
 for each of the deme’s <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. I.e. the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
 be within the half-open interval <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code>
-for each deme in <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is specified, and the deme’s first epoch’s
-<code class="docutils literal notranslate"><span class="pre">start_time</span></code> is also specified, they must have the same value.</p>
+for each deme in <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.</p>
 <p>If not specified, the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be obtained
 according to the following rules (the first matching rule shall
 be used).</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>If the first epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is specified, its value
-shall be used.</p></li>
 <li><p>If the deme has one ancestor, and the ancestor has an
 <code class="docutils literal notranslate"><span class="pre">end_time</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, the ancestor’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> value shall be
 used.</p></li>
@@ -763,11 +752,9 @@ raised for the following conditions.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>If the deme has multiple ancestors,
-and neither the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> nor the first epoch’s
-<code class="docutils literal notranslate"><span class="pre">start_time</span></code> is specified.</p></li>
+and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
 <li><p>If the deme has one ancestor with an <code class="docutils literal notranslate"><span class="pre">end_time</span> <span class="pre">==</span> <span class="pre">0</span></code>,
-and neither the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> nor the first epoch’s
-start time is specified.</p></li>
+and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
 </ul>
 </div></blockquote>
 </td>

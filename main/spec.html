@@ -728,8 +728,9 @@ reasonable tolerance, e.g. 1e-9).</p></td>
 </ul>
 </td>
 <td colspan="2"><p>The most ancient time at which the deme exists, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code>
-before the present.
-The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must correspond with the interval of existence
+before the present. Demes with no ancestors are root demes and must
+have an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>. Otherwise, the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
+correspond with the interval of existence
 for each of the deme’s <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. I.e. the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
 be within the half-open interval <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code>
 for each deme in <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.</p>
@@ -755,6 +756,7 @@ raised for the following conditions.</p>
 and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
 <li><p>If the deme has one ancestor with an <code class="docutils literal notranslate"><span class="pre">end_time</span> <span class="pre">==</span> <span class="pre">0</span></code>,
 and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
+<li><p>If the deme has zero ancestors and a finite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></li>
 </ul>
 </div></blockquote>
 </td>

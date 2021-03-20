@@ -93,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Demes Specification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#demes-graph">Demes graph</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id">id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name">name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rate">rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#proportion">proportion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#size">size</a></li>
@@ -339,7 +339,7 @@ the <code class="docutils literal notranslate"><span class="pre">generation_time
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-even"><td><p>items</p></td>
-<td><p><a class="reference internal" href="#id">id</a></p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>proportions</p></li>
@@ -413,8 +413,8 @@ from one deme to another.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="id">
-<span id="id"></span><h3>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="name">
+<span id="name"></span><h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
 <p>A unique string identifier for a deme.
 Must be a valid <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">python identifier</a>.</p>
 <table class="docutils align-default">
@@ -666,13 +666,13 @@ defined as the <code class="docutils literal notranslate"><span class="pre">end_
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>id</strong></p></li>
+<li><p><strong>name</strong></p></li>
 </ul>
 </td>
 <td colspan="2"><p>An identifier for this deme. Must be unique among all demes in the
 graph.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>description</p></li>
@@ -705,7 +705,7 @@ specified only once. A deme must not be one of its own ancestors.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>items</p></td>
-<td><p><a class="reference internal" href="#id">id</a></p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>proportions</p></li>
@@ -834,7 +834,7 @@ into the <code class="docutils literal notranslate"><span class="pre">dest</span
 </td>
 <td colspan="2"><p>The deme ID of the migration source.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>dest</p></li>
@@ -842,7 +842,7 @@ into the <code class="docutils literal notranslate"><span class="pre">dest</span
 </td>
 <td colspan="2"><p>The deme ID of the migration destination.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>time</p></li>
@@ -909,7 +909,7 @@ neither <code class="docutils literal notranslate"><span class="pre">source</spa
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>items</p></td>
-<td><p><a class="reference internal" href="#id">id</a></p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-even"><td><p>minItems</p></td>
 <td><p>2</p></td>
@@ -920,7 +920,7 @@ neither <code class="docutils literal notranslate"><span class="pre">source</spa
 </td>
 <td colspan="2"><p>The deme ID of the asymmetric migration source.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>dest</p></li>
@@ -928,7 +928,7 @@ neither <code class="docutils literal notranslate"><span class="pre">source</spa
 </td>
 <td colspan="2"><p>The deme ID of the asymmetric migration destination.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#id">id</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>start_time</p></li>

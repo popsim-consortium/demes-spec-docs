@@ -1,0 +1,1125 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference &#8212; Demes Specification</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Gallery" href="gallery.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Demes Specification</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gallery.html">
+   Gallery
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reference
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  demes-spec 0.9
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/reference.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/popsim-consortium/demes-spec"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/popsim-consortium/demes-spec/issues/new?title=Issue%20on%20page%20%2Freference.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/popsim-consortium/demes-spec/edit/main/docs/reference.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demes-graph">
+   Demes graph
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#name">
+     name
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rate">
+     rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proportion">
+     proportion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#size">
+     size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-time">
+     start_time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-time">
+     end_time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#epoch">
+     epoch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deme">
+     deme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulse">
+     pulse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#migration">
+     migration
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="reference">
+<span id="sec-ref"></span><span id="sec-spec"></span><h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<p>The structure of <code class="docutils literal notranslate"><span class="pre">demes</span></code>’ data model is formally defined using
+<a class="reference external" href="https://json-schema.org/">JSON schema</a> and rendered below as a table.
+A machine readable version of the schema (from which this table was generated)
+can be found in the <code class="docutils literal notranslate"><span class="pre">demes-specification.yaml</span></code> file of the
+<a class="reference external" href="https://github.com/popsim-consortium/demes-spec">demes-spec repository</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The formal requirements of <code class="docutils literal notranslate"><span class="pre">demes</span></code>’ data model impose inter-property
+constraints that cannot be described using JSON schema alone.
+These additional conditions are described throughout this document
+using the language <em>must</em> or <em>must not</em>.</p>
+</div>
+<p>For each object defined below, the strictly required properties are indicated
+in <strong>bold</strong>, and these properties must be specified by the user.
+The remaining properties, which may be omitted by the user, must nevertheless
+have defined values. Where default values are obtained from other properties,
+this is described in the <code class="docutils literal notranslate"><span class="pre">description</span></code> field, using the language <em>shall</em>
+or <em>shall not</em>.</p>
+<p>Software implementing this specification is expected to raise errors
+when processing input for which the formal requirements are not met.</p>
+<div class="section" id="demes-graph">
+<span id="demes-graph"></span><h2>Demes graph<a class="headerlink" href="#demes-graph" title="Permalink to this headline">¶</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">demes</span></code> model is a graph in which each deme is a vertex, and graph edges
+indicate ancestor/descendant relationships. Additional relationships between
+demes are described using <cite>pulses</cite> for instantaneous migrations, and
+<cite>migrations</cite> for continuous migration over a time interval.</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="4"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="5"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td colspan="4"><p>A concise description of the demographic model.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>string</em> / <em>null</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td colspan="3"><p>An island stepping stone model with 5 demes.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>The Example et al. (3140) model of Tringuul expansion out of the
+Interrezella Nebula. Includes successive bottlenecks associated with
+colonisations throughout the system.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>doi</p></li>
+</ul>
+</td>
+<td colspan="4"><p>The DOI(s) of the publication(s) in which the model was inferred or
+originally described.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p><strong>time_units</strong></p></li>
+</ul>
+</td>
+<td colspan="4"><p>The units of time used to specify times and time intervals.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td colspan="3"><p>generations</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>years</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="7"><ul class="simple">
+<li><p>generation_time</p></li>
+</ul>
+</td>
+<td colspan="4"><p>The number by which times must be divided, to convert them to have
+units of generations. Unless <code class="docutils literal notranslate"><span class="pre">time_units</span></code> are <code class="docutils literal notranslate"><span class="pre">generations</span></code>,
+the <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> must be specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>number</em> / <em>null</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td colspan="3"><p>1</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>29.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclusiveMaximum</p></td>
+<td colspan="3"><p>inf</p></td>
+</tr>
+<tr class="row-even"><td><p>exclusiveMinimum</p></td>
+<td colspan="3"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"><p>None</p></td>
+</tr>
+<tr class="row-even"><td rowspan="15"><ul class="simple">
+<li><p>defaults</p></li>
+</ul>
+</td>
+<td colspan="4"><p>The default values for omitted properties in demes, epochs, migrations and pulses.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>epoch</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#epoch">epoch</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>migration</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#migration">migration</a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>pulse</p></li>
+</ul>
+</td>
+<td colspan="3"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="7"><ul class="simple">
+<li><p>deme</p></li>
+</ul>
+</td>
+<td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>ancestors</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>proportions</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#proportion">proportion</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>start_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="3"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p><strong>demes</strong></p></li>
+</ul>
+</td>
+<td colspan="4"><p>A list of demes in the demographic model.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#deme">deme</a></p></td>
+</tr>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="3"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>pulses</p></li>
+</ul>
+</td>
+<td colspan="4"><p>A list of <em>instantaneous</em> pulses of migration between demes.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#pulse">pulse</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>migrations</p></li>
+</ul>
+</td>
+<td colspan="4"><p>A list of migrations occurring <em>continuously</em> over a time interval.
+Each specified migration can define symmetric migration among all
+pairs in a set of demes, or alternately can define asymmetric migration
+from one deme to another.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td colspan="3"><p><a class="reference internal" href="#migration">migration</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="4"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="name">
+<span id="name"></span><h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>A unique string identifier for a deme.
+Must be a valid <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">python identifier</a>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>examples</p></td>
+<td><p>deme1</p></td>
+</tr>
+<tr class="row-odd"><td><p>pop_2</p></td>
+</tr>
+<tr class="row-even"><td><p>YRI</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rate">
+<span id="rate"></span><h3>rate<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h3>
+<p>A rate for migrations, selfing, or cloning.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>examples</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e-5</p></td>
+</tr>
+<tr class="row-even"><td><p>maximum</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>minimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="proportion">
+<span id="proportion"></span><h3>proportion<a class="headerlink" href="#proportion" title="Permalink to this headline">¶</a></h3>
+<p>An ancestry proportion.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>examples</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e-5</p></td>
+</tr>
+<tr class="row-even"><td><p>maximum</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclusiveMinimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="size">
+<span id="size"></span><h3>size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
+<p>The population size of a deme.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>examples</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e5</p></td>
+</tr>
+<tr class="row-even"><td><p>exclusiveMaximum</p></td>
+<td><p>inf</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclusiveMinimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="start-time">
+<span id="start-time"></span><h3>start_time<a class="headerlink" href="#start-time" title="Permalink to this headline">¶</a></h3>
+<p>The oldest time of a time interval (numerical upper bound).</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>examples</p></td>
+<td><p>inf</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e6</p></td>
+</tr>
+<tr class="row-even"><td><p>20000</p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td><p>inf</p></td>
+</tr>
+<tr class="row-even"><td><p>exclusiveMinimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="end-time">
+<span id="end-time"></span><h3>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">¶</a></h3>
+<p>The youngest time of a time interval (numerical lower bound).</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>examples</p></td>
+<td><p>1e6</p></td>
+</tr>
+<tr class="row-odd"><td><p>20000</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>exclusiveMaximum</p></td>
+<td><p>inf</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="epoch">
+<span id="epoch"></span><h3>epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
+<p>A deme-specific period of time spanning the half-open interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the previous epoch, or the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> if it is the first epoch.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>end_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The most recent time of the epoch, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>start_size</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>end_size</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#size">size</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p>size_function</p></li>
+</ul>
+</td>
+<td colspan="2"><p>A function describing the population size change between
+<code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td><p>constant</p></td>
+</tr>
+<tr class="row-even"><td><p>exponential</p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>exponential</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>cloning_rate</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>selfing_rate</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="deme">
+<span id="deme"></span><h3>deme<a class="headerlink" href="#deme" title="Permalink to this headline">¶</a></h3>
+<p>A collection of individuals that are exchangeable at any fixed time.
+The deme may be a descendant of one or more demes in the graph, and may
+be an ancestor to others. The deme exists over the half-open time interval
+<code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, and it may continue to exist after
+contributing ancestry to a descendant deme. The deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is
+defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the deme’s last epoch.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>name</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>An identifier for this deme. Must be unique among all demes in the
+graph.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td colspan="2"><p>A concise description of the deme.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em> / <em>null</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>ancestors</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The ancestors of the deme at the start of the deme’s first epoch.
+May be omitted if the deme has no ancestors in the graph.
+If two or more ancestors are specified, the <code class="docutils literal notranslate"><span class="pre">proportions</span></code>
+must also be specified, and the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be defined
+(either specified directly, or indirectly in the deme’s first epoch).
+Each ancestor must be in the graph, and each ancestor must be
+specified only once. A deme must not be one of its own ancestors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>proportions</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The proportions of ancestry derived from each of the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>
+at the start of the deme’s first epoch.
+The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> may be omitted if there are no ancestors, or if
+there is only one ancestor.
+The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the
+order of <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. The proportions must sum to 1 (within a
+reasonable tolerance, e.g. 1e-9).</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#proportion">proportion</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>start_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The most ancient time at which the deme exists, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code>
+before the present. Demes with no ancestors are root demes and must
+have an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>. Otherwise, the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
+correspond with the interval of existence
+for each of the deme’s <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. I.e. the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
+be within the half-open interval <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code>
+for each deme in <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.</p>
+<p>If not specified, the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be obtained
+according to the following rules (the first matching rule shall
+be used).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If the deme has one ancestor, and the ancestor has an
+<code class="docutils literal notranslate"><span class="pre">end_time</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, the ancestor’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> value shall be
+used.</p></li>
+<li><p>If the deme has no ancestors, the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be
+infinitely far into the past. I.e. the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall
+have the value <code class="docutils literal notranslate"><span class="pre">infinity</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p>If the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> has not been defined after following the
+rules above, an error shall be raised. E.g. an error shall be
+raised for the following conditions.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If the deme has multiple ancestors,
+and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
+<li><p>If the deme has one ancestor with an <code class="docutils literal notranslate"><span class="pre">end_time</span> <span class="pre">==</span> <span class="pre">0</span></code>,
+and the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is not specified.</p></li>
+<li><p>If the deme has zero ancestors and a finite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p>epochs</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The list of epochs for this deme.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#epoch">epoch</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>minItems</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><ul class="simple">
+<li><p>defaults</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The default values for omitted properties in epochs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>epoch</p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#epoch">epoch</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pulse">
+<span id="pulse"></span><h3>pulse<a class="headerlink" href="#pulse" title="Permalink to this headline">¶</a></h3>
+<p>An instantaneous pulse of migration at <code class="docutils literal notranslate"><span class="pre">time</span></code>, from the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+into the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>source</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the migration source.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>dest</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the migration destination.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>time</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The time of migration, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
+The <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes must both exist at the given
+<code class="docutils literal notranslate"><span class="pre">time</span></code>.  I.e. <code class="docutils literal notranslate"><span class="pre">time</span></code> must be contained in the
+<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code>
+deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>number</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>exclusiveMaximum</p></td>
+<td><p>inf</p></td>
+</tr>
+<tr class="row-even"><td><p>exclusiveMinimum</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>proportion</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The proportion of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme’s ancestry in the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme
+immediately after the <code class="docutils literal notranslate"><span class="pre">time</span></code> of migration.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#proportion">proportion</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="migration">
+<span id="migration"></span><h3>migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
+<p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
+pairs of demes with deme IDs in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
+specified instead, migration shall be asymmetric from the deme with ID
+<code class="docutils literal notranslate"><span class="pre">source</span></code> to the deme with ID <code class="docutils literal notranslate"><span class="pre">dest</span></code>. Either <code class="docutils literal notranslate"><span class="pre">demes</span></code>, or alternately
+both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code>, must be specified. If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified,
+neither <code class="docutils literal notranslate"><span class="pre">source</span></code> nor <code class="docutils literal notranslate"><span class="pre">dest</span></code> may be specified.</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>demes</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme IDs of the symmetrically migrating demes.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-even"><td><p>minItems</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>source</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the asymmetric migration source.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>dest</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The deme ID of the asymmetric migration destination.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#name">name</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>start_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The time at which migration begins, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
+The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the
+<code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
+If not specified, the migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be the minimum
+<code class="docutils literal notranslate"><span class="pre">deme.start_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#start-time">start_time</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>end_time</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The time at which migration stops, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
+The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must be contained in the
+<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
+If not specified, the migration <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the maximum
+<code class="docutils literal notranslate"><span class="pre">deme.end_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#end-time">end_time</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>rate</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The rate of migration per generation.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#rate">rate</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="gallery.html" title="previous page">Gallery</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PopSim Consortium<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            demes-spec 0.9
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

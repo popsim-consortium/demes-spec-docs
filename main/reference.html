@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Reference &#8212; Demes Specification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -265,16 +266,23 @@
         
               <div>
                 
-  <div class="section" id="reference">
+  <section id="reference">
 <span id="sec-ref"></span><span id="sec-spec"></span><h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
-<p>The structure of <code class="docutils literal notranslate"><span class="pre">demes</span></code>’ data model is formally defined using
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Demes is a work in progress and some details of this reference are
+currently incomplete, or incorrect, due to recent changes and
+discussions by the Demes authors. Please bear with us as we update
+the reference documentation.</p>
+</div>
+<p>The structure of the Demes data model is formally defined using
 <a class="reference external" href="https://json-schema.org/">JSON schema</a> and rendered below as a table.
 A machine readable version of the schema (from which this table was generated)
 can be found in the <code class="docutils literal notranslate"><span class="pre">demes-specification.yaml</span></code> file of the
 <a class="reference external" href="https://github.com/popsim-consortium/demes-spec">demes-spec repository</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The formal requirements of <code class="docutils literal notranslate"><span class="pre">demes</span></code>’ data model impose inter-property
+<p>The formal requirements of the Demes data model impose inter-property
 constraints that cannot be described using JSON schema alone.
 These additional conditions are described throughout this document
 using the language <em>must</em> or <em>must not</em>.</p>
@@ -287,7 +295,7 @@ this is described in the <code class="docutils literal notranslate"><span class=
 or <em>shall not</em>.</p>
 <p>Software implementing this specification is expected to raise errors
 when processing input for which the formal requirements are not met.</p>
-<div class="section" id="demes-graph">
+<section id="demes-graph">
 <span id="demes-graph"></span><h2>Demes graph<a class="headerlink" href="#demes-graph" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">demes</span></code> model is a graph in which each deme is a vertex, and graph edges
 indicate ancestor/descendant relationships. Additional relationships between
@@ -506,7 +514,7 @@ from one deme to another.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="name">
+<section id="name">
 <span id="name"></span><h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
 <p>A unique string identifier for a deme.
 Must be a valid <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">python identifier</a>.</p>
@@ -528,8 +536,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="rate">
+</section>
+<section id="rate">
 <span id="rate"></span><h3>rate<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h3>
 <p>A rate for migrations, selfing, or cloning.</p>
 <table class="table">
@@ -554,8 +562,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="proportion">
+</section>
+<section id="proportion">
 <span id="proportion"></span><h3>proportion<a class="headerlink" href="#proportion" title="Permalink to this headline">¶</a></h3>
 <p>An ancestry proportion.</p>
 <table class="table">
@@ -580,8 +588,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="size">
+</section>
+<section id="size">
 <span id="size"></span><h3>size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
 <p>The population size of a deme.</p>
 <table class="table">
@@ -606,8 +614,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="start-time">
+</section>
+<section id="start-time">
 <span id="start-time"></span><h3>start_time<a class="headerlink" href="#start-time" title="Permalink to this headline">¶</a></h3>
 <p>The oldest time of a time interval (numerical upper bound).</p>
 <table class="table">
@@ -634,8 +642,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="end-time">
+</section>
+<section id="end-time">
 <span id="end-time"></span><h3>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">¶</a></h3>
 <p>The youngest time of a time interval (numerical lower bound).</p>
 <table class="table">
@@ -662,8 +670,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="epoch">
+</section>
+<section id="epoch">
 <span id="epoch"></span><h3>epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
 <p>A deme-specific period of time spanning the half-open interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the previous epoch, or the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> if it is the first epoch.</p>
 <table class="table">
@@ -737,8 +745,8 @@ Must be a valid <a class="reference external" href="https://docs.python.org/3/re
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="deme">
+</section>
+<section id="deme">
 <span id="deme"></span><h3>deme<a class="headerlink" href="#deme" title="Permalink to this headline">¶</a></h3>
 <p>A collection of individuals that are exchangeable at any fixed time.
 The deme may be a descendant of one or more demes in the graph, and may
@@ -904,8 +912,8 @@ and the deme’s <code class="docutils literal notranslate"><span class="pre">st
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="pulse">
+</section>
+<section id="pulse">
 <span id="pulse"></span><h3>pulse<a class="headerlink" href="#pulse" title="Permalink to this headline">¶</a></h3>
 <p>An instantaneous pulse of migration at <code class="docutils literal notranslate"><span class="pre">time</span></code>, from the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
 into the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
@@ -970,8 +978,8 @@ immediately after the <code class="docutils literal notranslate"><span class="pr
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="migration">
+</section>
+<section id="migration">
 <span id="migration"></span><h3>migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
 <p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
@@ -1062,9 +1070,9 @@ If not specified, the migration <code class="docutils literal notranslate"><span
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

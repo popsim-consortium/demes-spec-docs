@@ -203,6 +203,23 @@
    Why is it necessary?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-support">
+   Software support
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software-directly-related-to-demes">
+     Software directly related to Demes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software-accepting-the-demes-format-as-input-output">
+     Software accepting the Demes format as input/output
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -237,7 +254,45 @@ which needs to be transcribed by the reader. Even when publications provide
 commands, or code, that correspond to their concrete demographic model,
 this is unfortunately tied to specific software.</p>
 <p>We believe these problems are fixable.</p>
+</div>
+<div class="section" id="software-support">
+<h2>Software support<a class="headerlink" href="#software-support" title="Permalink to this headline">¶</a></h2>
+<p>The following software provides support for Demes.
+If you’d like to add your software to this list, please open a
+<a class="reference external" href="https://github.com/popsim-consortium/demes-spec/edit/main/docs/introduction.md">Pull Request</a>.</p>
+<div class="section" id="software-directly-related-to-demes">
+<h3>Software directly related to Demes<a class="headerlink" href="#software-directly-related-to-demes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/grahamgower/demes-c">demes-c</a> -
+A C library for loading Demes models using libyaml.</p></li>
+<li><p><a class="reference external" href="https://github.com/popsim-consortium/demes-python/">demes-python</a> -
+A Python library for loading, saving, and working with Demes models.
+Includes an <code class="docutils literal notranslate"><span class="pre">ms</span></code> converter.</p></li>
+<li><p><a class="reference external" href="https://github.com/grahamgower/demesdraw">demesdraw</a> -
+A Python library for drawing Demes models (as seen in the
+<a class="reference internal" href="tutorial.html#sec-tutorial"><span class="std std-ref">tutorial</span></a>).</p></li>
+</ul>
+</div>
+<div class="section" id="software-accepting-the-demes-format-as-input-output">
+<h3>Software accepting the Demes format as input/output<a class="headerlink" href="#software-accepting-the-demes-format-as-input-output" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/molpopgen/fwdpy11">fwdpy11</a> -
+A Python package for forward-time population genetic simulation.</p></li>
+<li><p><a class="reference external" href="https://github.com/ctlab/GADMA">GADMA</a> -
+Genetic Algorithm for Demographic Model Analysis.
+GADMA implements methods for automatic inference of the joint demographic
+history of multiple populations from genetic data.</p></li>
+<li><p><a class="reference external" href="https://bitbucket.org/simongravel/moments/">moments</a> -
+Moment-based solution of the diffusion equation in genetics,
+for inference of demographic history and selection.</p></li>
+<li><p><a class="reference external" href="https://github.com/tskit-dev/msprime/">msprime</a> -
+A population genetics simulator of ancestry and DNA sequence evolution
+based on tskit.</p></li>
+<li><p><a class="reference external" href="https://github.com/grahamgower/demes-slim">demes-slim</a> -
+A SLiM/Eidos library for loading a Demes model into SLiM.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 </div>

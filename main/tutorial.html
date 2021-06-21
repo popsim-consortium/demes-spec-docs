@@ -327,7 +327,57 @@ The example below gives an indication of what a Demes file looks like,
 but we’ll explain each component gradually using additional examples.
 For now, select the “Drawing” tab to see a diagramatic overview
 of the demographic model.</p>
-<p>{{ example.replace(“LABEL”, “01”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 01</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="4c0c1d17-1860-481e-8f8f-af14da11c9d3" name="d66fc6b4-fcd1-437e-8040-fe0b73b80ee9" type="radio">
+</input><label class="tabbed-label pt-0" for="4c0c1d17-1860-481e-8f8f-af14da11c9d3">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments start with a hash.</span>
+<span class="nt">description</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">Asymmetric migration between two extant demes.</span>
+<span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+  <span class="nt">epoch</span><span class="p">:</span>
+    <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">400</span>
+        <span class="nt">end_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="8929b5c8-8011-42e6-ba67-2d645e9d94be" name="d66fc6b4-fcd1-437e-8040-fe0b73b80ee9" type="radio">
+</input><label class="tabbed-label pt-0" for="8929b5c8-8011-42e6-ba67-2d645e9d94be">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_2_0.svg" src="_images/tutorial_2_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Demes specification defines a data model, not the YAML format itself.
@@ -347,7 +397,40 @@ data model.</p>
 <p>A deme is a collection of individuals that share a set of population
 parameters at any given time. Consider the simplest population model:
 a single deme with constant population size.</p>
-<p>{{ example.replace(“LABEL”, “02”).replace(“%DRAWING_TAG”, “:selected:”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 02</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input id="bf96d685-8f8a-4e7f-816d-1b812b3e9eff" name="bed6238f-4b79-47d2-b21c-553b5d7c4d34" type="radio">
+</input><label class="tabbed-label pt-0" for="bf96d685-8f8a-4e7f-816d-1b812b3e9eff">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+</pre></div>
+</div>
+</div>
+<input checked="checked" id="f718c557-db91-4ea0-ab60-0b6dd6af7ff7" name="bed6238f-4b79-47d2-b21c-553b5d7c4d34" type="radio">
+</input><label class="tabbed-label pt-0" for="f718c557-db91-4ea0-ab60-0b6dd6af7ff7">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_4_0.svg" src="_images/tutorial_4_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>This deme exists now (zero generations ago), and also exists as far back
 in time as we’re interested in looking (towards infinity generations ago).
 In Demes, we say that the deme has an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.
@@ -367,7 +450,38 @@ So for demes without ancestors, the <code class="docutils literal notranslate"><
 and will default to <code class="docutils literal notranslate"><span class="pre">.inf</span></code>. Similarly, the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> property of
 the final epoch may be omitted, and will default to <code class="docutils literal notranslate"><span class="pre">0</span></code>.
 The following Demes file describes an equivalent model.</p>
-<p>{{ example.replace(“LABEL”, “03”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 03</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="42edef85-0b9b-4316-b2a0-9fffa314ab51" name="86002d1b-3a2b-4c81-857a-3a04efba1941" type="radio">
+</input><label class="tabbed-label pt-0" for="42edef85-0b9b-4316-b2a0-9fffa314ab51">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+</pre></div>
+</div>
+</div>
+<input id="223e802e-d103-4856-9824-e06b4e14232c" name="86002d1b-3a2b-4c81-857a-3a04efba1941" type="radio">
+</input><label class="tabbed-label pt-0" for="223e802e-d103-4856-9824-e06b4e14232c">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_6_0.svg" src="_images/tutorial_6_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="what-is-an-epoch">
@@ -376,7 +490,42 @@ The following Demes file describes an equivalent model.</p>
 A deme always has at least one epoch. The population parameters for a
 deme are allowed to change over time, but are fixed within an epoch.
 Consider a single deme that suffered a bottleneck 50 generations ago.</p>
-<p>{{ example.replace(“LABEL”, “04”).replace(“%DRAWING_TAG”, “:selected:”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 04</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input id="378c0368-bb1b-42d8-bc44-4f583c125fec" name="57bdad1b-39b6-4c29-a70e-c23ead9f774d" type="radio">
+</input><label class="tabbed-label pt-0" for="378c0368-bb1b-42d8-bc44-4f583c125fec">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+</pre></div>
+</div>
+</div>
+<input checked="checked" id="4591552e-776f-4108-818e-de887ac6490d" name="57bdad1b-39b6-4c29-a70e-c23ead9f774d" type="radio">
+</input><label class="tabbed-label pt-0" for="4591552e-776f-4108-818e-de887ac6490d">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_8_0.svg" src="_images/tutorial_8_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>To specify the change in the population size, we’ve introduced a second epoch
 into the YAML file.
 We now need three time values to define the epoch boundaries:
@@ -385,7 +534,40 @@ and the <code class="docutils literal notranslate"><span class="pre">end_time</s
 order (from the past towards the present).</p>
 <p>The same model can be written using default values for the deme’s
 <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and the final epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p>
-<p>{{ example.replace(“LABEL”, “05”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 05</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="08854e23-d66a-457a-847c-9bf8d886f336" name="6bfd8dc5-8103-4a63-9c80-0da1189c5c91" type="radio">
+</input><label class="tabbed-label pt-0" for="08854e23-d66a-457a-847c-9bf8d886f336">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+</pre></div>
+</div>
+</div>
+<input id="52e5de04-818e-41c0-ae6d-1ed7925110c7" name="6bfd8dc5-8103-4a63-9c80-0da1189c5c91" type="radio">
+</input><label class="tabbed-label pt-0" for="52e5de04-818e-41c0-ae6d-1ed7925110c7">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_10_0.svg" src="_images/tutorial_10_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="why-don-t-epochs-have-a-start-time-too">
 <h3>Why don’t epochs have a <code class="docutils literal notranslate"><span class="pre">start_time</span></code> too?<a class="headerlink" href="#why-don-t-epochs-have-a-start-time-too" title="Permalink to this headline">¶</a></h3>
 <p>The start time of an epoch can be inferred indirectly, by looking at the
@@ -415,7 +597,47 @@ and <code class="docutils literal notranslate"><span class="pre">end_size</span>
 <p>To make these ideas more concrete, let’s look at an implementation of
 the well-known ZigZag model from
 <a class="reference external" href="https://doi.org/10.1038/ng.3015">Schiffels &amp; Durbin (2014)</a>.</p>
-<p>{{ example.replace(“LABEL”, “06”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 06</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8a053748-fa73-4a9c-af50-018ce5afffc2" name="af1979d7-d093-42b3-832b-d29feb247946" type="radio">
+</input><label class="tabbed-label pt-0" for="8a053748-fa73-4a9c-af50-018ce5afffc2">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A single population model with epochs of exponential growth and decay.</span>
+<span class="nt">doi</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1038/ng.3015</span>
+<span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generic</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">34133.31</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span> <span class="nv">7156</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">8533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">71560</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">2133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">7156</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">71560</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">7156</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">33.333</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">71560</span><span class="p p-Indicator">}</span>
+    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">0</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">71560</span><span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+<input id="c4995254-9798-4d24-8145-b58650279708" name="af1979d7-d093-42b3-832b-d29feb247946" type="radio">
+</input><label class="tabbed-label pt-0" for="c4995254-9798-4d24-8145-b58650279708">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_12_0.svg" src="_images/tutorial_12_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>We’ve introduced several new features to implement this model,
 so let’s step through it from top to bottom.</p>
 <ul class="simple">
@@ -456,7 +678,49 @@ The two demes are related by a common ancestor, from which they split
 common ancestor as an additional deme, <code class="docutils literal notranslate"><span class="pre">X</span></code>.
 Here, we introduce the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> property of a deme,
 which is a list of deme names.</p>
-<p>{{ example.replace(“LABEL”, “07”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 07</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9d04817f-252d-4d3b-a5ec-fb7adeca4afe" name="ea63e47f-549c-4f84-ad94-4214663b53ba" type="radio">
+</input><label class="tabbed-label pt-0" for="9d04817f-252d-4d3b-a5ec-fb7adeca4afe">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</div>
+<input id="a1169b4a-dd98-4893-8099-74acbc2c0f96" name="ea63e47f-549c-4f84-ad94-4214663b53ba" type="radio">
+</input><label class="tabbed-label pt-0" for="a1169b4a-dd98-4893-8099-74acbc2c0f96">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_14_0.svg" src="_images/tutorial_14_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>When a deme has an ancestor, its <code class="docutils literal notranslate"><span class="pre">start_time</span></code> does <strong>not</strong> default to <code class="docutils literal notranslate"><span class="pre">.inf</span></code>.
 In this case, the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> for the deme is inherited from the
 <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the ancestor.
@@ -473,7 +737,47 @@ by increasingly recent demes.</p>
 Lists can be written more compactly with YAML “flow style”, which uses
 square brackets (<code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>, with a comma separating list items).
 The following Demes file describes an equivalent model.</p>
-<p>{{ example.replace(“LABEL”, “08”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 08</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="39ccc165-a34e-4ddb-a395-6ee967e28978" name="ebb6273b-6cc1-4cf3-ad99-162dce4f642a" type="radio">
+</input><label class="tabbed-label pt-0" for="39ccc165-a34e-4ddb-a395-6ee967e28978">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</div>
+<input id="a6b2e404-a3b2-4776-9d00-151919c6e76e" name="ebb6273b-6cc1-4cf3-ad99-162dce4f642a" type="radio">
+</input><label class="tabbed-label pt-0" for="a6b2e404-a3b2-4776-9d00-151919c6e76e">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_16_0.svg" src="_images/tutorial_16_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="a-branch-event">
 <h3>A branch event<a class="headerlink" href="#a-branch-event" title="Permalink to this headline">¶</a></h3>
@@ -485,7 +789,43 @@ except here <code class="docutils literal notranslate"><span class="pre">X</span
 (recall that 0 is the default value for the final epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>).
 Now that <code class="docutils literal notranslate"><span class="pre">A</span></code>’s ancestor exists until 0 generations ago we must
 explicitly provide a <code class="docutils literal notranslate"><span class="pre">start_time</span></code> for <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-<p>{{ example.replace(“LABEL”, “09”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 09</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="37234772-ca8b-4067-9d1e-c96c35301a76" name="0bb05101-8996-4d6e-8805-45faada666d1" type="radio">
+</input><label class="tabbed-label pt-0" for="37234772-ca8b-4067-9d1e-c96c35301a76">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</div>
+<input id="25e3e3ff-37c8-42e2-b398-97c826cc5eed" name="0bb05101-8996-4d6e-8805-45faada666d1" type="radio">
+</input><label class="tabbed-label pt-0" for="25e3e3ff-37c8-42e2-b398-97c826cc5eed">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_18_0.svg" src="_images/tutorial_18_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="multiple-ancestors">
@@ -498,7 +838,48 @@ the deme’s <code class="docutils literal notranslate"><span class="pre">propor
 the second proportion is for the second ancestor, and so on.
 Just like the case of a single ancestor, an ancestor can terminate at
 the descendant’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, or can instead continue to exist.</p>
-<p>{{ example.replace(“LABEL”, “10”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 10</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="446beeeb-25bc-4783-b0f2-f27bf66f3834" name="4d444396-50ba-45c9-ae5e-3a945ab1b54a" type="radio">
+</input><label class="tabbed-label pt-0" for="446beeeb-25bc-4783-b0f2-f27bf66f3834">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Y</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">,</span> <span class="nv">Y</span><span class="p p-Indicator">]</span>
+    <span class="nt">proportions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">,</span> <span class="nv">0.9</span><span class="p p-Indicator">]</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+</div>
+<input id="04539b36-a0f0-4af9-9f64-81214fce9f2e" name="4d444396-50ba-45c9-ae5e-3a945ab1b54a" type="radio">
+</input><label class="tabbed-label pt-0" for="04539b36-a0f0-4af9-9f64-81214fce9f2e">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_20_0.svg" src="_images/tutorial_20_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>With multiple ancestors, the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> of the descendant deme does not
@@ -516,7 +897,51 @@ via a common ancestor <code class="docutils literal notranslate"><span class="pr
 <code class="docutils literal notranslate"><span class="pre">migrations</span></code> list.
 Concretely, we are modelling migrants born in deme <code class="docutils literal notranslate"><span class="pre">A</span></code>, the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme,
 who (potentially) have offspring in deme <code class="docutils literal notranslate"><span class="pre">B</span></code>, the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
-<p>{{ example.replace(“LABEL”, “11”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 11</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a19a7860-a947-4d5f-9f5c-c52f394cf0af" name="dab59657-c593-43cc-a776-9d340d2d6c25" type="radio">
+</input><label class="tabbed-label pt-0" for="a19a7860-a947-4d5f-9f5c-c52f394cf0af">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="46a89bf5-bbfd-4eb3-8adf-84a94d5b574f" name="dab59657-c593-43cc-a776-9d340d2d6c25" type="radio">
+</input><label class="tabbed-label pt-0" for="46a89bf5-bbfd-4eb3-8adf-84a94d5b574f">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_22_0.svg" src="_images/tutorial_22_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>The migrations here occur at a <code class="docutils literal notranslate"><span class="pre">rate</span></code> of <code class="docutils literal notranslate"><span class="pre">1e-4</span></code> per generation,
 and occur continuously over the lifetime of both <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
 <div class="admonition warning">
@@ -528,11 +953,95 @@ the chosen value for <code class="docutils literal notranslate"><span class="pre
 If the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes do not have identical start
 or end times, then by default the migration will occur over
 the period of time when both demes exist simultaneously.</p>
-<p>{{ example.replace(“LABEL”, “12”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 12</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5ec47fb5-5fe4-4e9c-b327-7dec4b2a248b" name="d102ff44-1bd8-4e15-ad8a-c2d979059035" type="radio">
+</input><label class="tabbed-label pt-0" for="5ec47fb5-5fe4-4e9c-b327-7dec4b2a248b">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="e080906d-b768-425b-beee-309fe24f02df" name="d102ff44-1bd8-4e15-ad8a-c2d979059035" type="radio">
+</input><label class="tabbed-label pt-0" for="e080906d-b768-425b-beee-309fe24f02df">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_24_0.svg" src="_images/tutorial_24_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>To obtain greater control over when migrations occur,
 we can use the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code> migration properties.
 Below we model three periods of continuous migration.</p>
-<p>{{ example.replace(“LABEL”, “13”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 13</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="04f3bfb1-b50f-4c2e-8a81-6e718d725edc" name="9713015e-6ab6-45d9-96c8-9e2ac393d7e8" type="radio">
+</input><label class="tabbed-label pt-0" for="04f3bfb1-b50f-4c2e-8a81-6e718d725edc">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span> <span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span> <span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">1e-4</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span> <span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span> <span class="nv">800</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span> <span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span> <span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">1e-3</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span> <span class="nv">500</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span> <span class="nv">200</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span> <span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span> <span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">1e-5</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span> <span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span> <span class="nv">0</span><span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+<input id="e122d3f7-8b20-4a45-8132-9d8968e06480" name="9713015e-6ab6-45d9-96c8-9e2ac393d7e8" type="radio">
+</input><label class="tabbed-label pt-0" for="e122d3f7-8b20-4a45-8132-9d8968e06480">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_26_0.svg" src="_images/tutorial_26_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="question admonition">
 <p class="admonition-title">Question</p>
 <p>What do you think will happen if we list two or more migrations with
@@ -553,11 +1062,97 @@ it’s an error to define such migrations.</p>
 with the same <code class="docutils literal notranslate"><span class="pre">rate</span></code>. We could use multiple asymmetric migrations,
 but it’s simpler to specify a list of deme names (the migration’s
 <code class="docutils literal notranslate"><span class="pre">demes</span></code> property), instead of a <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p>
-<p>{{ example.replace(“LABEL”, “14”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 14</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="157b8adb-8136-44b9-8668-307258f42f05" name="34a3e0aa-7cbe-495e-8c5e-092c50150ef8" type="radio">
+</input><label class="tabbed-label pt-0" for="157b8adb-8136-44b9-8668-307258f42f05">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span> <span class="nv">B</span><span class="p p-Indicator">]</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="802301d3-e1d4-4c01-9665-f9caeb64cc05" name="34a3e0aa-7cbe-495e-8c5e-092c50150ef8" type="radio">
+</input><label class="tabbed-label pt-0" for="802301d3-e1d4-4c01-9665-f9caeb64cc05">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_28_0.svg" src="_images/tutorial_28_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">demes</span></code> property can list arbitrarily many demes. For example,
 we could define symmetric migration between all pairwise combinations
 of four demes.</p>
-<p>{{ example.replace(“LABEL”, “15”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 15</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2fc824f4-64b8-46a3-8724-3dfc270082ec" name="9e1e8004-4e40-4e5c-a9f9-58c1422f3d63" type="radio">
+</input><label class="tabbed-label pt-0" for="2fc824f4-64b8-46a3-8724-3dfc270082ec">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alpha</span>
+    <span class="nt">epochs</span><span class="p">:</span> 
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">beta</span>
+    <span class="nt">epochs</span><span class="p">:</span> 
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gamma</span>
+    <span class="nt">epochs</span><span class="p">:</span> 
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delta</span>
+    <span class="nt">epochs</span><span class="p">:</span> 
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span> <span class="nv">beta</span><span class="p p-Indicator">,</span> <span class="nv">gamma</span><span class="p p-Indicator">,</span> <span class="nv">delta</span><span class="p p-Indicator">]</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="6809175d-bd6b-4291-9a66-b05a1a7ac951" name="9e1e8004-4e40-4e5c-a9f9-58c1422f3d63" type="radio">
+</input><label class="tabbed-label pt-0" for="6809175d-bd6b-4291-9a66-b05a1a7ac951">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_30_0.svg" src="_images/tutorial_30_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>When the following three conditions are satisfied:</p>
 <ul class="simple">
 <li><p>a symmetric migration is defined between more than two demes,</p></li>
@@ -570,7 +1165,49 @@ between <code class="docutils literal notranslate"><span class="pre">A</span></c
 exist for all time. However, migrations between <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>, and between
 <code class="docutils literal notranslate"><span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>, are limited to the period of time after 100 generations ago,
 because <code class="docutils literal notranslate"><span class="pre">C</span></code> does not exist before then.</p>
-<p>{{ example.replace(“LABEL”, “16”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 16</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a79ab63c-bf49-41f2-90bc-214557f0f872" name="5fe0fa3e-96f8-4d0f-9abf-a782d98733d3" type="radio">
+</input><label class="tabbed-label pt-0" for="a79ab63c-bf49-41f2-90bc-214557f0f872">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
+  <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span> <span class="nv">B</span><span class="p p-Indicator">,</span> <span class="nv">C</span><span class="p p-Indicator">]</span>
+  <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-5</span>
+</pre></div>
+</div>
+</div>
+<input id="4c8b6f84-0e4d-43ae-b1f8-b7926bb4cf0d" name="5fe0fa3e-96f8-4d0f-9abf-a782d98733d3" type="radio">
+</input><label class="tabbed-label pt-0" for="4c8b6f84-0e4d-43ae-b1f8-b7926bb4cf0d">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_32_0.svg" src="_images/tutorial_32_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="a-pulse-of-admixture">
@@ -589,7 +1226,52 @@ might treat a pulse as occurring instantaneously.
 In contrast, software which implements a discrete-time model is free to treat
 the pulse as occurring over a single time step (such as a single generation).</p>
 </div>
-<p>{{ example.replace(“LABEL”, “17”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 17</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="f2c10d14-28fb-4bca-82ce-0ee4d3961300" name="1adc5c4f-8684-4929-93b3-9fb2ba7642f8" type="radio">
+</input><label class="tabbed-label pt-0" for="f2c10d14-28fb-4bca-82ce-0ee4d3961300">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">pulses</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="nt">proportion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.05</span>
+    <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
+</pre></div>
+</div>
+</div>
+<input id="a0c4513e-5136-489f-b0c4-6e7ae4d22688" name="1adc5c4f-8684-4929-93b3-9fb2ba7642f8" type="radio">
+</input><label class="tabbed-label pt-0" for="a0c4513e-5136-489f-b0c4-6e7ae4d22688">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_34_0.svg" src="_images/tutorial_34_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="exercise admonition">
 <p class="admonition-title">Excercise</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme in an admixture pulse could instead be modelled using
@@ -634,13 +1316,141 @@ the desired final ancestry proportions.</p>
 to set default values for some properties. Suppose we wish to define
 multiple demes, each with only one epoch, and each with a constant
 population size.</p>
-<p>{{ example.replace(“LABEL”, “18”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 18</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d5097fdf-7f63-4793-8f2d-f55dfb6d0356" name="16a89bdb-b976-47ae-a0d5-93ae45114cdd" type="radio">
+</input><label class="tabbed-label pt-0" for="d5097fdf-7f63-4793-8f2d-f55dfb6d0356">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+  <span class="c1"># Note: this is spelled &quot;epoch&quot;, as distinct from the &quot;epochs&quot; list.</span>
+  <span class="nt">epoch</span><span class="p">:</span>
+    <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alpha</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">beta</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gamma</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delta</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span> <span class="nv">beta</span><span class="p p-Indicator">,</span> <span class="nv">gamma</span><span class="p p-Indicator">,</span> <span class="nv">delta</span><span class="p p-Indicator">]</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="c64ebf06-002c-4fb3-a86a-f7cebe427c98" name="16a89bdb-b976-47ae-a0d5-93ae45114cdd" type="radio">
+</input><label class="tabbed-label pt-0" for="c64ebf06-002c-4fb3-a86a-f7cebe427c98">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_36_0.svg" src="_images/tutorial_36_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>The epoch defaults can be overriden by providing an explicit value inside
 the desired epoch.</p>
-<p>{{ example.replace(“LABEL”, “19”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 19</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="b3049bad-f5b2-43ce-9315-1cc5283fc127" name="98c5b9f6-266d-4ecb-911c-9ec51355b4d0" type="radio">
+</input><label class="tabbed-label pt-0" for="b3049bad-f5b2-43ce-9315-1cc5283fc127">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+  <span class="nt">epoch</span><span class="p">:</span>
+    <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alpha</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">beta</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gamma</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delta</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span> <span class="nv">beta</span><span class="p p-Indicator">,</span> <span class="nv">gamma</span><span class="p p-Indicator">,</span> <span class="nv">delta</span><span class="p p-Indicator">]</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="6438bac5-01ef-4688-bd59-472a005cb0bc" name="98c5b9f6-266d-4ecb-911c-9ec51355b4d0" type="radio">
+</input><label class="tabbed-label pt-0" for="6438bac5-01ef-4688-bd59-472a005cb0bc">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_38_0.svg" src="_images/tutorial_38_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>It’s also possible to provide defaults for properties of a deme,
 such as the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.</p>
-<p>{{ example.replace(“LABEL”, “20”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 20</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="b85c3b02-8087-45d3-876f-357d29af0428" name="6d87d9f5-75d3-4d7c-a75c-57e8c7b9d5bd" type="radio">
+</input><label class="tabbed-label pt-0" for="b85c3b02-8087-45d3-876f-357d29af0428">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+  <span class="nt">deme</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">start_time</span><span class="p">:</span> <span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]}</span>
+  <span class="nt">epoch</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span> <span class="nv">1000</span><span class="p p-Indicator">}</span>
+<span class="nt">demes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">X</span>
+    <span class="nt">start_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
+    <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alpha</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">beta</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gamma</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delta</span>
+    <span class="nt">epochs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
+      <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+        <span class="nt">end_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">migrations</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span> <span class="nv">beta</span><span class="p p-Indicator">,</span> <span class="nv">gamma</span><span class="p p-Indicator">,</span> <span class="nv">delta</span><span class="p p-Indicator">]</span>
+    <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1e-4</span>
+</pre></div>
+</div>
+</div>
+<input id="277bd86e-194c-40fc-b444-a334f3412ad0" name="6d87d9f5-75d3-4d7c-a75c-57e8c7b9d5bd" type="radio">
+</input><label class="tabbed-label pt-0" for="277bd86e-194c-40fc-b444-a334f3412ad0">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_40_0.svg" src="_images/tutorial_40_0.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="question admonition">
 <p class="admonition-title">Question</p>
 <p>How would the model be interpreted if we failed to override the <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
@@ -680,7 +1490,75 @@ even when the <code class="docutils literal notranslate"><span class="pre">time_
 Only the various <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, <code class="docutils literal notranslate"><span class="pre">end_time</span></code>, and <code class="docutils literal notranslate"><span class="pre">time</span></code> properties should
 match the <code class="docutils literal notranslate"><span class="pre">time_units</span></code>.</p>
 </div>
-<p>{{ example.replace(“LABEL”, “21”) }}</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex container docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header bg-info text-white docutils">
+<p class="card-text">Example 21</p>
+</div>
+<div class="card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d806ed4a-4534-4f03-9d18-1026dc1a17eb" name="5e8d2fb5-7bf8-4b1b-bbca-bf1145b77171" type="radio">
+</input><label class="tabbed-label pt-0" for="d806ed4a-4534-4f03-9d18-1026dc1a17eb">
+YAML</label><div class="tabbed-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The Gutenkunst et al. (2009) OOA model.</span>
+<span class="nt">doi</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1371/journal.pgen.1000695</span>
+<span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">years</span>
+<span class="nt">generation_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span>
+
+<span class="nt">demes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ancestral</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Equilibrium/root population</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">220e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span> <span class="nv">7300</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AMH</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anatomically modern humans</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ancestral</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">140e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span> <span class="nv">12300</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">OOA</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bottleneck out-of-Africa population</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span> <span class="nv">21.2e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span> <span class="nv">2100</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">YRI</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Yoruba in Ibadan, Nigeria</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12300</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CEU</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Utah Residents (CEPH) with Northern and Western European Ancestry</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span> <span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">29725</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CHB</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Han Chinese in Beijing, China</span>
+  <span class="nt">ancestors</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span>
+  <span class="nt">epochs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span> <span class="nv">510</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span> <span class="nv">54090</span><span class="p p-Indicator">}</span>
+
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span> <span class="nv">OOA</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">25e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span> <span class="nv">CEU</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">3e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span> <span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">1.9e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">CEU</span><span class="p p-Indicator">,</span> <span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span> <span class="nv">9.6e-5</span><span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+</div>
+<input id="f048c59a-f27a-486d-a8d9-190fafcb4033" name="5e8d2fb5-7bf8-4b1b-bbca-bf1145b77171" type="radio">
+</input><label class="tabbed-label pt-0" for="f048c59a-f27a-486d-a8d9-190fafcb4033">
+Drawing</label><div class="tabbed-content docutils">
+<div class="cell_output docutils container">
+<img alt="_images/tutorial_42_1.svg" src="_images/tutorial_42_1.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="selfing-and-cloning">
 <h2>Selfing and cloning<a class="headerlink" href="#selfing-and-cloning" title="Permalink to this headline">¶</a></h2>

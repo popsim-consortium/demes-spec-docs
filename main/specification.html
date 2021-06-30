@@ -214,28 +214,23 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deme">
-     Deme
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#time">
      Time
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#population-size">
-     Population size
+    <a class="reference internal nav-link" href="#demes-ancestors-and-descendants">
+     Demes, ancestors, and descendants
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#epoch">
-     Epoch
+    <a class="reference internal nav-link" href="#epochs-population-sizes-and-mating-systems">
+     Epochs, population sizes, and mating systems
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#migration">
-     Migration
+    <a class="reference internal nav-link" href="#migrations">
+     Migrations
     </a>
    </li>
   </ul>
@@ -256,12 +251,12 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sec-spec-mdm-deme">
+    <a class="reference internal nav-link" href="#deme">
      Deme
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sec-spec-mdm-epoch">
+    <a class="reference internal nav-link" href="#epoch">
      Epoch
     </a>
    </li>
@@ -271,7 +266,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sec-spec-mdm-migration">
+    <a class="reference internal nav-link" href="#migration">
      Migration
     </a>
    </li>
@@ -346,7 +341,7 @@ Demes models, please see the <a class="reference internal" href="tutorial.html#s
 <div class="section" id="conventions-and-terminology">
 <span id="sec-spec-terminology"></span><h2>Conventions and Terminology<a class="headerlink" href="#conventions-and-terminology" title="Permalink to this headline">¶</a></h2>
 <p>The term “Demes” in this document is to be interpreted as a
-reference to this specification. A <a class="reference internal" href="#sec-spec-popgen-deme"><span class="std std-ref">Deme</span></a>
+reference to this specification. A <a class="reference internal" href="#sec-spec-popgen-deme"><span class="std std-ref">Demes, ancestors, and descendants</span></a>
 refers to a set of individuals that can be modelled by a fixed
 set of parameters; to avoid confusion with name of the specification
 we will usually use the term “population”, in the understanding that
@@ -368,53 +363,87 @@ in the JSON Schema
 </div>
 <div class="section" id="population-genetics-model">
 <span id="sec-spec-popgen"></span><h2>Population genetics model<a class="headerlink" href="#population-genetics-model" title="Permalink to this headline">¶</a></h2>
-<p>In this section we define the underlying population genetics assumptions
-made in Demes and the key concepts involved.
-The goal is to provide a basic shared vocabulary that
-is precise enough to make interchange of models defined in the standard
-meaningful, but to avoid being overly proscriptive so that the
-format is flexible enough to encompass a wide range of different methods.
-Issues relating to the data model and interchange and dealt with
-in later sections.</p>
-<div class="section" id="deme">
-<span id="sec-spec-popgen-deme"></span><h3>Deme<a class="headerlink" href="#deme" title="Permalink to this headline">¶</a></h3>
-<p>A “deme” is collection of individuals whose dynamics can be described
-by a fixed set of parameters. As explained in the <a class="reference internal" href="#sec-spec-terminology"><span class="std std-ref">Conventions and Terminology</span></a>
-section, we will usually the term “population” to refer to a deme
-to avoid confusion.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>Define the model! What are the dynamics? Include definition of selfing and
-cloning.  https://github.com/popsim-consortium/demes-spec/issues/43</p>
-</div>
-</div>
+<p>In this section we define the underlying population genetics assumptions made
+in Demes and the key concepts involved. The goal is to provide a basic shared
+vocabulary that is precise enough to make interchange of models defined in the
+standard meaningful, but to avoid being overly proscriptive so that the format
+is flexible enough to encompass a wide range of different methods. Issues
+relating to the data model and interchange and dealt with in later sections.</p>
+<p>In Demes, demographic models consist of one or more interacting populations (or
+“demes”, to avoid confusion with the name of the specification itself).
+Populations are defined as a collection of exchangeable individuals that exist
+for a specified period of time, following a well-defined set of rules regarding
+population sizes, mating systems, etc. Ancestor/descendant relationships
+between populations can be defined, as well as continuous or instantaneous
+migration between coexisting populations.</p>
 <div class="section" id="time">
 <span id="sec-spec-popgen-time"></span><h3>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
-<p>Time is measured forwards, and in units of time-ago. Can be either
-in years or generations. Can either discrete or continuous.</p>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>Refine: https://github.com/popsim-consortium/demes-spec/issues/60</p>
+<p>Population and event times are written as units in the past, so that time zero
+corresponds to the final generation or “now”, and event times in the past are
+values greater than zero with larger values for events that occur in the more
+distant past. While a natural specification for time units is in generations,
+other time units are allowed, such as years. In the case that the time units
+are not given in generations, the generation time must also be specified so
+that times can be converted into generations. In general, as time flows from
+the past to the present, populations, epochs, and migration events should be
+specified in their order of appearance, so that their times are in descending
+order.</p>
+</div>
+<div class="section" id="demes-ancestors-and-descendants">
+<span id="sec-spec-popgen-deme"></span><h3>Demes, ancestors, and descendants<a class="headerlink" href="#demes-ancestors-and-descendants" title="Permalink to this headline">¶</a></h3>
+<p>Models include one or more populations that have sizes greater than zero for
+the duration of their existences, and population sizes are given as the number
+of individuals. A population must exist for some duration of time greater than
+zero, so that its start time must be larger than its end time. It may have one
+or more ancestors, which are other populations that exist at the population’s
+start time. If one ancestor is specified, the first generation is constructed
+by randomly sampling parents from the ancestral population to contribute to
+offspring in the newly generated population. If more than one ancestor is
+specified, the proportions of ancestry from each contributing population must
+be provided, and those proportions must sum to one. In this case, parents are
+chosen randomly from each ancestral population with probability given by those
+proportions. If no ancestors are specified, the population is assumed to have
+start time equal to infinity, as individuals are not assumed to spontaneously
+spring into existence.</p>
+</div>
+<div class="section" id="epochs-population-sizes-and-mating-systems">
+<span id="sec-spec-popgen-epochs"></span><h3>Epochs, population sizes, and mating systems<a class="headerlink" href="#epochs-population-sizes-and-mating-systems" title="Permalink to this headline">¶</a></h3>
+<p>Within populations, population sizes and mating systems are specified within
+epochs. Epochs are non-overlapping intervals of time that cover the entire
+existence interval of the population. Each epoch specifies the population size
+over that interval, which can be a constant value or function defined by start
+and end sizes that must remain positive.  If an epoch has a start time of
+infinity, the population size for that epoch must be constant. Epochs can also
+specify parameters for nonrandom mating, such as selfing or cloning rates,
+which give the probability that offspring are generated from one generation to
+the next by self-fertilization or cloning of an individual. Selfing and cloning
+rates take values between zero and one, and their sum must be less than one.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Selfing and cloning rate definitions may change.
+See related issues
+<a class="reference external" href="https://github.com/popsim-consortium/demes-spec/issues/33">here</a> and
+<a class="reference external" href="https://github.com/popsim-consortium/demes-spec/issues/43">here</a>.</p>
 </div>
 </div>
-<div class="section" id="population-size">
-<span id="sec-spec-popgen-population-size"></span><h3>Population size<a class="headerlink" href="#population-size" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id4">
-<p class="admonition-title">Todo</p>
-<p>Refine: https://github.com/popsim-consortium/demes-spec/issues/72</p>
-</div>
-</div>
-<div class="section" id="epoch">
-<span id="sec-spec-popgen-population-epoch"></span><h3>Epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
-<p>An interval of time over which the parameters describing the dynamics of a
-given <a class="reference internal" href="#sec-spec-popgen-deme"><span class="std std-ref">population</span></a> are fixed.</p>
-</div>
-<div class="section" id="migration">
-<span id="sec-spec-popgen-population-migration"></span><h3>Migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id5">
-<p class="admonition-title">Todo</p>
-<p>Define assumptions about migration.</p>
-</div>
+<div class="section" id="migrations">
+<span id="sec-spec-popgen-migration"></span><h3>Migrations<a class="headerlink" href="#migrations" title="Permalink to this headline">¶</a></h3>
+<p>Finally, individuals in a population may have parents from a different
+population through migrations. These can be defined as continuous migration
+rates over time intervals for which populations coexist or through
+instantaneous (or pulse) migration events at a given time. Continuous migration
+rates are defined as the probability that parents in the “destination”
+population are chosen from the “source” population.  Migration rates are thus
+per generation and must be less than one. Furthermore, if more than one source
+population have continuous migration into the same destination population, the
+sum of those migration rates must also be less than one, as rates define
+probabilities. The probability that parents come from the same population is
+just one minus the sum of incoming migration rates. On the other hand, pulse
+migration events specify the instantaneous replacement of a given fraction of
+individuals in a destination population by individuals with parents from
+a source population.  The fraction must be between zero and one, and if more
+than one pulse occurs at the same time, those replacement events are applied
+sequentially in the order that they are specified in the model.</p>
 </div>
 </div>
 <div class="section" id="machine-data-model">
@@ -480,8 +509,8 @@ required properties of these objects.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="sec-spec-mdm-deme">
-<span id="id6"></span><h3>Deme<a class="headerlink" href="#sec-spec-mdm-deme" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="deme">
+<span id="sec-spec-mdm-deme"></span><h3>Deme<a class="headerlink" href="#deme" title="Permalink to this headline">¶</a></h3>
 <p>The deme may be a descendant of one or more demes in the graph, and may
 be an ancestor to others. The deme exists over the half-open time interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, and it may continue to exist after
@@ -523,8 +552,8 @@ Please see the section <a class="reference internal" href="#sec-spec-mdm-epoch">
 </dd>
 </dl>
 </div>
-<div class="section" id="sec-spec-mdm-epoch">
-<span id="id7"></span><h3>Epoch<a class="headerlink" href="#sec-spec-mdm-epoch" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="epoch">
+<span id="sec-spec-mdm-epoch"></span><h3>Epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
 <p>A deme-specific period of time spanning the half-open interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters
 apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the
@@ -565,8 +594,8 @@ immediately after the <code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 </div>
-<div class="section" id="sec-spec-mdm-migration">
-<span id="id8"></span><h3>Migration<a class="headerlink" href="#sec-spec-mdm-migration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="migration">
+<span id="sec-spec-mdm-migration"></span><h3>Migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
 <p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
 pairs of demes with deme IDs in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
@@ -817,14 +846,14 @@ that should be detected by parsers.</p>
 <p>Repeated values such as shared population sizes represent a significant opportunity
 for error in human-generated models. The HDM provides the default value
 propagation mechanism to avoid this repetition.</p>
-<div class="admonition-todo admonition" id="id9">
+<div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <p>Describe the process of hierarchical default value replacement.</p>
 </div>
 </div>
 <div class="section" id="resolution">
 <h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id10">
+<div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>Tidy this up - just putting text in here for the moment that’s
 pulled from other parts of the document.</p>
@@ -862,7 +891,7 @@ and the deme’s <code class="docutils literal notranslate"><span class="pre">st
 </dl>
 </div>
 <div class="section" id="sec-spec-hdm-schema">
-<span id="id11"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
 <p>The schema listed here is definitive in terms of types and the
 structure of the JSON documents that are considered to be
 valid instances of the Demes standard.</p>

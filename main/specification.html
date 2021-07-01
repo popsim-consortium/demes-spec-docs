@@ -639,7 +639,7 @@ valid instances of the MDM</p>
 <span class="nt">additionalProperties</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">properties</span><span class="p">:</span>
   <span class="nt">description</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;string&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;string&quot;</span>
   <span class="nt">doi</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
     <span class="nt">items</span><span class="p">:</span>
@@ -740,7 +740,7 @@ valid instances of the MDM</p>
       <span class="nt">name</span><span class="p">:</span>
         <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/definitions/name&#39;</span>
       <span class="nt">description</span><span class="p">:</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;string&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;string&quot;</span>
       <span class="nt">ancestors</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
         <span class="nt">items</span><span class="p">:</span>
@@ -901,7 +901,8 @@ valid instances of the Demes standard.</p>
 <span class="nt">additionalProperties</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">properties</span><span class="p">:</span>
   <span class="nt">description</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;string&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;string&quot;</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
   <span class="nt">doi</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
     <span class="nt">items</span><span class="p">:</span>
@@ -913,10 +914,9 @@ valid instances of the Demes standard.</p>
     <span class="c1"># TODO: shouldn&#39;t this be an enum?</span>
 
   <span class="nt">generation_time</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;number&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;number&quot;</span>
     <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
     <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
-    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
 
   <span class="nt">defaults</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
@@ -1021,8 +1021,8 @@ valid instances of the Demes standard.</p>
       <span class="nt">name</span><span class="p">:</span>
         <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/definitions/name&#39;</span>
       <span class="nt">description</span><span class="p">:</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;string&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
-        <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;string&quot;</span>
+        <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
       <span class="nt">ancestors</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
         <span class="nt">items</span><span class="p">:</span>

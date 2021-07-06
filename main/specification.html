@@ -650,9 +650,8 @@ valid instances of the MDM</p>
     <span class="c1"># TODO: shouldn&#39;t this be an enum?</span>
 
   <span class="nt">generation_time</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;number&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;null&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;number&quot;</span>
     <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">demes</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
@@ -696,17 +695,16 @@ valid instances of the MDM</p>
   <span class="nt">size</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
     <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">start_time</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
-    <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">maximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
+    <span class="nt">oneOf</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
+        <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+      <span class="p p-Indicator">-</span> <span class="nt">const</span><span class="p">:</span> <span class="s">&quot;Infinity&quot;</span>
 
   <span class="nt">end_time</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
     <span class="nt">minimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">epoch</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
@@ -775,7 +773,6 @@ valid instances of the MDM</p>
       <span class="nt">time</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
         <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-        <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
       <span class="nt">proportion</span><span class="p">:</span>
         <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/definitions/proportion&#39;</span>
     <span class="nt">required</span><span class="p">:</span>
@@ -916,7 +913,6 @@ valid instances of the Demes standard.</p>
   <span class="nt">generation_time</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;number&quot;</span>
     <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">defaults</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
@@ -983,17 +979,16 @@ valid instances of the Demes standard.</p>
   <span class="nt">size</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
     <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">start_time</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
-    <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">maximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
+    <span class="nt">oneOf</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
+        <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+      <span class="p p-Indicator">-</span> <span class="nt">const</span><span class="p">:</span> <span class="s">&quot;Infinity&quot;</span>
 
   <span class="nt">end_time</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
     <span class="nt">minimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
 
   <span class="nt">epoch</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
@@ -1061,7 +1056,6 @@ valid instances of the Demes standard.</p>
       <span class="nt">time</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">number</span>
         <span class="nt">exclusiveMinimum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-        <span class="nt">exclusiveMaximum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.inf</span>
       <span class="nt">proportion</span><span class="p">:</span>
         <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/definitions/proportion&#39;</span>
 

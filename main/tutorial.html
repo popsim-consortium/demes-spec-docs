@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutorial &#8212; Demes Specification</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -32,19 +32,18 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -56,7 +55,10 @@
     <link rel="next" title="Gallery" href="gallery.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,13 +76,14 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
+      
       <h1 class="site-logo" id="site-title">Demes Specification</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -195,7 +198,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#yaml">
@@ -312,7 +315,7 @@
         
               <div>
                 
-  <div class="section" id="tutorial">
+  <div class="tex2jax_ignore mathjax_ignore section" id="tutorial">
 <span id="sec-tutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="yaml">
 <h2>YAML<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h2>
@@ -336,8 +339,8 @@ of the demographic model.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="bb5d379b-9ad0-43c3-ada5-612a461a7af2" name="f237da52-234a-4fa5-a63e-8e72073f10c0" type="radio">
-</input><label class="tabbed-label pt-0" for="bb5d379b-9ad0-43c3-ada5-612a461a7af2">
+<input checked="checked" id="77f67860-aec4-455a-9aad-cb35fca5c23c" name="6925dcb1-406f-4745-a523-e44b76c0204f" type="radio">
+</input><label class="tabbed-label pt-0" for="77f67860-aec4-455a-9aad-cb35fca5c23c">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments start with a hash.</span>
 <span class="nt">description</span><span class="p">:</span>
@@ -366,8 +369,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="833e267e-1f2f-4c91-8bb8-37646d88d590" name="f237da52-234a-4fa5-a63e-8e72073f10c0" type="radio">
-</input><label class="tabbed-label pt-0" for="833e267e-1f2f-4c91-8bb8-37646d88d590">
+<input id="c5d95ef1-416a-492b-9465-3c8240ae4ebb" name="6925dcb1-406f-4745-a523-e44b76c0204f" type="radio">
+</input><label class="tabbed-label pt-0" for="c5d95ef1-416a-492b-9465-3c8240ae4ebb">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_2_0.svg" src="_images/tutorial_2_0.svg" /></div>
@@ -406,8 +409,8 @@ a single deme with constant population size.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input id="e0b33fd0-de1b-4d5a-b263-3a0b6c076afe" name="67f0ae92-2d48-4ede-ab24-d6175339a4dd" type="radio">
-</input><label class="tabbed-label pt-0" for="e0b33fd0-de1b-4d5a-b263-3a0b6c076afe">
+<input id="af5a6428-b37d-43d4-bbd4-04bef4c04ce9" name="86247367-f4c1-4d55-b626-f7473dbeffc7" type="radio">
+</input><label class="tabbed-label pt-0" for="af5a6428-b37d-43d4-bbd4-04bef4c04ce9">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -419,8 +422,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input checked="checked" id="3365c271-a0ba-4d37-9391-fb809a3ca4f5" name="67f0ae92-2d48-4ede-ab24-d6175339a4dd" type="radio">
-</input><label class="tabbed-label pt-0" for="3365c271-a0ba-4d37-9391-fb809a3ca4f5">
+<input checked="checked" id="038609b4-f7a8-44a9-9d42-d4cea3e51143" name="86247367-f4c1-4d55-b626-f7473dbeffc7" type="radio">
+</input><label class="tabbed-label pt-0" for="038609b4-f7a8-44a9-9d42-d4cea3e51143">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_4_0.svg" src="_images/tutorial_4_0.svg" /></div>
@@ -441,7 +444,7 @@ Select the “YAML” tab above the drawing to see how this model was implemente
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Each Demes model must define at least one deme with an infinte <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
+<p>Each Demes model must define at least one deme with an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
 </div>
 <div class="section" id="default-values">
 <h3>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
@@ -459,8 +462,8 @@ The following Demes file describes an equivalent model.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="3f8c9234-021b-4e4c-a414-b5dd88d365a4" name="797adb42-e989-4ae8-b3df-e04e83889b73" type="radio">
-</input><label class="tabbed-label pt-0" for="3f8c9234-021b-4e4c-a414-b5dd88d365a4">
+<input checked="checked" id="aa9635c1-1a71-40a9-b1fe-656169b555eb" name="7286369f-1ecc-45eb-b55f-7704600d5970" type="radio">
+</input><label class="tabbed-label pt-0" for="aa9635c1-1a71-40a9-b1fe-656169b555eb">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -470,8 +473,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="4c254236-8c9f-4f8f-8fa9-cfdecccd5565" name="797adb42-e989-4ae8-b3df-e04e83889b73" type="radio">
-</input><label class="tabbed-label pt-0" for="4c254236-8c9f-4f8f-8fa9-cfdecccd5565">
+<input id="019ec39b-e5d8-4f69-b677-4127d1ee3513" name="7286369f-1ecc-45eb-b55f-7704600d5970" type="radio">
+</input><label class="tabbed-label pt-0" for="019ec39b-e5d8-4f69-b677-4127d1ee3513">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_6_0.svg" src="_images/tutorial_6_0.svg" /></div>
@@ -499,8 +502,8 @@ Consider a single deme that suffered a bottleneck 50 generations ago.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input id="cd933471-a426-4608-9ae0-e33e4e79ea05" name="c5022306-2a08-4366-bd08-1dad5043c338" type="radio">
-</input><label class="tabbed-label pt-0" for="cd933471-a426-4608-9ae0-e33e4e79ea05">
+<input id="fdb74846-d05f-431e-a0a6-4aae044365ae" name="c53b6869-f187-436f-b421-f5dde5c66fce" type="radio">
+</input><label class="tabbed-label pt-0" for="fdb74846-d05f-431e-a0a6-4aae044365ae">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -514,8 +517,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input checked="checked" id="df0fc012-7d1b-4ec4-96af-2c9385322aae" name="c5022306-2a08-4366-bd08-1dad5043c338" type="radio">
-</input><label class="tabbed-label pt-0" for="df0fc012-7d1b-4ec4-96af-2c9385322aae">
+<input checked="checked" id="6b358c36-fa14-4c29-9e8b-de94618c5b71" name="c53b6869-f187-436f-b421-f5dde5c66fce" type="radio">
+</input><label class="tabbed-label pt-0" for="6b358c36-fa14-4c29-9e8b-de94618c5b71">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_8_0.svg" src="_images/tutorial_8_0.svg" /></div>
@@ -543,8 +546,8 @@ order (from the past towards the present).</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="18c9a866-9ac2-4554-899e-f0bf9e07cd72" name="bd60afa4-9919-47ef-b4d9-f6bcff241812" type="radio">
-</input><label class="tabbed-label pt-0" for="18c9a866-9ac2-4554-899e-f0bf9e07cd72">
+<input checked="checked" id="400559ed-a033-44ed-a0b0-c1e82f7d30e5" name="ee2977ba-6b4a-4798-b5d0-937b1fa0e6b1" type="radio">
+</input><label class="tabbed-label pt-0" for="400559ed-a033-44ed-a0b0-c1e82f7d30e5">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -556,8 +559,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="14a24f80-d373-47d0-b33d-c1bafb6f5554" name="bd60afa4-9919-47ef-b4d9-f6bcff241812" type="radio">
-</input><label class="tabbed-label pt-0" for="14a24f80-d373-47d0-b33d-c1bafb6f5554">
+<input id="9ce66dc7-717e-45e1-90f2-378583ce9077" name="ee2977ba-6b4a-4798-b5d0-937b1fa0e6b1" type="radio">
+</input><label class="tabbed-label pt-0" for="9ce66dc7-717e-45e1-90f2-378583ce9077">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_10_0.svg" src="_images/tutorial_10_0.svg" /></div>
@@ -606,8 +609,8 @@ the well-known ZigZag model from
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="2eab4178-4f5f-4362-8c15-999aaf1af82e" name="4c65fc47-0175-4246-a183-5f0516d0dc77" type="radio">
-</input><label class="tabbed-label pt-0" for="2eab4178-4f5f-4362-8c15-999aaf1af82e">
+<input checked="checked" id="5782e2b5-889f-4e97-be22-0f3820796a99" name="096381ff-e93f-4b84-a827-59d1bdbd10b3" type="radio">
+</input><label class="tabbed-label pt-0" for="5782e2b5-889f-4e97-be22-0f3820796a99">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A single population model with epochs of exponential growth and decay.</span>
 <span class="nt">doi</span><span class="p">:</span>
@@ -626,8 +629,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="04ea5948-5dab-4618-9517-6d549890bb16" name="4c65fc47-0175-4246-a183-5f0516d0dc77" type="radio">
-</input><label class="tabbed-label pt-0" for="04ea5948-5dab-4618-9517-6d549890bb16">
+<input id="b5e34d42-cdc9-4490-8d45-faf427cadc2d" name="096381ff-e93f-4b84-a827-59d1bdbd10b3" type="radio">
+</input><label class="tabbed-label pt-0" for="b5e34d42-cdc9-4490-8d45-faf427cadc2d">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_12_0.svg" src="_images/tutorial_12_0.svg" /></div>
@@ -687,8 +690,8 @@ which is a list of deme names.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="0c69d513-db49-47cf-aa62-ef61825ed73b" name="b9e9115a-4007-45b8-ae6f-3fa5cf7b7fb7" type="radio">
-</input><label class="tabbed-label pt-0" for="0c69d513-db49-47cf-aa62-ef61825ed73b">
+<input checked="checked" id="fd99e047-cbe0-49d6-91ac-e07cb6603be0" name="29297b22-5331-4581-bb08-9a6fbafb3c49" type="radio">
+</input><label class="tabbed-label pt-0" for="fd99e047-cbe0-49d6-91ac-e07cb6603be0">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -709,8 +712,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="41c9093e-9f8f-42aa-b7d0-eedb362ec97f" name="b9e9115a-4007-45b8-ae6f-3fa5cf7b7fb7" type="radio">
-</input><label class="tabbed-label pt-0" for="41c9093e-9f8f-42aa-b7d0-eedb362ec97f">
+<input id="dd94beef-5171-450b-8493-b41b5643669b" name="29297b22-5331-4581-bb08-9a6fbafb3c49" type="radio">
+</input><label class="tabbed-label pt-0" for="dd94beef-5171-450b-8493-b41b5643669b">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_14_0.svg" src="_images/tutorial_14_0.svg" /></div>
@@ -746,8 +749,8 @@ The following Demes file describes an equivalent model.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="cd8bb1ef-3623-4c5d-88b8-d54b956d58d2" name="4216d3ef-fdb5-4a17-ad93-9401f95f3234" type="radio">
-</input><label class="tabbed-label pt-0" for="cd8bb1ef-3623-4c5d-88b8-d54b956d58d2">
+<input checked="checked" id="8d4df810-4498-47e9-a8a2-f8152967029e" name="db7e1314-8366-4662-ae1f-aa4b66a7e8f1" type="radio">
+</input><label class="tabbed-label pt-0" for="8d4df810-4498-47e9-a8a2-f8152967029e">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -766,8 +769,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="0e5ec723-0c48-4c6d-b739-a4c8ff104e57" name="4216d3ef-fdb5-4a17-ad93-9401f95f3234" type="radio">
-</input><label class="tabbed-label pt-0" for="0e5ec723-0c48-4c6d-b739-a4c8ff104e57">
+<input id="86e53070-f5e0-4d60-abd1-fe2708139519" name="db7e1314-8366-4662-ae1f-aa4b66a7e8f1" type="radio">
+</input><label class="tabbed-label pt-0" for="86e53070-f5e0-4d60-abd1-fe2708139519">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_16_0.svg" src="_images/tutorial_16_0.svg" /></div>
@@ -798,8 +801,8 @@ explicitly provide a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="c0b93c9d-c325-4c39-b49e-2b2bd45071c7" name="78397bbe-cd17-4f1e-b77c-a32d5b33c877" type="radio">
-</input><label class="tabbed-label pt-0" for="c0b93c9d-c325-4c39-b49e-2b2bd45071c7">
+<input checked="checked" id="4c6c52b6-fbc4-4107-9181-4339515fcc75" name="b66ae906-1f13-47fd-b3d1-bd7420700e02" type="radio">
+</input><label class="tabbed-label pt-0" for="4c6c52b6-fbc4-4107-9181-4339515fcc75">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -814,8 +817,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d5ff0eb6-8cf4-4e6a-8b0c-c96459f66d69" name="78397bbe-cd17-4f1e-b77c-a32d5b33c877" type="radio">
-</input><label class="tabbed-label pt-0" for="d5ff0eb6-8cf4-4e6a-8b0c-c96459f66d69">
+<input id="d1b47bc7-1ede-4fe6-869b-73fbc00b4528" name="b66ae906-1f13-47fd-b3d1-bd7420700e02" type="radio">
+</input><label class="tabbed-label pt-0" for="d1b47bc7-1ede-4fe6-869b-73fbc00b4528">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_18_0.svg" src="_images/tutorial_18_0.svg" /></div>
@@ -847,8 +850,8 @@ the descendant’s <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="1fcc8181-9134-45ab-8449-887f19b3af5b" name="ecd8322e-11d6-41e9-bbba-d8f2863ea4ec" type="radio">
-</input><label class="tabbed-label pt-0" for="1fcc8181-9134-45ab-8449-887f19b3af5b">
+<input checked="checked" id="1e99f8c1-ae36-43b1-b3cc-c5cdcd372afb" name="c7122ae2-e549-4134-9f68-8427d1f31314" type="radio">
+</input><label class="tabbed-label pt-0" for="1e99f8c1-ae36-43b1-b3cc-c5cdcd372afb">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -868,8 +871,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b8ea6f1a-37b7-4ef7-8141-97641f7a1a7a" name="ecd8322e-11d6-41e9-bbba-d8f2863ea4ec" type="radio">
-</input><label class="tabbed-label pt-0" for="b8ea6f1a-37b7-4ef7-8141-97641f7a1a7a">
+<input id="fb547c9d-4aaf-4a59-8e6f-cf500f7639d3" name="c7122ae2-e549-4134-9f68-8427d1f31314" type="radio">
+</input><label class="tabbed-label pt-0" for="fb547c9d-4aaf-4a59-8e6f-cf500f7639d3">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_20_0.svg" src="_images/tutorial_20_0.svg" /></div>
@@ -906,8 +909,8 @@ who (potentially) have offspring in deme <code class="docutils literal notransla
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="4535b2aa-0eeb-4617-83dc-51aa996fbf17" name="1530af1e-e1b3-4214-b433-4d143e4f1c58" type="radio">
-</input><label class="tabbed-label pt-0" for="4535b2aa-0eeb-4617-83dc-51aa996fbf17">
+<input checked="checked" id="6eb0a699-4131-48e3-b7b5-5cea495ec1d4" name="0d3bc0b9-111e-4784-8759-66e44d9b9565" type="radio">
+</input><label class="tabbed-label pt-0" for="6eb0a699-4131-48e3-b7b5-5cea495ec1d4">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -930,8 +933,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="97030651-8c54-4a6e-946d-fdc8ded992b3" name="1530af1e-e1b3-4214-b433-4d143e4f1c58" type="radio">
-</input><label class="tabbed-label pt-0" for="97030651-8c54-4a6e-946d-fdc8ded992b3">
+<input id="3b6d6aed-8d08-4eef-953e-4d16f3cfb23c" name="0d3bc0b9-111e-4784-8759-66e44d9b9565" type="radio">
+</input><label class="tabbed-label pt-0" for="3b6d6aed-8d08-4eef-953e-4d16f3cfb23c">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_22_0.svg" src="_images/tutorial_22_0.svg" /></div>
@@ -962,8 +965,8 @@ the period of time when both demes exist simultaneously.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="94c1625f-1baa-4629-9f38-b4d4932d8579" name="b62d83e0-f14c-4939-865c-64c88e8cf082" type="radio">
-</input><label class="tabbed-label pt-0" for="94c1625f-1baa-4629-9f38-b4d4932d8579">
+<input checked="checked" id="dcb497c7-f71b-4bf9-ac02-d0cf0b9b3824" name="1bd77f9c-d837-4bbd-9d8d-5bc294924608" type="radio">
+</input><label class="tabbed-label pt-0" for="dcb497c7-f71b-4bf9-ac02-d0cf0b9b3824">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -982,8 +985,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ee6c0f0e-abbe-4803-93a4-b1b1804fd05c" name="b62d83e0-f14c-4939-865c-64c88e8cf082" type="radio">
-</input><label class="tabbed-label pt-0" for="ee6c0f0e-abbe-4803-93a4-b1b1804fd05c">
+<input id="e730be5d-6cbb-4a89-a3f3-125c56642e82" name="1bd77f9c-d837-4bbd-9d8d-5bc294924608" type="radio">
+</input><label class="tabbed-label pt-0" for="e730be5d-6cbb-4a89-a3f3-125c56642e82">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_24_0.svg" src="_images/tutorial_24_0.svg" /></div>
@@ -1006,8 +1009,8 @@ Below we model three periods of continuous migration.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="182452c1-cb3b-4511-a6d7-66a661944f67" name="6c80e242-fcf0-4e2d-86a8-e8017961504c" type="radio">
-</input><label class="tabbed-label pt-0" for="182452c1-cb3b-4511-a6d7-66a661944f67">
+<input checked="checked" id="b4e55dd7-55fa-4a1f-a4a6-bcd411e1130e" name="3f4886a2-f0df-4095-b59a-ea4073cbc954" type="radio">
+</input><label class="tabbed-label pt-0" for="b4e55dd7-55fa-4a1f-a4a6-bcd411e1130e">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -1030,8 +1033,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="721f21c9-d552-4008-8bd8-79cba63f026e" name="6c80e242-fcf0-4e2d-86a8-e8017961504c" type="radio">
-</input><label class="tabbed-label pt-0" for="721f21c9-d552-4008-8bd8-79cba63f026e">
+<input id="acecbc79-0e41-4a19-8ab7-3af2aa0a5f6e" name="3f4886a2-f0df-4095-b59a-ea4073cbc954" type="radio">
+</input><label class="tabbed-label pt-0" for="acecbc79-0e41-4a19-8ab7-3af2aa0a5f6e">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_26_0.svg" src="_images/tutorial_26_0.svg" /></div>
@@ -1071,8 +1074,8 @@ but it’s simpler to specify a list of deme names (the migration’s
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="0b008db4-8306-4c66-9c97-52cf48563471" name="e051ddc5-a06a-457a-bdd5-3c03223144b3" type="radio">
-</input><label class="tabbed-label pt-0" for="0b008db4-8306-4c66-9c97-52cf48563471">
+<input checked="checked" id="15af3a1d-344c-4216-99a5-48279e24910c" name="c05a6996-e056-4764-acc1-5f5bcbaf6d37" type="radio">
+</input><label class="tabbed-label pt-0" for="15af3a1d-344c-4216-99a5-48279e24910c">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -1094,8 +1097,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="3d4845fa-8555-4d08-841d-e8bf155a1852" name="e051ddc5-a06a-457a-bdd5-3c03223144b3" type="radio">
-</input><label class="tabbed-label pt-0" for="3d4845fa-8555-4d08-841d-e8bf155a1852">
+<input id="bd8c99b1-de59-4484-bac2-b89aabae3a59" name="c05a6996-e056-4764-acc1-5f5bcbaf6d37" type="radio">
+</input><label class="tabbed-label pt-0" for="bd8c99b1-de59-4484-bac2-b89aabae3a59">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_28_0.svg" src="_images/tutorial_28_0.svg" /></div>
@@ -1118,8 +1121,8 @@ of four demes.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="b7bb01bf-4d31-41f4-b806-2061074b671d" name="4e849d22-b72a-48be-923a-742484a896f0" type="radio">
-</input><label class="tabbed-label pt-0" for="b7bb01bf-4d31-41f4-b806-2061074b671d">
+<input checked="checked" id="e1654dbb-3982-4607-b631-cb12136cfdf7" name="74c265fd-3ca1-4a2a-af10-b86bcc8eb639" type="radio">
+</input><label class="tabbed-label pt-0" for="e1654dbb-3982-4607-b631-cb12136cfdf7">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -1141,8 +1144,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="39bb071d-5572-4af7-9fb6-e32c49fcce86" name="4e849d22-b72a-48be-923a-742484a896f0" type="radio">
-</input><label class="tabbed-label pt-0" for="39bb071d-5572-4af7-9fb6-e32c49fcce86">
+<input id="d686edf0-b40b-4dbf-beea-b7a62b94ab97" name="74c265fd-3ca1-4a2a-af10-b86bcc8eb639" type="radio">
+</input><label class="tabbed-label pt-0" for="d686edf0-b40b-4dbf-beea-b7a62b94ab97">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_30_0.svg" src="_images/tutorial_30_0.svg" /></div>
@@ -1174,8 +1177,8 @@ because <code class="docutils literal notranslate"><span class="pre">C</span></c
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="1562e77e-99ca-4242-80d0-914a0263e60e" name="5a5ac822-3eea-4b45-b7e0-e4c45e50e5a4" type="radio">
-</input><label class="tabbed-label pt-0" for="1562e77e-99ca-4242-80d0-914a0263e60e">
+<input checked="checked" id="4579acd4-7003-4756-af40-c865312c190d" name="2093da0b-227e-4346-8143-94f1553d7deb" type="radio">
+</input><label class="tabbed-label pt-0" for="4579acd4-7003-4756-af40-c865312c190d">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -1196,8 +1199,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9ff1a508-a2ce-4cd7-8407-48a2d0bf0b9f" name="5a5ac822-3eea-4b45-b7e0-e4c45e50e5a4" type="radio">
-</input><label class="tabbed-label pt-0" for="9ff1a508-a2ce-4cd7-8407-48a2d0bf0b9f">
+<input id="273daed0-8563-422e-915e-de3e550cfccc" name="2093da0b-227e-4346-8143-94f1553d7deb" type="radio">
+</input><label class="tabbed-label pt-0" for="273daed0-8563-422e-915e-de3e550cfccc">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_32_0.svg" src="_images/tutorial_32_0.svg" /></div>
@@ -1214,8 +1217,10 @@ Drawing</label><div class="tabbed-content docutils">
 <h2>A pulse of admixture<a class="headerlink" href="#a-pulse-of-admixture" title="Permalink to this headline">¶</a></h2>
 <p>To model migration that is limited to a very short period of time,
 we can define one or more <code class="docutils literal notranslate"><span class="pre">pulses</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">proportion</span></code> property of a pulse defines the proportion of the <code class="docutils literal notranslate"><span class="pre">dest</span></code>
-deme that is made up of ancestry from the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme at the instant after
+A pulse has a <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list property and a <code class="docutils literal notranslate"><span class="pre">sources</span></code> list property
+(analogous to the <code class="docutils literal notranslate"><span class="pre">proportions</span></code> and <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> properties of a <code class="docutils literal notranslate"><span class="pre">deme</span></code>).
+Each pulse proportion defines the proportion of the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme that is
+made up of ancestry from the corresponding source deme at the instant after
 the pulse’s <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1235,8 +1240,8 @@ the pulse as occurring over a single time step (such as a single generation).</p
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="827f3cc3-7b7b-4c5e-a70d-57f575e3aadd" name="87293cd6-0263-4b3d-95cd-138f419a8e90" type="radio">
-</input><label class="tabbed-label pt-0" for="827f3cc3-7b7b-4c5e-a70d-57f575e3aadd">
+<input checked="checked" id="16fe5e4b-5805-4236-baaa-8f527138d888" name="cf349fe2-0b65-4857-a9e4-97332f6a91d0" type="radio">
+</input><label class="tabbed-label pt-0" for="16fe5e4b-5805-4236-baaa-8f527138d888">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">demes</span><span class="p">:</span>
@@ -1253,15 +1258,15 @@ YAML</label><div class="tabbed-content docutils">
     <span class="nt">epochs</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">start_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
 <span class="nt">pulses</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+  <span class="p p-Indicator">-</span> <span class="nt">sources</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
-    <span class="nt">proportion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.05</span>
+    <span class="nt">proportions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.05</span><span class="p p-Indicator">]</span>
     <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
 </pre></div>
 </div>
 </div>
-<input id="7e97c34b-0499-405f-9ae7-c23d65d92cc6" name="87293cd6-0263-4b3d-95cd-138f419a8e90" type="radio">
-</input><label class="tabbed-label pt-0" for="7e97c34b-0499-405f-9ae7-c23d65d92cc6">
+<input id="a5ad4800-a085-47f8-806e-e80f7039f77e" name="cf349fe2-0b65-4857-a9e4-97332f6a91d0" type="radio">
+</input><label class="tabbed-label pt-0" for="a5ad4800-a085-47f8-806e-e80f7039f77e">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_34_0.svg" src="_images/tutorial_34_0.svg" /></div>
@@ -1282,7 +1287,7 @@ the advantages of one approach over the other?</p>
 <div class="question admonition">
 <p class="admonition-title">Question</p>
 <p>How should one interpret multiple pulses that occur at the same <code class="docutils literal notranslate"><span class="pre">time</span></code>?
-Does it matter whether the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes are the same in
+Does it matter whether the <code class="docutils literal notranslate"><span class="pre">sources</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes are the same in
 each pulse?</p>
 </div>
 <div class="dropdown answer admonition">
@@ -1291,14 +1296,14 @@ each pulse?</p>
 the migration pulses occur in the order in which they are written.
 Consider the following two pulses into deme <code class="docutils literal notranslate"><span class="pre">A</span></code> at time 100.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="p p-Indicator">-</span> <span class="nt">sources</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span>
   <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
   <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-  <span class="nt">proportion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
-<span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
+  <span class="nt">proportions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span> <span class="nt">sources</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">C</span><span class="p p-Indicator">]</span>
   <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
   <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
-  <span class="nt">proportion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+  <span class="nt">proportions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>The second pulse replaces 20% of <code class="docutils literal notranslate"><span class="pre">A</span></code>’s ancestry, including 20% of the ancestry
@@ -1306,8 +1311,17 @@ that was inherited from <code class="docutils literal notranslate"><span class="
 So immediately after time 100, <code class="docutils literal notranslate"><span class="pre">A</span></code> has 20% ancestry from <code class="docutils literal notranslate"><span class="pre">C</span></code> but only 8%
 ancestry from <code class="docutils literal notranslate"><span class="pre">B</span></code>.
 As this may be confusing, we recommend avoiding the use of multiple pulses
-in this way, and instead implement the model using multiple ancestors with
-the desired final ancestry proportions.</p>
+in this way, and instead implement the model using multiple <code class="docutils literal notranslate"><span class="pre">sources</span></code> with
+the desired final ancestry <code class="docutils literal notranslate"><span class="pre">proportions</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">sources</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">,</span> <span class="nv">C</span><span class="p p-Indicator">]</span>
+  <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+  <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+  <span class="nt">proportions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.08</span><span class="p p-Indicator">,</span> <span class="nv">0.2</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>More complex models involving multiple simultaneous pulses are possible,
+but we caution that they can be difficult to reason about.</p>
 </div>
 </div>
 <div class="section" id="setting-defaults">
@@ -1325,8 +1339,8 @@ population size.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="d279f406-de28-4291-a0cf-4e7bbba770f2" name="a6df8966-bc61-422c-8212-235c727b953b" type="radio">
-</input><label class="tabbed-label pt-0" for="d279f406-de28-4291-a0cf-4e7bbba770f2">
+<input checked="checked" id="5e06e1ed-bcfa-4e0a-8b61-71918f605392" name="8aa53ff9-16a0-464d-9ed3-42ff64b8f641" type="radio">
+</input><label class="tabbed-label pt-0" for="5e06e1ed-bcfa-4e0a-8b61-71918f605392">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">defaults</span><span class="p">:</span>
@@ -1344,8 +1358,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9da33f33-563d-4e04-8b0d-caf33ba99d36" name="a6df8966-bc61-422c-8212-235c727b953b" type="radio">
-</input><label class="tabbed-label pt-0" for="9da33f33-563d-4e04-8b0d-caf33ba99d36">
+<input id="ea6fc9f9-b7ec-4d12-9112-ffd9b1321279" name="8aa53ff9-16a0-464d-9ed3-42ff64b8f641" type="radio">
+</input><label class="tabbed-label pt-0" for="ea6fc9f9-b7ec-4d12-9112-ffd9b1321279">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_36_0.svg" src="_images/tutorial_36_0.svg" /></div>
@@ -1367,8 +1381,8 @@ the desired epoch.</p>
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="79fea0a3-7580-4936-8951-a081921bad96" name="e5af7800-1987-4893-b8cf-bcd383565615" type="radio">
-</input><label class="tabbed-label pt-0" for="79fea0a3-7580-4936-8951-a081921bad96">
+<input checked="checked" id="39b3190d-7954-4b8f-9cd2-d817a3c38f87" name="5d4dc1df-bd60-4bcb-bb79-e7aa0fe14841" type="radio">
+</input><label class="tabbed-label pt-0" for="39b3190d-7954-4b8f-9cd2-d817a3c38f87">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">defaults</span><span class="p">:</span>
@@ -1389,8 +1403,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="01abbf43-79eb-4734-9ea7-badf877b9824" name="e5af7800-1987-4893-b8cf-bcd383565615" type="radio">
-</input><label class="tabbed-label pt-0" for="01abbf43-79eb-4734-9ea7-badf877b9824">
+<input id="39625e25-dee7-4193-b85b-ce537cf58f13" name="5d4dc1df-bd60-4bcb-bb79-e7aa0fe14841" type="radio">
+</input><label class="tabbed-label pt-0" for="39625e25-dee7-4193-b85b-ce537cf58f13">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_38_0.svg" src="_images/tutorial_38_0.svg" /></div>
@@ -1412,8 +1426,8 @@ such as the <code class="docutils literal notranslate"><span class="pre">start_t
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="9699acdc-f0df-4e57-b3f4-09df9a242f65" name="ecca0f6c-9bd1-4c51-b414-18021a31505f" type="radio">
-</input><label class="tabbed-label pt-0" for="9699acdc-f0df-4e57-b3f4-09df9a242f65">
+<input checked="checked" id="c00fd50a-32c0-4883-a6c9-e49cb1ffd3e2" name="02800864-daec-4928-a8e2-c317a812b231" type="radio">
+</input><label class="tabbed-label pt-0" for="c00fd50a-32c0-4883-a6c9-e49cb1ffd3e2">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generations</span>
 <span class="nt">defaults</span><span class="p">:</span>
@@ -1439,8 +1453,8 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="bdeb33ba-b3cd-40fe-9123-96dfc160a809" name="ecca0f6c-9bd1-4c51-b414-18021a31505f" type="radio">
-</input><label class="tabbed-label pt-0" for="bdeb33ba-b3cd-40fe-9123-96dfc160a809">
+<input id="2373e46e-cf72-406d-a64f-a95080d5f1ce" name="02800864-daec-4928-a8e2-c317a812b231" type="radio">
+</input><label class="tabbed-label pt-0" for="2373e46e-cf72-406d-a64f-a95080d5f1ce">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_40_0.svg" src="_images/tutorial_40_0.svg" /></div>
@@ -1499,8 +1513,8 @@ match the <code class="docutils literal notranslate"><span class="pre">time_unit
 </div>
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="751c0d6c-fff1-4204-80f6-1dec5418083a" name="d825b590-60d5-43d3-9c6c-304b48d9f339" type="radio">
-</input><label class="tabbed-label pt-0" for="751c0d6c-fff1-4204-80f6-1dec5418083a">
+<input checked="checked" id="0cbef566-fa50-4758-aa24-174c0e0ac794" name="89bcb147-460c-4b8c-be36-7eb16f4ee112" type="radio">
+</input><label class="tabbed-label pt-0" for="0cbef566-fa50-4758-aa24-174c0e0ac794">
 YAML</label><div class="tabbed-content docutils">
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The Gutenkunst et al. (2009) OOA model.</span>
 <span class="nt">doi</span><span class="p">:</span>
@@ -1547,11 +1561,11 @@ YAML</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="0f0fcc9e-b168-4008-afed-ff61778c5d0d" name="d825b590-60d5-43d3-9c6c-304b48d9f339" type="radio">
-</input><label class="tabbed-label pt-0" for="0f0fcc9e-b168-4008-afed-ff61778c5d0d">
+<input id="af539d94-f71a-41a6-8350-81fd6081b2dd" name="89bcb147-460c-4b8c-be36-7eb16f4ee112" type="radio">
+</input><label class="tabbed-label pt-0" for="af539d94-f71a-41a6-8350-81fd6081b2dd">
 Drawing</label><div class="tabbed-content docutils">
 <div class="cell_output docutils container">
-<img alt="_images/tutorial_42_1.svg" src="_images/tutorial_42_1.svg" /></div>
+<img alt="_images/tutorial_42_0.svg" src="_images/tutorial_42_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -1594,16 +1608,27 @@ which default to 0 if not specified.</p>
               </div>
               
         
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="gallery.html" title="next page">Gallery</a>
-
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="gallery.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gallery</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -1622,8 +1647,7 @@ which default to 0 if not specified.</p>
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

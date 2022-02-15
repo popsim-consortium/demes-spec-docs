@@ -686,9 +686,9 @@ a source population.  The fraction must be between zero and one, and if more
 than one pulse occurs at the same time, those replacement events are applied
 sequentially in the order that they are specified in the model.</p>
 <dl class="simple myst">
-<dt>sources</dt><dd><p>The list of deme IDs of the migration sources.</p>
+<dt>sources</dt><dd><p>The list of deme names of the migration sources.</p>
 </dd>
-<dt>dest</dt><dd><p>The deme ID of the migration destination.</p>
+<dt>dest</dt><dd><p>The deme name of the migration destination.</p>
 </dd>
 <dt>time</dt><dd><p>The time of migration, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
 The <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes must both exist at the given
@@ -719,17 +719,17 @@ probabilities. The probability that parents come from the same population is
 just one minus the sum of incoming migration rates.</p>
 <p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
-pairs of demes with deme IDs in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
-specified instead, migration shall be asymmetric from the deme with ID
-<code class="docutils literal notranslate"><span class="pre">source</span></code> to the deme with ID <code class="docutils literal notranslate"><span class="pre">dest</span></code>. Either <code class="docutils literal notranslate"><span class="pre">demes</span></code>, or alternately
+pairs of demes with deme names in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
+specified instead, migration shall be asymmetric from the deme with name
+<code class="docutils literal notranslate"><span class="pre">source</span></code> to the deme with name <code class="docutils literal notranslate"><span class="pre">dest</span></code>. Either <code class="docutils literal notranslate"><span class="pre">demes</span></code>, or alternately
 both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code>, must be specified. If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified,
 neither <code class="docutils literal notranslate"><span class="pre">source</span></code> nor <code class="docutils literal notranslate"><span class="pre">dest</span></code> may be specified.</p>
 <dl class="simple myst">
-<dt>demes</dt><dd><p>The deme IDs of the symmetrically migrating demes.</p>
+<dt>demes</dt><dd><p>The deme names of the symmetrically migrating demes.</p>
 </dd>
-<dt>source</dt><dd><p>The deme ID of the asymmetric migration source.</p>
+<dt>source</dt><dd><p>The deme name of the asymmetric migration source.</p>
 </dd>
-<dt>dest</dt><dd><p>The deme ID of the asymmetric migration destination.</p>
+<dt>dest</dt><dd><p>The deme name of the asymmetric migration destination.</p>
 </dd>
 <dt>start_time</dt><dd><p>The time at which migration begins, in <code class="docutils literal notranslate"><span class="pre">time_units</span></code> before the present.
 The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the

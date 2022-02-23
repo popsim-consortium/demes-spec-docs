@@ -241,6 +241,11 @@
        Population sizes
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metadata">
+       Metadata
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -284,6 +289,18 @@
     <a class="reference internal nav-link" href="#defaults">
      Defaults
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#top-level-defaults">
+       Top-level defaults
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deme-defaults">
+       Deme defaults
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resolution">
@@ -296,6 +313,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-parser-implementation">
+   Reference parser implementation
+  </a>
  </li>
 </ul>
 
@@ -359,6 +381,11 @@
        Population sizes
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metadata">
+       Metadata
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -402,6 +429,18 @@
     <a class="reference internal nav-link" href="#defaults">
      Defaults
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#top-level-defaults">
+       Top-level defaults
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deme-defaults">
+       Deme defaults
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resolution">
@@ -414,6 +453,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-parser-implementation">
+   Reference parser implementation
+  </a>
  </li>
 </ul>
 
@@ -547,6 +591,13 @@ some examples from forward and backward sims.</p></li>
 pointers to sections we mention proportions in.</p></li>
 <li><p>What do we mean by migration of individuals? Forward pointers to sections.</p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="metadata">
+<span id="sec-spec-mdm-metadata"></span><h4>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h4>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Discussion of metadata. What’s it for?</p>
 </div>
 </div>
 </div>
@@ -945,14 +996,80 @@ which outputs the corresponding MDM document.</p>
 <p>This section defines the structure of HDM documents, the rules by
 which they are transformed into MDM documents, and the error conditions
 that should be detected by parsers.</p>
+<p>We also provide a <a class="reference internal" href="#sec-spec-reference-implementation"><span class="std std-ref">reference implementation</span></a>
+of a parser
+for the HDM (which also parses the MDM, by definition) written in Python.
+This implementation
+is intended to clarify any ambiguities there may be in this specification,
+but is not intended to be used directly in downstream software. Please
+use the <a class="reference internal" href="introduction.html"><span class="doc">demes</span></a> Python library instead.</p>
 <div class="section" id="defaults">
 <span id="sec-spec-hdm-defaults"></span><h3>Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h3>
 <p>Repeated values such as shared population sizes represent a significant opportunity
 for error in human-generated models. The HDM provides the default value
-propagation mechanism to avoid this repetition.</p>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>Describe the process of hierarchical default value replacement.</p>
+propagation mechanism to avoid this repetition. The essential idea is that
+we declare default values hierarchically within the document, and that
+the ultimate value assigned to a property is prioritised by proximity
+within the document hierarchy.</p>
+<p>Default values can be provided in two places within a HDM document:
+at the top-level or within a deme definition.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference internal" href="tutorial.html#sec-tutorial-defaults"><span class="std std-ref">tutorial</span></a>
+for examples of how the defaults section can be used.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference internal" href="#sec-spec-reference-implementation"><span class="std std-ref">reference implementation</span></a>
+for a practical example of how defaults in the HDM can be implemented.</p>
+</div>
+<div class="section" id="top-level-defaults">
+<span id="sec-spec-hdm-defaults-top-level"></span><h4>Top-level defaults<a class="headerlink" href="#top-level-defaults" title="Permalink to this headline">¶</a></h4>
+<p>The top-level HDM document may contain a propery <code class="docutils literal notranslate"><span class="pre">defaults</span></code>,
+which defines values to use for entities within rest of the document
+<em>unless otherwise specified</em>. The <code class="docutils literal notranslate"><span class="pre">defaults</span></code> object can have
+the following properties:</p>
+<ul class="simple">
+<li><p>epoch: this can specify any property valid for an
+<a class="reference internal" href="#sec-spec-mdm-epoch"><span class="std std-ref">MDM epoch</span></a>. All epochs in the
+document will be assigned these properties, unless specified
+within the epoch or the <a class="reference internal" href="#sec-spec-hdm-defaults-deme"><span class="std std-ref">deme defaults</span></a>.</p></li>
+<li><p>migration: this can specify any property valid for an
+<a class="reference internal" href="#sec-spec-mdm-migration"><span class="std std-ref">MDM migration</span></a>. All migrations in the
+document will be assigned these properties, unless specified
+within the migration itself.</p></li>
+<li><p>pulse: this can specify any property valid for an
+<a class="reference internal" href="#sec-spec-mdm-pulse"><span class="std std-ref">MDM pulse</span></a>. All pulses in the
+document will be assigned these properties, unless specified
+within the pulse itself.</p></li>
+<li><p>deme: this can specify the following properties for a
+<a class="reference internal" href="#sec-spec-mdm-deme"><span class="std std-ref">deme</span></a> only: <code class="docutils literal notranslate"><span class="pre">description</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ancestors</span></code>, <code class="docutils literal notranslate"><span class="pre">proportions</span></code> and <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference internal" href="#sec-spec-hdm-schema"><span class="std std-ref">schema</span></a>
+for definitive information on the structural properties of the
+top level <code class="docutils literal notranslate"><span class="pre">defaults</span></code> section.</p>
+</div>
+</div>
+<div class="section" id="deme-defaults">
+<span id="sec-spec-hdm-defaults-deme"></span><h4>Deme defaults<a class="headerlink" href="#deme-defaults" title="Permalink to this headline">¶</a></h4>
+<p>Deme defaults operate in the same manner as
+<a class="reference internal" href="#sec-spec-hdm-defaults-top-level"><span class="std std-ref">top-level defaults</span></a>: the specified
+values will used if omitted in any epochs within the deme. Defaults
+specified within a deme override any values specified in the
+<a class="reference internal" href="#sec-spec-hdm-defaults-top-level"><span class="std std-ref">top level</span></a> <code class="docutils literal notranslate"><span class="pre">deme</span></code> defaults.</p>
+<p>This can specify any property valid for an
+<a class="reference internal" href="#sec-spec-mdm-epoch"><span class="std std-ref">MDM epoch</span></a>. Any epochs in the
+deme will be assigned these properties, unless specified
+within an epoch itself.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference internal" href="#sec-spec-hdm-schema"><span class="std std-ref">schema</span></a>
+for definitive information on the structural properties of the
+deme <code class="docutils literal notranslate"><span class="pre">defaults</span></code> section.</p>
+</div>
 </div>
 </div>
 <div class="section" id="resolution">
@@ -1210,6 +1327,819 @@ valid instances of the Demes standard.</p>
 </div>
 </div>
 </div>
+<div class="section" id="reference-parser-implementation">
+<span id="sec-spec-reference-implementation"></span><h2>Reference parser implementation<a class="headerlink" href="#reference-parser-implementation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple parser that builds a fully-qualified Demes Graph from an input JSON</span>
+<span class="c1"># string.</span>
+<span class="c1">#</span>
+<span class="c1"># Requires Python 3.7+.</span>
+<span class="c1">#</span>
+<span class="c1"># This implementation is NOT recommended for use in any downstream software and</span>
+<span class="c1"># is provided purely as reference material for parser writers (i.e., in other</span>
+<span class="c1"># programming languages). Python users should use the &quot;demes&quot; package in their</span>
+<span class="c1"># software: https://github.com/popsim-consortium/demes-python</span>
+<span class="c1">#</span>
+<span class="c1"># The entry point is the ``parse`` function, which returns a fully-qualified</span>
+<span class="c1"># Graph. The implementation is written with clarity and correctness as the main</span>
+<span class="c1"># priorities. Its main purpose is to remove any potential ambiguities that may</span>
+<span class="c1"># exist in the written specification and to simplify the process of writing</span>
+<span class="c1"># other parsers. In the interest of simplicity, the parser does not generate</span>
+<span class="c1"># useful error messages in all cases (but we would hope that practical</span>
+<span class="c1"># implementations would).</span>
+<span class="c1">#</span>
+<span class="c1"># Type annotations are used where they help with readability, but not applied</span>
+<span class="c1"># exhaustively.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="c1"># Numerical wiggle room.</span>
+<span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">1e-6</span>
+
+<span class="c1"># JSON does not provide a way to encode IEEE infinity values, which we</span>
+<span class="c1"># require to describe start_time values. To work around this we use the</span>
+<span class="c1"># string &quot;Infinity&quot; to represent IEEE positive infinity.</span>
+<span class="n">JSON_INFINITY_STR</span> <span class="o">=</span> <span class="s2">&quot;Infinity&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Graph</span><span class="p">:</span>
+    <span class="c1"># Parsing is done by popping items out of the input data dictionary and</span>
+    <span class="c1"># creating the appropriate Python objects. We ensure that extra items</span>
+    <span class="c1"># have not been included in the data payload by checking if the objects</span>
+    <span class="c1"># are empty once we have removed all the values defined in the</span>
+    <span class="c1"># specification. Type and range validation of simple items (e.g., the</span>
+    <span class="c1"># value must be a positive integer) is performed at the same time,</span>
+    <span class="c1"># using the pop_x functions. Once the full object model of the input</span>
+    <span class="c1"># data has been built, the rules for creating a fully-qualified Demes</span>
+    <span class="c1"># graph are applied in the &quot;resolve&quot; functions. Finally, we validate</span>
+    <span class="c1"># the fully-qualified graph to ensure that relationships between the</span>
+    <span class="c1"># entities have been specified correctly.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;defaults&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">deme_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">defaults</span><span class="p">,</span> <span class="s2">&quot;deme&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">migration_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">defaults</span><span class="p">,</span> <span class="s2">&quot;migration&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">pulse_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">defaults</span><span class="p">,</span> <span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="c1"># epoch defaults may also be specified within a Deme definition.</span>
+    <span class="n">global_epoch_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">defaults</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">check_empty</span><span class="p">(</span><span class="n">defaults</span><span class="p">)</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+        <span class="n">time_units</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;time_units&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="n">doi</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;doi&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_nonempty</span><span class="p">),</span>
+        <span class="n">generation_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;generation_time&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_positive_and_finite</span>
+        <span class="p">),</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="n">pop_object</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="p">{}),</span>
+    <span class="p">)</span>
+    <span class="n">check_defaults</span><span class="p">(</span>
+        <span class="n">deme_defaults</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="p">((</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">),</span> <span class="n">is_positive_or_json_infinity</span><span class="p">),</span>
+            <span class="n">ancestors</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_identifiers</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_fractions</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">allowed_epoch_defaults</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">end_time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span><span class="p">),</span>
+        <span class="n">start_size</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
+        <span class="n">end_size</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
+        <span class="n">selfing_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+        <span class="n">cloning_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+        <span class="n">size_function</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">check_defaults</span><span class="p">(</span><span class="n">global_epoch_defaults</span><span class="p">,</span> <span class="n">allowed_epoch_defaults</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">deme_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;demes&quot;</span><span class="p">):</span>
+        <span class="n">insert_defaults</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="n">deme_defaults</span><span class="p">)</span>
+        <span class="n">deme</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">add_deme</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                <span class="n">deme_data</span><span class="p">,</span>
+                <span class="s2">&quot;start_time&quot;</span><span class="p">,</span>
+                <span class="kc">None</span><span class="p">,</span>
+                <span class="n">is_positive_or_json_infinity</span><span class="p">,</span>
+                <span class="n">allow_inf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">ancestors</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;ancestors&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span>
+                <span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;proportions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">local_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;defaults&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">local_epoch_defaults</span> <span class="o">=</span> <span class="n">pop_object</span><span class="p">(</span><span class="n">local_defaults</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">check_empty</span><span class="p">(</span><span class="n">local_defaults</span><span class="p">)</span>
+        <span class="n">check_defaults</span><span class="p">(</span><span class="n">local_epoch_defaults</span><span class="p">,</span> <span class="n">allowed_epoch_defaults</span><span class="p">)</span>
+        <span class="n">epoch_defaults</span> <span class="o">=</span> <span class="n">global_epoch_defaults</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">epoch_defaults</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">local_epoch_defaults</span><span class="p">)</span>
+        <span class="n">check_defaults</span><span class="p">(</span><span class="n">epoch_defaults</span><span class="p">,</span> <span class="n">allowed_epoch_defaults</span><span class="p">)</span>
+
+        <span class="c1"># There is always at least one epoch defined with the default values.</span>
+        <span class="k">for</span> <span class="n">epoch_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;epochs&quot;</span><span class="p">,</span> <span class="p">[{}]):</span>
+            <span class="n">insert_defaults</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="n">epoch_defaults</span><span class="p">)</span>
+            <span class="n">deme</span><span class="o">.</span><span class="n">add_epoch</span><span class="p">(</span>
+                <span class="n">end_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                    <span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;end_time&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span>
+                <span class="p">),</span>
+                <span class="n">start_size</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                    <span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;start_size&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_positive_and_finite</span>
+                <span class="p">),</span>
+                <span class="n">end_size</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                    <span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;end_size&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_positive_and_finite</span>
+                <span class="p">),</span>
+                <span class="n">selfing_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;selfing_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+                <span class="n">cloning_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;cloning_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+                <span class="n">size_function</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;size_function&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">check_empty</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">)</span>
+        <span class="n">check_empty</span><span class="p">(</span><span class="n">deme_data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">deme</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;no epochs for deme </span><span class="si">{</span><span class="n">deme</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">demes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the graph must have one or more demes&quot;</span><span class="p">)</span>
+
+    <span class="n">check_defaults</span><span class="p">(</span>
+        <span class="n">migration_defaults</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="p">((</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="n">is_positive_or_json_infinity</span><span class="p">),</span>
+            <span class="n">end_time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span><span class="p">),</span>
+            <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">demes</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_identifiers</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">migration_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;migrations&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">insert_defaults</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="n">migration_defaults</span><span class="p">)</span>
+        <span class="n">graph</span><span class="o">.</span><span class="n">add_migration</span><span class="p">(</span>
+            <span class="n">rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_fraction</span><span class="p">),</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                <span class="n">migration_data</span><span class="p">,</span>
+                <span class="s2">&quot;start_time&quot;</span><span class="p">,</span>
+                <span class="kc">None</span><span class="p">,</span>
+                <span class="n">is_positive_or_json_infinity</span><span class="p">,</span>
+                <span class="n">allow_inf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">end_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
+                <span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;end_time&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span>
+            <span class="p">),</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_nonempty</span><span class="p">),</span>
+            <span class="n">dest</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;dest&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_nonempty</span><span class="p">),</span>
+            <span class="n">demes</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span>
+                <span class="n">migration_data</span><span class="p">,</span>
+                <span class="s2">&quot;demes&quot;</span><span class="p">,</span>
+                <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">required_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                <span class="n">validator</span><span class="o">=</span><span class="n">is_identifier</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">check_empty</span><span class="p">(</span><span class="n">migration_data</span><span class="p">)</span>
+
+    <span class="n">check_defaults</span><span class="p">(</span>
+        <span class="n">pulse_defaults</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">sources</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_nonempty_list_of_identifiers</span><span class="p">),</span>
+            <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_nonempty_list_of_fractions_with_sum_less_than_1</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">pulse_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;pulses&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">insert_defaults</span><span class="p">(</span><span class="n">pulse_data</span><span class="p">,</span> <span class="n">pulse_defaults</span><span class="p">)</span>
+        <span class="n">graph</span><span class="o">.</span><span class="n">add_pulse</span><span class="p">(</span>
+            <span class="n">sources</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span>
+                <span class="n">pulse_data</span><span class="p">,</span>
+                <span class="s2">&quot;sources&quot;</span><span class="p">,</span>
+                <span class="n">default</span><span class="o">=</span><span class="p">[],</span>
+                <span class="n">required_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                <span class="n">validator</span><span class="o">=</span><span class="n">is_identifier</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">dest</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">pulse_data</span><span class="p">,</span> <span class="s2">&quot;dest&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_identifier</span><span class="p">),</span>
+            <span class="n">time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">pulse_data</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_positive_and_finite</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span>
+                <span class="n">pulse_data</span><span class="p">,</span>
+                <span class="s2">&quot;proportions&quot;</span><span class="p">,</span>
+                <span class="n">default</span><span class="o">=</span><span class="p">[],</span>
+                <span class="n">required_type</span><span class="o">=</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
+                <span class="n">validator</span><span class="o">=</span><span class="n">is_fraction</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">check_empty</span><span class="p">(</span><span class="n">pulse_data</span><span class="p">)</span>
+
+    <span class="n">check_empty</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># The input object model has now been fully populated, and local type and</span>
+    <span class="c1"># value checking done. Default values (either from the schema or set explicitly</span>
+    <span class="c1"># by the user via &quot;defaults&quot; sections) have been assigned. We now &quot;resolve&quot;</span>
+    <span class="c1"># the model so that any values that can be imputed from the structure of the</span>
+    <span class="c1"># model are set explicitly. Once this is done, we then validate the model to</span>
+    <span class="c1"># check that the relationships between various entities make sense. Note that</span>
+    <span class="c1"># there isn&#39;t a clean separation between resolution and validation here, since</span>
+    <span class="c1"># some validation is simplest to perform as part of the resolution logic in</span>
+    <span class="c1"># this particular implementation.</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">graph</span>
+
+
+<span class="k">def</span> <span class="nf">encode_inf</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">JSON_INFINITY_STR</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="c1"># Validator functions. These are used as arguments to the pop_x functions and</span>
+<span class="c1"># check properties of the values.</span>
+
+
+<span class="k">def</span> <span class="nf">is_positive_or_json_infinity</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="o">==</span> <span class="n">JSON_INFINITY_STR</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">is_positive_and_finite</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_non_negative_and_finite</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_fraction</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">is_nonempty</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">is_identifier</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">is_list_of_identifiers</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_identifier</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_nonempty_list_of_identifiers</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">is_list_of_identifiers</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">is_list_of_fractions</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_fraction</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_nonempty_list_of_fractions_with_sum_less_than_1</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">is_list_of_fractions</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">validate_item</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">required_type</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; must be a </span><span class="si">{</span><span class="n">required_type</span><span class="si">}</span><span class="s2">; &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;current type is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">validator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">validator</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">validator_name</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="vm">__name__</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>  <span class="c1"># Strip off is_ from function name</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is not </span><span class="si">{</span><span class="n">validator_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># We need to use this trick because None is a meaningful input value for these</span>
+<span class="c1"># pop_x functions.</span>
+<span class="n">NO_DEFAULT</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">pop_item</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NO_DEFAULT</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">validate_item</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">NO_DEFAULT</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is required&quot;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NO_DEFAULT</span><span class="p">,</span> <span class="n">required_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">pop_item</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span> <span class="n">required_type</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">required_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">validate_item</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">pop_object</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NO_DEFAULT</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pop_item</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span> <span class="n">required_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">pop_string</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NO_DEFAULT</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pop_item</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span> <span class="n">required_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">validator</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">pop_number</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NO_DEFAULT</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">allow_inf</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># If infinite values are allowed for this number, the string &quot;Infinity&quot;</span>
+    <span class="c1"># is also accepted, and so str is an accepted type. There is a small loophole</span>
+    <span class="c1"># here in which string numbers like &quot;1000&quot; will be accepted by the type</span>
+    <span class="c1"># checking machinery, but the is_positive_or_json_infinity validator</span>
+    <span class="c1"># will catch this and raise a TypeError when it tries to compare with 0.</span>
+    <span class="k">if</span> <span class="n">allow_inf</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">validator</span> <span class="ow">is</span> <span class="n">is_positive_or_json_infinity</span>
+    <span class="n">required_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">if</span> <span class="n">allow_inf</span> <span class="k">else</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">pop_item</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
+        <span class="n">required_type</span><span class="o">=</span><span class="n">required_type</span><span class="p">,</span>
+        <span class="n">validator</span><span class="o">=</span><span class="n">validator</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">JSON_INFINITY_STR</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">check_empty</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extra fields are not permitted:</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">check_defaults</span><span class="p">(</span><span class="n">defaults</span><span class="p">,</span> <span class="n">allowed_fields</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">defaults</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_fields</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only fields </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">allowed_fields</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2"> can be specified &quot;</span>
+                <span class="s2">&quot;in the defaults&quot;</span>
+            <span class="p">)</span>
+        <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span> <span class="o">=</span> <span class="n">allowed_fields</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">validate_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">insert_defaults</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">defaults</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">defaults</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Interval</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A half-open time interval (start_time, end_time].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">start_time</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">end_time</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">start_time</span> <span class="o">&gt;</span> <span class="n">end_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">end_time</span>
+
+    <span class="k">def</span> <span class="nf">intersects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;True if self and other intersect, False otherwise.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">or</span> <span class="n">other</span><span class="o">.</span><span class="n">end_time</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">is_subinterval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;True if self is completely contained within other, False otherwise.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">end_time</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&gt;</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Epoch</span><span class="p">:</span>
+    <span class="n">end_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">start_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">end_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">size_function</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">selfing_rate</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">cloning_rate</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="nf">as_json_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_size</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">size_function</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">size_function</span> <span class="o">=</span> <span class="s2">&quot;exponential&quot;</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size_function</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="s2">&quot;exponential&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unknown size_function &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size_function</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size_function</span> <span class="o">==</span> <span class="s2">&quot;constant&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_size</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;size_function is constant but &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;start_size (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_size</span><span class="si">}</span><span class="s2">) != end_size (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">end_size</span><span class="si">}</span><span class="s2">)&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Deme</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">start_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">ancestors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Deme</span><span class="p">]</span>
+    <span class="n">proportions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">epochs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_epoch</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">end_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">start_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">end_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">selfing_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">cloning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">size_function</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Epoch</span><span class="p">:</span>
+        <span class="n">epoch</span> <span class="o">=</span> <span class="n">Epoch</span><span class="p">(</span>
+            <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+            <span class="n">start_size</span><span class="o">=</span><span class="n">start_size</span><span class="p">,</span>
+            <span class="n">end_size</span><span class="o">=</span><span class="n">end_size</span><span class="p">,</span>
+            <span class="n">selfing_rate</span><span class="o">=</span><span class="n">selfing_rate</span><span class="p">,</span>
+            <span class="n">cloning_rate</span><span class="o">=</span><span class="n">cloning_rate</span><span class="p">,</span>
+            <span class="n">size_function</span><span class="o">=</span><span class="n">size_function</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">epoch</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">end_time</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">as_json_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+            <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="n">encode_inf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">),</span>
+            <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">epoch</span><span class="o">.</span><span class="n">as_json_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">],</span>
+            <span class="s2">&quot;proportions&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">proportions</span><span class="p">,</span>
+            <span class="s2">&quot;ancestors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">deme</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">],</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__resolve_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">end_time</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Must explicitly set Deme.start_time when &gt; 1 ancestor&quot;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">default</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;deme </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has finite start_time, but no ancestors&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ancestor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ancestor</span><span class="o">.</span><span class="n">time_interval</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Deme </span><span class="si">{</span><span class="n">ancestor</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">ancestor</span><span class="o">.</span><span class="n">time_interval</span><span class="si">}</span><span class="s2">) doesn&#39;t &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;exist at deme </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;s start_time (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+
+        <span class="c1"># The last epoch has a default end_time of 0</span>
+        <span class="n">last_epoch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">last_epoch</span><span class="o">.</span><span class="n">end_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">last_epoch</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">last_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">epoch</span><span class="o">.</span><span class="n">end_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Epoch end_time must be specified&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">epoch</span><span class="o">.</span><span class="n">end_time</span> <span class="o">&gt;=</span> <span class="n">last_time</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Epoch end_times must be in decreasing order.&quot;</span><span class="p">)</span>
+            <span class="n">last_time</span> <span class="o">=</span> <span class="n">epoch</span><span class="o">.</span><span class="n">end_time</span>
+
+    <span class="k">def</span> <span class="nf">__resolve_sizes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">first_epoch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># The first epoch must specify either start_size or end_size</span>
+        <span class="k">if</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Must specify one or more of start_size and end_size &quot;</span>
+                <span class="s2">&quot;for the initial epoch&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">first_epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="o">=</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">end_size</span>
+        <span class="k">if</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">first_epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="o">=</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">start_size</span>
+        <span class="n">last_epoch</span> <span class="o">=</span> <span class="n">first_epoch</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="n">epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="o">=</span> <span class="n">last_epoch</span><span class="o">.</span><span class="n">end_size</span>
+            <span class="k">if</span> <span class="n">epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="o">=</span> <span class="n">epoch</span><span class="o">.</span><span class="n">start_size</span>
+            <span class="n">last_epoch</span> <span class="o">=</span> <span class="n">epoch</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="o">!=</span> <span class="n">first_epoch</span><span class="o">.</span><span class="n">end_size</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Cannot have varying population size in an infinite time interval&quot;</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__resolve_proportions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proportions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proportions</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proportions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must specify proportions for &gt; 1 ancestor demes&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__resolve_times</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__resolve_sizes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__resolve_proportions</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">:</span>
+            <span class="n">epoch</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proportions</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;proportions must be same length as ancestors&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proportions</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Sum of proportions must be approximately 1&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">anc</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">anc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">))</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ancestors</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ancestors list contains duplicates&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">:</span>
+            <span class="n">epoch</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Pulse</span><span class="p">:</span>
+    <span class="n">sources</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Deme</span><span class="p">]</span>
+    <span class="n">dest</span><span class="p">:</span> <span class="n">Deme</span>
+    <span class="n">time</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">proportions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">as_json_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;sources&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">source</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">]</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;dest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sources_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">sources_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot have source deme equal to dest&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sources_names</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duplicate deme in sources&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have one or more source demes&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proportions</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Sources and proportions must have same lengths&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">time_interval</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Deme </span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not exist at time </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+        <span class="c1"># Time limits for the destination deme are different to the source deme,</span>
+        <span class="c1"># because the destination deme is affected immediately after the time</span>
+        <span class="c1"># of the pulse. Thus, a pulse can occur at the destination deme&#39;s</span>
+        <span class="c1"># start_time, but not at the destination deme&#39;s end_time.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">end_time</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Deme </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not exist at time </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proportions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">EPSILON</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Pulse proportions into </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> at time </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="s2">&quot;sum to more than 1&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Migration</span><span class="p">:</span>
+    <span class="n">rate</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">start_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">end_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">source</span><span class="p">:</span> <span class="n">Deme</span>
+    <span class="n">dest</span><span class="p">:</span> <span class="n">Deme</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">as_json_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">encode_inf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;dest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">end_time</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;start_time must be &gt; end_time&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot migrate from a deme to itself&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_interval</span><span class="o">.</span><span class="n">is_subinterval</span><span class="p">(</span><span class="n">deme</span><span class="o">.</span><span class="n">time_interval</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Migration time interval must be within the each deme&#39;s &quot;</span>
+                    <span class="s2">&quot;time interval&quot;</span>
+                <span class="p">)</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+    <span class="n">time_units</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">generation_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">doi</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">demes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Deme</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">migrations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Migration</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">pulses</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Pulse</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_deme</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">ancestors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">proportions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Deme</span><span class="p">:</span>
+        <span class="n">deme</span> <span class="o">=</span> <span class="n">Deme</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+            <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+            <span class="n">ancestors</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">deme_name</span> <span class="ow">in</span> <span class="n">ancestors</span><span class="p">],</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="n">proportions</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">deme</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Duplicate deme name &#39;</span><span class="si">{</span><span class="n">deme</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">deme</span>
+        <span class="k">return</span> <span class="n">deme</span>
+
+    <span class="k">def</span> <span class="nf">add_migration</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">end_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">dest</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="n">demes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Migration</span><span class="p">]:</span>
+        <span class="n">migrations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Migration</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="c1"># symmetric</span>
+            <span class="p">(</span><span class="n">demes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">dest</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="c1"># asymmetric</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="n">demes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">dest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must specify either source and dest, or demes&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">dest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="n">migrations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">Migration</span><span class="p">(</span>
+                    <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span>
+                    <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+                    <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+                    <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">source</span><span class="p">],</span>
+                    <span class="n">dest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">dest</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">demes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">demes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must specify two or more deme names&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">deme_a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">demes</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">deme_b</span> <span class="ow">in</span> <span class="n">demes</span><span class="p">[</span><span class="n">j</span><span class="p">:]:</span>
+                    <span class="n">migration_ab</span> <span class="o">=</span> <span class="n">Migration</span><span class="p">(</span>
+                        <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span>
+                        <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+                        <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+                        <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme_a</span><span class="p">],</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme_b</span><span class="p">],</span>
+                    <span class="p">)</span>
+                    <span class="n">migration_ba</span> <span class="o">=</span> <span class="n">Migration</span><span class="p">(</span>
+                        <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span>
+                        <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+                        <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+                        <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme_b</span><span class="p">],</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">deme_a</span><span class="p">],</span>
+                    <span class="p">)</span>
+                    <span class="n">migrations</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">migration_ab</span><span class="p">,</span> <span class="n">migration_ba</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">migrations</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">migrations</span>
+
+    <span class="k">def</span> <span class="nf">add_pulse</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">sources</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">dest</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">proportions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+    <span class="p">):</span>
+        <span class="n">pulse</span> <span class="o">=</span> <span class="n">Pulse</span><span class="p">(</span>
+            <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">source</span><span class="p">]</span> <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">],</span>
+            <span class="n">dest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">[</span><span class="n">dest</span><span class="p">],</span>
+            <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="n">proportions</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pulse</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pulse</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_json_dict</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">as_json_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;demes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">deme</span><span class="o">.</span><span class="n">as_json_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;migrations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">migration</span><span class="o">.</span><span class="n">as_json_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">]</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;pulses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pulse</span><span class="o">.</span><span class="n">as_json_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">generation_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_units</span> <span class="o">==</span> <span class="s2">&quot;generations&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generation_time</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Must specify Graph.generation_time if time_units is not &quot;</span>
+                    <span class="s2">&quot;&#39;generations&#39;&quot;</span>
+                <span class="p">)</span>
+        <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">deme</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="p">:</span>
+            <span class="n">pulse</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">:</span>
+            <span class="n">migration</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+        <span class="c1"># Migrations involving the same source and dest can&#39;t overlap temporally.</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">migration_a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">migration_b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">[</span><span class="n">j</span><span class="p">:]:</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">migration_a</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="n">migration_b</span><span class="o">.</span><span class="n">source</span>
+                    <span class="ow">and</span> <span class="n">migration_a</span><span class="o">.</span><span class="n">dest</span> <span class="o">==</span> <span class="n">migration_b</span><span class="o">.</span><span class="n">dest</span>
+                    <span class="ow">and</span> <span class="n">migration_a</span><span class="o">.</span><span class="n">time_interval</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">migration_b</span><span class="o">.</span><span class="n">time_interval</span><span class="p">)</span>
+                <span class="p">):</span>
+                    <span class="n">start_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">migration_a</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span> <span class="n">migration_b</span><span class="o">.</span><span class="n">end_time</span><span class="p">)</span>
+                    <span class="n">end_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">migration_a</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> <span class="n">migration_b</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Competing migration definitions for </span><span class="si">{</span><span class="n">migration_a</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">migration_a</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> during time interval &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">start_time</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">end_time</span><span class="si">}</span><span class="s2">]&quot;</span>
+                    <span class="p">)</span>
+
+        <span class="c1"># The rate of migration entering a deme cannot be more than 1 in any</span>
+        <span class="c1"># given interval of time.</span>
+        <span class="n">time_boundaries</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">time_boundaries</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">migration</span><span class="o">.</span><span class="n">start_time</span> <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">)</span>
+        <span class="n">time_boundaries</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">migration</span><span class="o">.</span><span class="n">end_time</span> <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">)</span>
+        <span class="n">time_boundaries</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+        <span class="n">end_times</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">time_boundaries</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">start_times</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span> <span class="o">+</span> <span class="n">end_times</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ingress_rates</span> <span class="o">=</span> <span class="p">{</span><span class="n">deme_name</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">end_times</span><span class="p">)</span> <span class="k">for</span> <span class="n">deme_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">start_times</span><span class="p">,</span> <span class="n">end_times</span><span class="p">)):</span>
+            <span class="n">current_interval</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">current_interval</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">migration</span><span class="o">.</span><span class="n">time_interval</span><span class="p">):</span>
+                    <span class="n">rate</span> <span class="o">=</span> <span class="n">ingress_rates</span><span class="p">[</span><span class="n">migration</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">migration</span><span class="o">.</span><span class="n">rate</span>
+                    <span class="k">if</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">EPSILON</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Migration rates into </span><span class="si">{</span><span class="n">migration</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> sum to &quot;</span>
+                            <span class="s2">&quot;more than 1 during the time inverval &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">start_time</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">end_time</span><span class="si">}</span><span class="s2">]&quot;</span>
+                        <span class="p">)</span>
+                    <span class="n">ingress_rates</span><span class="p">[</span><span class="n">migration</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">rate</span>
+
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># A deme&#39;s ancestors must be listed before it, so any deme we</span>
+        <span class="c1"># visit must always be visited after its ancestors.</span>
+        <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">deme</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">:</span>
+            <span class="n">migration</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1253,7 +2183,7 @@ valid instances of the Demes standard.</p>
     
       By PopSim Consortium<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2022.<br/>
       <div class="extra_footer">
         demes-spec 0.9
       </div>

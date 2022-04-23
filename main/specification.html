@@ -2085,6 +2085,10 @@ valid instances of the Demes standard.</p>
                     <span class="s2">&quot;Must specify Graph.generation_time if time_units is not &quot;</span>
                     <span class="s2">&quot;&#39;generations&#39;&quot;</span>
                 <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_units</span> <span class="o">==</span> <span class="s2">&quot;generations&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">generation_time</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;If time_units are in generations, generation_time must be 1&quot;</span>
+            <span class="p">)</span>
         <span class="k">for</span> <span class="n">deme</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">demes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="n">deme</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="p">:</span>

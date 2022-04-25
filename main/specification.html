@@ -1356,8 +1356,6 @@ valid instances of the Demes standard.</p>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">import</span> <span class="nn">dataclasses</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">import</span> <span class="nn">operator</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="c1"># Numerical wiggle room.</span>
@@ -2141,6 +2139,18 @@ valid instances of the Demes standard.</p>
             <span class="n">deme</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">migration</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">migrations</span><span class="p">:</span>
             <span class="n">migration</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="c1"># Sort pulses from oldest to youngest.</span>
+        <span class="c1"># In a discrete-time setting, non-integer pulse times that are distinct</span>
+        <span class="c1"># could be rounded to the same time value. If the input file has the pulses</span>
+        <span class="c1"># in time-ascending order, then the pulses would occur in the opposite order</span>
+        <span class="c1"># compared to a continuous-time simulator. Sorting before the rounding</span>
+        <span class="c1"># occurs avoids this ambiguity, so we explicitly require pulses to be</span>
+        <span class="c1"># sorted as part of the parser.</span>
+        <span class="c1"># Note that Python implements &quot;stable&quot; sorting, which maintains the order</span>
+        <span class="c1"># of pulses that have the same time value to start with (as required by</span>
+        <span class="c1"># the spec).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pulse</span><span class="p">:</span> <span class="n">pulse</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

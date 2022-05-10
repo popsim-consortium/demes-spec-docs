@@ -560,6 +560,43 @@
       <a class="reference internal nav-link" href="#migration-resolution">
        Migration resolution
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-rate">
+         rate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-source">
+         source
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-dest">
+         dest
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-demes">
+         demes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#symmetric-migration">
+         Symmetric migration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-start-time">
+         start_time
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-end-time">
+         end_time
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#pulse-resolution">
@@ -966,6 +1003,43 @@
       <a class="reference internal nav-link" href="#migration-resolution">
        Migration resolution
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-rate">
+         rate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-source">
+         source
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-dest">
+         dest
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-demes">
+         demes
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#symmetric-migration">
+         Symmetric migration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-start-time">
+         start_time
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#sec-spec-hdm-resolution-migration-end-time">
+         end_time
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#pulse-resolution">
@@ -1894,14 +1968,116 @@ it shall be given the same value as <code class="docutils literal notranslate"><
 </div>
 <div class="section" id="migration-resolution">
 <span id="sec-spec-hdm-resolution-migration"></span><h4>Migration resolution<a class="headerlink" href="#migration-resolution" title="Permalink to this headline">¶</a></h4>
-<div class="admonition-todo admonition" id="id27">
-<p class="admonition-title">Todo</p>
-<p>Migration resolution text</p>
+<p>Migrations must be resolved after all demes are resolved.
+Asymmetric migration can be specified using the <code class="docutils literal notranslate"><span class="pre">source</span></code>
+and <code class="docutils literal notranslate"><span class="pre">dest</span></code> properties, or symmetric migration can be
+specified using the <code class="docutils literal notranslate"><span class="pre">demes</span></code> property to list the names
+of the participating demes. Each symmetric migration is resolved
+into two asymmetric migrations (one in each direction) for each
+pair of participating demes.</p>
+<p>Resolution order:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-rate"><span class="std std-ref">rate</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-source"><span class="std std-ref">source</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-dest"><span class="std std-ref">dest</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-demes"><span class="std std-ref">demes</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-symmetric"><span class="std std-ref">Symmetric migration</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-start-time"><span class="std std-ref">start_time</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-end-time"><span class="std std-ref">end_time</span></a></p></li>
+</ul>
+<div class="section" id="sec-spec-hdm-resolution-migration-rate">
+<span id="id27"></span><h5>rate<a class="headerlink" href="#sec-spec-hdm-resolution-migration-rate" title="Permalink to this headline">¶</a></h5>
+<p>If the <code class="docutils literal notranslate"><span class="pre">rate</span></code> is omitted,</p>
+<ul class="simple">
+<li><p>if the <code class="docutils literal notranslate"><span class="pre">migration.rate</span></code> defaults field is present,
+<code class="docutils literal notranslate"><span class="pre">rate</span></code> shall be given this value.</p></li>
+<li><p>Otherwise, an error MUST be raised.</p></li>
+</ul>
+</div>
+<div class="section" id="sec-spec-hdm-resolution-migration-source">
+<span id="id28"></span><h5>source<a class="headerlink" href="#sec-spec-hdm-resolution-migration-source" title="Permalink to this headline">¶</a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">source</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.source</span></code> defaults field is present,
+<code class="docutils literal notranslate"><span class="pre">source</span></code> shall be given this value.</p>
+</div>
+<div class="section" id="sec-spec-hdm-resolution-migration-dest">
+<span id="id29"></span><h5>dest<a class="headerlink" href="#sec-spec-hdm-resolution-migration-dest" title="Permalink to this headline">¶</a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.dest</span></code> defaults field is present,
+<code class="docutils literal notranslate"><span class="pre">dest</span></code> shall be given this value.</p>
+</div>
+<div class="section" id="sec-spec-hdm-resolution-migration-demes">
+<span id="id30"></span><h5>demes<a class="headerlink" href="#sec-spec-hdm-resolution-migration-demes" title="Permalink to this headline">¶</a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.demes</span></code> defaults field is present,
+<code class="docutils literal notranslate"><span class="pre">demes</span></code> shall be given this value.</p>
+</div>
+<div class="section" id="symmetric-migration">
+<span id="sec-spec-hdm-resolution-migration-symmetric"></span><h5>Symmetric migration<a class="headerlink" href="#symmetric-migration" title="Permalink to this headline">¶</a></h5>
+<p>The following rules shall determine the mode of migration
+(either asymmetric or symmetric):</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">demes</span></code> does not have a value, and both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> have values,
+the migration is asymmetric.
+Resolution continues from <a class="reference internal" href="#sec-spec-hdm-resolution-migration-start-time"><span class="std std-ref">start_time</span></a>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">demes</span></code> has a value, and neither <code class="docutils literal notranslate"><span class="pre">source</span></code> nor <code class="docutils literal notranslate"><span class="pre">dest</span></code> have values,
+the migration is symmetric.</p></li>
+<li><p>Otherwise, the mode of migration cannot be determined,
+and an error MUST be raised.</p></li>
+</ul>
+<p>If the migration is symmetric, <code class="docutils literal notranslate"><span class="pre">demes</span></code> MUST be validated
+before further resolution:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">demes</span></code> MUST be a list of at least two deme names.</p></li>
+<li><p>Each element of the list <code class="docutils literal notranslate"><span class="pre">demes</span></code> must be the name of a resolved deme.</p></li>
+</ul>
+<p>If the migration is symmetric, two new asymmetric migrations shall be
+constructed for each pair of deme names in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.
+E.g. if <code class="docutils literal notranslate"><span class="pre">demes</span> <span class="pre">=</span> <span class="pre">[&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;]</span></code>, then asymmetric migrations shall
+be constructed for the following cases:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;b&quot;</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;b&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;a&quot;</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;c&quot;</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;a&quot;</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;b&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;c&quot;</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source=&quot;c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">dest=&quot;b&quot;</span></code>.</p></li>
+</ul>
+<p>Values for <code class="docutils literal notranslate"><span class="pre">rate</span></code>, <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, and <code class="docutils literal notranslate"><span class="pre">end_time</span></code> for the new asymmetric
+migrations shall be taken from the symmetric migration.
+If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and/or <code class="docutils literal notranslate"><span class="pre">end_time</span></code> are omitted from the symmetric
+migration, these shall also be omitted for the new asymmetric migrations.
+Resolution now proceeds separately for each distinct asymmetric migration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The symmetric migration shall not appear in the MDM output.
+Once the symmetric migration has been resolved into the corresponding
+asymmetric migrations, the symmetric migration may be discarded.</p>
+</div>
+</div>
+<div class="section" id="sec-spec-hdm-resolution-migration-start-time">
+<span id="id31"></span><h5>start_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-start-time" title="Permalink to this headline">¶</a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is omitted,</p>
+<ul class="simple">
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">migration.start_time</span></code> defaults field has a value,
+<code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be given this value.</p></li>
+<li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be the oldest time at which
+both the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes exist.
+I.e. <code class="docutils literal notranslate"><span class="pre">min(source.start_time,</span> <span class="pre">dest.start_time)</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="sec-spec-hdm-resolution-migration-end-time">
+<span id="id32"></span><h5>end_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-end-time" title="Permalink to this headline">¶</a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is omitted,</p>
+<ul class="simple">
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">migration.end_time</span></code> defaults field has a value,
+<code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be given this value.</p></li>
+<li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the most recent time at which
+both the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes exist.
+I.e. <code class="docutils literal notranslate"><span class="pre">max(source.end_time,</span> <span class="pre">dest.end_time)</span></code>.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="pulse-resolution">
 <span id="sec-spec-hdm-resolution-pulse"></span><h4>Pulse resolution<a class="headerlink" href="#pulse-resolution" title="Permalink to this headline">¶</a></h4>
-<div class="admonition-todo admonition" id="id28">
+<div class="admonition-todo admonition" id="id33">
 <p class="admonition-title">Todo</p>
 <p>Pulse resolution text</p>
 </div>
@@ -1909,13 +2085,13 @@ it shall be given the same value as <code class="docutils literal notranslate"><
 </div>
 <div class="section" id="validation">
 <h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id29">
+<div class="admonition-todo admonition" id="id34">
 <p class="admonition-title">Todo</p>
 <p>Outline the basic logic of model validation</p>
 </div>
 </div>
 <div class="section" id="sec-spec-hdm-schema">
-<span id="id30"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
+<span id="id35"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
 <p>The schema listed here is definitive in terms of types and the
 structure of the JSON documents that are considered to be
 valid instances of the Demes standard.</p>

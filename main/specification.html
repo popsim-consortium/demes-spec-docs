@@ -264,6 +264,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       metadata
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#time-units">
        time_units
       </a>
@@ -301,7 +306,7 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
+      <a class="reference internal nav-link" href="#id5">
        description
       </a>
      </li>
@@ -380,12 +385,12 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
+      <a class="reference internal nav-link" href="#id6">
        time
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id7">
        proportions
       </a>
      </li>
@@ -396,11 +401,6 @@
      Migration
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       demes
-      </a>
-     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#source">
        source
@@ -734,6 +734,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       metadata
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#time-units">
        time_units
       </a>
@@ -771,7 +776,7 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
+      <a class="reference internal nav-link" href="#id5">
        description
       </a>
      </li>
@@ -850,12 +855,12 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
+      <a class="reference internal nav-link" href="#id6">
        time
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id7">
        proportions
       </a>
      </li>
@@ -866,11 +871,6 @@
      Migration
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       demes
-      </a>
-     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#source">
        source
@@ -1270,6 +1270,11 @@ for definitive details on the types and structure of these properties.</p>
 <p>The DOI(s) of the publication(s) in which the model was inferred or
 originally described.</p>
 </div>
+<div class="section" id="id4">
+<h4>metadata<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>An object containing arbitrary additional properties and values.
+May be empty.</p>
+</div>
 <div class="section" id="time-units">
 <span id="sec-spec-mdm-time-units"></span><h4>time_units<a class="headerlink" href="#time-units" title="Permalink to this headline">¶</a></h4>
 <p>The units of time used to specify times and time intervals. These
@@ -1278,8 +1283,8 @@ SHOULD be one of “generations” or “years”.</p>
 <div class="section" id="generation-time">
 <h4>generation_time<a class="headerlink" href="#generation-time" title="Permalink to this headline">¶</a></h4>
 <p>The number by which times must be divided, to convert them to have
-units of generations. Unless <code class="docutils literal notranslate"><span class="pre">time_units</span></code> are <code class="docutils literal notranslate"><span class="pre">generations</span></code>,
-the <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> MUST be specified.</p>
+units of generations.
+Hence <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> uses the same time units specified by <code class="docutils literal notranslate"><span class="pre">time_units</span></code>.</p>
 </div>
 <div class="section" id="demes">
 <h4>demes<a class="headerlink" href="#demes" title="Permalink to this headline">¶</a></h4>
@@ -1326,16 +1331,15 @@ defined as the <code class="docutils literal notranslate"><span class="pre">end_
 Must be a valid
 <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">python identifier</a></p>
 </div>
-<div class="section" id="id4">
-<h4>description<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4>description<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>A concise description of the deme.</p>
 </div>
 <div class="section" id="ancestors">
 <span id="sec-spec-mdm-deme-ancestors"></span><h4>ancestors<a class="headerlink" href="#ancestors" title="Permalink to this headline">¶</a></h4>
-<p>The ancestors of the deme at the start of the deme’s first epoch.
-May be omitted if the deme has no ancestors in the graph.
-If two or more ancestors are specified, the <code class="docutils literal notranslate"><span class="pre">proportions</span></code>
-must also be specified, and the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be defined.
+<p>The list of ancestors of the deme at the start of the deme’s first epoch.
+May be an empty list if the deme has no ancestors in the graph,
+in which case the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be infinite.
 Each ancestor must be in the graph, and each ancestor must be
 specified only once. A deme must not be one of its own ancestors.</p>
 </div>
@@ -1343,8 +1347,6 @@ specified only once. A deme must not be one of its own ancestors.</p>
 <span id="sec-spec-mdm-deme-proportions"></span><h4>proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">¶</a></h4>
 <p>The proportions of ancestry derived from each of the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>
 at the start of the deme’s first epoch.
-The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> may be omitted if there are no ancestors, or if
-there is only one ancestor.
 The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the
 order of <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. The proportions must sum to 1 (within a
 reasonable tolerance, e.g. 1e-9). See the
@@ -1372,7 +1374,8 @@ There MUST be at least one epoch.</p>
 <span id="sec-spec-mdm-epoch"></span><h3>Epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
 <p>A deme-specific period of time spanning the half-open interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters
-apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the
+apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is implicit (there is no <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
+epoch property), but for convenience we define it as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the
 previous epoch, or the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> if it is the first epoch.</p>
 <p>Each epoch specifies the <a class="reference internal" href="#sec-spec-mdm-population-sizes"><span class="std std-ref">population size</span></a>
 over that interval, which can be a constant value or function defined by start
@@ -1382,7 +1385,7 @@ infinity, the population size for that epoch must be constant.</p>
 specify parameters for nonrandom mating, such as selfing or cloning rates,
 which give the probability that offspring are generated from one generation to
 the next by self-fertilisation or cloning of an individual. Selfing and cloning
-rates take values between zero and one, and their sum must be less than one.</p>
+rates take values between zero and one.</p>
 <div class="section" id="end-time">
 <h4>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">¶</a></h4>
 <p>The most recent <a class="reference internal" href="#sec-spec-mdm-time"><span class="std std-ref">time</span></a> of the epoch,
@@ -1413,7 +1416,7 @@ in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="st
 <div class="section" id="pulse">
 <span id="sec-spec-mdm-pulse"></span><h3>Pulse<a class="headerlink" href="#pulse" title="Permalink to this headline">¶</a></h3>
 <p>An instantaneous pulse of migration at <code class="docutils literal notranslate"><span class="pre">time</span></code>, from a list of source demes
-(<code class="docutils literal notranslate"><span class="pre">sources</span></code>) into the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+(<code class="docutils literal notranslate"><span class="pre">sources</span></code>) into the destination deme (<code class="docutils literal notranslate"><span class="pre">dest</span></code>).</p>
 <p>Pulse
 migration events specify the instantaneous replacement of a given fraction of
 individuals in a destination population by individuals with parents from
@@ -1428,17 +1431,17 @@ sequentially in the order that they are specified in the model.</p>
 <h4>dest<a class="headerlink" href="#dest" title="Permalink to this headline">¶</a></h4>
 <p>The deme name of the migration destination.</p>
 </div>
-<div class="section" id="id5">
-<h4>time<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>time<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>The time of migration, in
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
-The <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes must both exist at the given
+The demes defined by <code class="docutils literal notranslate"><span class="pre">sources</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> must both exist at the given
 <code class="docutils literal notranslate"><span class="pre">time</span></code>.  I.e. <code class="docutils literal notranslate"><span class="pre">time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code>
-deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">sources</span></code>
+demes and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
 </div>
-<div class="section" id="id6">
-<h4>proportions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>proportions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>The proportions of ancestry in the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme derived from the demes
 in <code class="docutils literal notranslate"><span class="pre">sources</span></code> immediately after the <code class="docutils literal notranslate"><span class="pre">time</span></code> of migration.
 The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the order of
@@ -1451,24 +1454,24 @@ how proportions should be interpreted.</p>
 </div>
 <div class="section" id="migration">
 <span id="sec-spec-mdm-migration"></span><h3>Migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
-<p>Continuous migration
-rates are defined as the probability that parents in the “destination”
+<p>Continuous asymmetric migration over the half-open time interval
+<code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, from the deme with name <code class="docutils literal notranslate"><span class="pre">source</span></code> to the
+deme with name <code class="docutils literal notranslate"><span class="pre">dest</span></code>.
+Rates are defined as the probability that parents in the “destination”
 population are chosen from the “source” population.  Migration rates are thus
-per generation and must be less than one. Furthermore, if more than one source
+per generation and must be less than or equal to one.
+There must be at most one migration specified per source/destination pair
+for any given time interval.
+Furthermore, if more than one source
 population have continuous migration into the same destination population, the
-sum of those migration rates must also be less than one, as rates define
+sum of those migration rates must also be less than or equal to one, as rates define
 probabilities. The probability that parents come from the same population is
 just one minus the sum of incoming migration rates.</p>
-<p>Continuous migration over the half-open time interval <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified, then migration shall be symmetric between all
-pairs of demes with deme names in the array. If <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> are
-specified instead, migration shall be asymmetric from the deme with name
-<code class="docutils literal notranslate"><span class="pre">source</span></code> to the deme with name <code class="docutils literal notranslate"><span class="pre">dest</span></code>. Either <code class="docutils literal notranslate"><span class="pre">demes</span></code>, or alternately
-both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code>, must be specified. If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is specified,
-neither <code class="docutils literal notranslate"><span class="pre">source</span></code> nor <code class="docutils literal notranslate"><span class="pre">dest</span></code> may be specified.</p>
-<div class="section" id="id7">
-<h4>demes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
-<p>The deme names of the symmetrically migrating demes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When continuous migration occurs over a time period that includes a pulse,
+the continuous migration probabilities define the probability of choosing
+parents from each deme conditional on individuals not arriving via the pulse.</p>
 </div>
 <div class="section" id="source">
 <h4>source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h4>
@@ -1484,9 +1487,7 @@ neither <code class="docutils literal notranslate"><span class="pre">source</spa
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the
 <code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
-and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
-If not specified, the migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code> shall be the minimum
-<code class="docutils literal notranslate"><span class="pre">deme.start_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
 </div>
 <div class="section" id="id10">
 <h4>end_time<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
@@ -1494,9 +1495,7 @@ If not specified, the migration <code class="docutils literal notranslate"><span
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must be contained in the
 <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
-and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.
-If not specified, the migration <code class="docutils literal notranslate"><span class="pre">end_time</span></code> shall be the maximum
-<code class="docutils literal notranslate"><span class="pre">deme.end_time</span></code> of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
 </div>
 <div class="section" id="rate">
 <h4>rate<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h4>

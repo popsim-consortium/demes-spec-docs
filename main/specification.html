@@ -636,6 +636,13 @@
     <a class="reference internal nav-link" href="#validation">
      Validation
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#migration-validation">
+       Migration validation
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sec-spec-hdm-schema">
@@ -1106,6 +1113,13 @@
     <a class="reference internal nav-link" href="#validation">
      Validation
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#migration-validation">
+       Migration validation
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sec-spec-hdm-schema">
@@ -2081,6 +2095,7 @@ before further resolution:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">demes</span></code> MUST be a list of at least two deme names.</p></li>
 <li><p>Each element of the list <code class="docutils literal notranslate"><span class="pre">demes</span></code> must be the name of a resolved deme.</p></li>
 </ul>
+<p>If neither of the previous two conditions are met, an error MUST be raised.</p>
 <p>If the migration is symmetric, two new asymmetric migrations shall be
 constructed for each pair of deme names in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.
 E.g. if <code class="docutils literal notranslate"><span class="pre">demes</span> <span class="pre">=</span> <span class="pre">[&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;]</span></code>, then asymmetric migrations shall
@@ -2197,6 +2212,14 @@ Sorting in time-descending order avoids this discrepancy.</p>
 <div class="admonition-todo admonition" id="id37">
 <p class="admonition-title">Todo</p>
 <p>Outline the basic logic of model validation</p>
+</div>
+<div class="section" id="migration-validation">
+<h4>Migration validation<a class="headerlink" href="#migration-validation" title="Permalink to this headline">¶</a></h4>
+<p>Migration start and end times are resolved in a pairwise fashion.
+(See <a class="reference internal" href="#sec-spec-hdm-resolution-migration"><span class="std std-ref">migration resolution</span></a>.)
+If the resolved <code class="docutils literal notranslate"><span class="pre">start_time</span></code> or the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of a migration is not
+contained by the time interval of both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes,
+an error MUST be raised.</p>
 </div>
 </div>
 <div class="section" id="sec-spec-hdm-schema">

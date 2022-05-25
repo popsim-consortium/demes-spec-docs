@@ -638,8 +638,30 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#migration-validation">
-       Migration validation
+      <a class="reference internal nav-link" href="#id37">
+       generation_time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id38">
+       demes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id39">
+         epochs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id40">
+       migrations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id41">
+       pulses
       </a>
      </li>
     </ul>
@@ -1115,8 +1137,30 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#migration-validation">
-       Migration validation
+      <a class="reference internal nav-link" href="#id37">
+       generation_time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id38">
+       demes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id39">
+         epochs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id40">
+       migrations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id41">
+       pulses
       </a>
      </li>
     </ul>
@@ -1221,8 +1265,12 @@ The structure of JSON
 documents conforming to the specification is formally defined
 in the <a class="reference internal" href="#sec-spec-mdm-schema"><span class="std std-ref">Schema</span></a>, and the detailed requirements for each of the
 elements in this data model are defined in this section.</p>
-<p>The <a class="reference internal" href="#sec-spec-hdm"><span class="std std-ref">Human Data Model</span></a> is a closely related specification that is intended
-to be easily human-readable and writable.</p>
+<p>The Demes <a class="reference internal" href="#sec-spec-hdm"><span class="std std-ref">Human Data Model</span></a> (HDM)
+is a closely related specification that is intended
+to be easily human-readable and writable.
+An MDM document is also a valid HDM document.
+An MDM document is constructed by <a class="reference internal" href="#sec-spec-hdm-resolution"><span class="std std-ref">resolving</span></a>
+and <a class="reference internal" href="#sec-spec-hdm-validation"><span class="std std-ref">validating</span></a> an HDM document.</p>
 <div class="section" id="common-concepts">
 <span id="sec-spec-defs-common"></span><h3>Common concepts<a class="headerlink" href="#common-concepts" title="Permalink to this headline">¶</a></h3>
 <p>This section provides details on properties that occur in multiple
@@ -1244,7 +1292,7 @@ order.</p>
 </div>
 <div class="section" id="population-sizes">
 <span id="sec-spec-mdm-population-sizes"></span><h4>Population sizes<a class="headerlink" href="#population-sizes" title="Permalink to this headline">¶</a></h4>
-<p>A fundamental concept is demes is the population size.</p>
+<p>A fundamental concept in demes is the population size.</p>
 <div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <p>Things to cover:</p>
@@ -1252,9 +1300,9 @@ order.</p>
 <li><p>We’re counting <strong>individuals</strong> not genomes</p></li>
 <li><p>We usually mean the population size in expectation, but there’s
 no hard requirements. For example, it’s up the implementation whether it thinks
-a population size of 1/3 is meaningful. Clarify with
+a population size of 0.33 is meaningful. Clarify with
 some examples from forward and backward sims.</p></li>
-<li><p>What do proportions mean? Similar point to pop size above. Given forward
+<li><p>What do proportions mean? Similar point to pop size above. Give forward
 pointers to sections we mention proportions in.</p></li>
 <li><p>What do we mean by migration of individuals? Forward pointers to sections.</p></li>
 </ul>
@@ -1338,7 +1386,8 @@ start time equal to infinity.</p>
 be an ancestor to others. The deme exists over the half-open time interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, and it may continue to exist after
 contributing ancestry to a descendant deme. The deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is
-defined as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the deme’s last epoch.</p>
+implicit (there is no <code class="docutils literal notranslate"><span class="pre">end_time</span></code> deme property), but for convenience we
+define it as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the deme’s last epoch.</p>
 <div class="section" id="name">
 <h4>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
 <p>A string identifier for a deme, which MUST be unique among all demes in a document.
@@ -1362,8 +1411,8 @@ specified only once. A deme must not be one of its own ancestors.</p>
 <p>The proportions of ancestry derived from each of the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>
 at the start of the deme’s first epoch.
 The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the
-order of <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. The proportions must sum to 1 (within a
-reasonable tolerance, e.g. 1e-9). See the
+order of <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. The proportions must be an empty list or sum to 1
+(within a reasonable tolerance, e.g. 1e-9). See the
 <a class="reference internal" href="#sec-spec-mdm-population-sizes"><span class="std std-ref">Population sizes</span></a> section for more details on
 how these proportions should be interpreted.</p>
 </div>
@@ -1381,7 +1430,7 @@ for each deme in <code class="docutils literal notranslate"><span class="pre">an
 <div class="section" id="epochs">
 <h4>epochs<a class="headerlink" href="#epochs" title="Permalink to this headline">¶</a></h4>
 <p>The list of <a class="reference internal" href="#sec-spec-mdm-epoch"><span class="std std-ref">epochs</span></a> for this deme.
-There MUST be at least one epoch.</p>
+There MUST be at least one epoch for each deme.</p>
 </div>
 </div>
 <div class="section" id="epoch">
@@ -1416,15 +1465,45 @@ in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="st
 <div class="section" id="size-function">
 <h4>size_function<a class="headerlink" href="#size-function" title="Permalink to this headline">¶</a></h4>
 <p>A function describing the population size change between
-<code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code>. FIXME, MORE DETAIL.</p>
+<code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.
+This may be any string, but the values “constant” and “exponential”
+are explicitly acknowledged to have the following meanings.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">constant</span></code>: the deme’s size does not change over the epoch.
+<code class="docutils literal notranslate"><span class="pre">start_size</span></code> and <code class="docutils literal notranslate"><span class="pre">end_size</span></code> must be equal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exponential</span></code>: the deme’s size changes exponentially from
+<code class="docutils literal notranslate"><span class="pre">start_size</span></code> to <code class="docutils literal notranslate"><span class="pre">end_size</span></code> over the epoch.
+If <code class="docutils literal notranslate"><span class="pre">t</span></code> is a time within the span of the epoch,
+the deme size <code class="docutils literal notranslate"><span class="pre">N</span></code> at time <code class="docutils literal notranslate"><span class="pre">t</span></code> can be calculated as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">start_time</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">start_time</span> <span class="o">-</span> <span class="n">epoch</span><span class="o">.</span><span class="n">end_time</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">epoch</span><span class="o">.</span><span class="n">end_size</span> <span class="o">/</span> <span class="n">epoch</span><span class="o">.</span><span class="n">start_size</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">epoch</span><span class="o">.</span><span class="n">start_size</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">size_function</span></code> must be <code class="docutils literal notranslate"><span class="pre">constant</span></code> if the epoch has an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
 </div>
 <div class="section" id="cloning-rate">
 <h4>cloning_rate<a class="headerlink" href="#cloning-rate" title="Permalink to this headline">¶</a></h4>
-<p>FIXME DEFINE ME</p>
+<p>The proportion of offspring in each generation that
+are expected to be generated through clonal reproduction.
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">cloning_rate</span></code> are expected to arise through sexual reproduction.</p>
 </div>
 <div class="section" id="selfing-rate">
 <h4>selfing_rate<a class="headerlink" href="#selfing-rate" title="Permalink to this headline">¶</a></h4>
-<p>FIXME DEFINE ME</p>
+<p>Within the sexually-reproduced offspring,
+<code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> are born via self-fertilisation while the rest
+have parents drawn at random from the previous generation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the simulator, this random drawing of parent may occur
+either with or without replacement. When drawing occurs with replacement, a small
+amount of residual selfing is expected, so that even with <code class="docutils literal notranslate"><span class="pre">cloning_rate=0</span></code>
+and <code class="docutils literal notranslate"><span class="pre">selfing_rate=0</span></code>, selfing may still occur with probability <code class="docutils literal notranslate"><span class="pre">1/N</span></code>.
+Simulators that allow variable rates of selfing are expected to clearly
+document their behaviour.</p>
+</div>
 </div>
 </div>
 <div class="section" id="pulse">
@@ -1436,7 +1515,8 @@ migration events specify the instantaneous replacement of a given fraction of
 individuals in a destination population by individuals with parents from
 a source population.  The fraction must be between zero and one, and if more
 than one pulse occurs at the same time, those replacement events are applied
-sequentially in the order that they are specified in the model.</p>
+sequentially in the order that they are specified in the model.
+The list of pulses must be sorted in time-descending order.</p>
 <div class="section" id="sources">
 <h4>sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h4>
 <p>The list of deme names of the migration sources.</p>
@@ -2093,9 +2173,10 @@ and an error MUST be raised.</p></li>
 before further resolution:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">demes</span></code> MUST be a list of at least two deme names.</p></li>
-<li><p>Each element of the list <code class="docutils literal notranslate"><span class="pre">demes</span></code> must be the name of a resolved deme.</p></li>
+<li><p>Each element of <code class="docutils literal notranslate"><span class="pre">demes</span></code> must be unique.</p></li>
+<li><p>Each element of <code class="docutils literal notranslate"><span class="pre">demes</span></code> must be the name of a resolved deme.</p></li>
 </ul>
-<p>If neither of the previous two conditions are met, an error MUST be raised.</p>
+<p>If any of the previous conditions are not met, an error MUST be raised.</p>
 <p>If the migration is symmetric, two new asymmetric migrations shall be
 constructed for each pair of deme names in <code class="docutils literal notranslate"><span class="pre">demes</span></code>.
 E.g. if <code class="docutils literal notranslate"><span class="pre">demes</span> <span class="pre">=</span> <span class="pre">[&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;]</span></code>, then asymmetric migrations shall
@@ -2208,22 +2289,99 @@ Sorting in time-descending order avoids this discrepancy.</p>
 </div>
 </div>
 <div class="section" id="validation">
-<h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id37">
-<p class="admonition-title">Todo</p>
-<p>Outline the basic logic of model validation</p>
+<span id="sec-spec-hdm-validation"></span><h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It may be convenient to perform some or all validation during model resolution.
+E.g. to avoid code duplication, or to provide better error messages to the user.</p>
 </div>
-<div class="section" id="migration-validation">
-<h4>Migration validation<a class="headerlink" href="#migration-validation" title="Permalink to this headline">¶</a></h4>
-<p>Migration start and end times are resolved in a pairwise fashion.
-(See <a class="reference internal" href="#sec-spec-hdm-resolution-migration"><span class="std std-ref">migration resolution</span></a>.)
-If the resolved <code class="docutils literal notranslate"><span class="pre">start_time</span></code> or the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of a migration is not
-contained by the time interval of both <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes,
-an error MUST be raised.</p>
+<p>Following resolution, the model must be validated against the MDM schema.
+This includes checking:</p>
+<ul class="simple">
+<li><p>all required properties now have values,</p></li>
+<li><p>no additional properties are present (except where permitted by the schema),</p></li>
+<li><p>the types of properties match the schema,</p></li>
+<li><p>the values are within the ranges specified
+(noting that infinity is permitted only for deme <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
+and for migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code>).</p></li>
+</ul>
+<p>In addition to validation against the schema, the following constraints
+must be checked to ensure overall consistency of the model.
+If any condition is not met, an error must be raised.</p>
+<div class="section" id="id37">
+<h4>generation_time<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
+<p>If <code class="docutils literal notranslate"><span class="pre">time_units</span></code> is “generations”, then <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> must be 1.</p>
+</div>
+<div class="section" id="id38">
+<h4>demes<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>There must be at least one deme.</p></li>
+<li><p>Each deme’s <code class="docutils literal notranslate"><span class="pre">name</span></code> must be unique in the model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> must be a valid Python identifier.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is infinity, <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> must be an empty list.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> is an empty list, <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must have the value infinity.</p></li>
+<li><p>No deme may appear in its own <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> list.</p></li>
+<li><p>Each element of the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> list must be unique.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list must have the same length as the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> list.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list is not empty, then the values must sum to 1
+(within a reasonable tolerance, e.g. 1e-9).</p></li>
+</ul>
+<div class="section" id="id39">
+<h5>epochs<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Each deme must have at least one epoch.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> values of successive epochs must be strictly descending
+(ordered from the past towards the present).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> values must be strictly smaller than the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p></li>
+<li><p>If the deme has an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, the first epoch’s <code class="docutils literal notranslate"><span class="pre">size_function</span></code>
+must have the value “constant”.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">size_function</span></code> is “constant”, the <code class="docutils literal notranslate"><span class="pre">start_size</span></code> and <code class="docutils literal notranslate"><span class="pre">end_size</span></code>
+must be equal.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id40">
+<h4>migrations<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+<p>This section assumes that symmetric migrations have been resolved into
+pairs of asymmetric migrations and validated as per the
+<a class="reference internal" href="#sec-spec-hdm-resolution-migration"><span class="std std-ref">migration resolution</span></a>
+section. Resolution of symmetric migrations includes
+validation of the <code class="docutils literal notranslate"><span class="pre">migration.demes</span></code> property, and this property
+is not considered below as it is not part of the MDM.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> must not be the same as <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must both be in the closed interval
+<code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time]</span></code>, for both the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
+and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be strictly greater than <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p></li>
+<li><p>There must be at most one migration specified per source/destination pair
+for any given time interval.</p></li>
+<li><p>If more than one source population have continuous migration into the same
+destination population, the sum of those migration rates must also be less
+than or equal to 1
+(within a reasonable tolerance, e.g. 1e-9).</p></li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h4>pulses<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sources</span></code> must be list containing at least one element.</p></li>
+<li><p>Each element of <code class="docutils literal notranslate"><span class="pre">sources</span></code> must be unique.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme must not appear in the <code class="docutils literal notranslate"><span class="pre">sources</span></code> list.</p></li>
+<li><p>For each source deme in <code class="docutils literal notranslate"><span class="pre">sources</span></code>,
+<code class="docutils literal notranslate"><span class="pre">time</span></code> must be in the open-closed interval <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code>,
+defined by the existence interval of the source deme.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code> must be in the closed-open interval <code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code>,
+defined by the existence interval of the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p></li>
+<li><p>Hence, <code class="docutils literal notranslate"><span class="pre">time</span></code> must not have the value infinity, nor the value 0.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list must have the same length as the <code class="docutils literal notranslate"><span class="pre">sources</span></code> list.</p></li>
+<li><p>The sum of values in the <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list must be less than or equal to 1
+(within a reasonable tolerance, e.g. 1e-9).</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="sec-spec-hdm-schema">
-<span id="id38"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
+<span id="id42"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
 <p>The schema listed here is definitive in terms of types and the
 structure of the JSON documents that are considered to be
 valid instances of the Demes standard.</p>

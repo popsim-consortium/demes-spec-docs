@@ -394,6 +394,16 @@
        proportions
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sequential-application-of-pulses">
+       Example: sequential application of pulses
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#important-considerations">
+       Important considerations
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -891,6 +901,16 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id7">
        proportions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-sequential-application-of-pulses">
+       Example: sequential application of pulses
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#important-considerations">
+       Important considerations
       </a>
      </li>
     </ul>
@@ -1544,6 +1564,110 @@ The <code class="docutils literal notranslate"><span class="pre">proportions</sp
 See the
 <a class="reference internal" href="#sec-spec-mdm-population-sizes"><span class="std std-ref">Population sizes</span></a> section for more details on
 how proportions should be interpreted.</p>
+</div>
+<div class="section" id="example-sequential-application-of-pulses">
+<h4>Example: sequential application of pulses<a class="headerlink" href="#example-sequential-application-of-pulses" title="Permalink to this headline">¶</a></h4>
+<p>Consider the following model:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
+<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
+<span class="w">   </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
+<span class="w">   </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">   </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
+<span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.25</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ten (10) generations ago, pulse events occur from source demes <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>
+into destination deme <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<p>We need to arrive at the final ancestry proportions for destination deme <code class="docutils literal notranslate"><span class="pre">C</span></code> after this time.
+Software implementing pulse events must generate output that is equivalent to the following
+procedure.</p>
+<p>The steps are:</p>
+<ol class="simple">
+<li><p>Initialize an array of zeros with length equal to the number of demes.</p></li>
+<li><p>Set the ancestry proportion of the destination deme to 1.</p></li>
+<li><p>For each pulse:
+a. Multiply the array by one (1) minus the sum of proportions.
+b. For each source, add its proportion to the array.</p></li>
+</ol>
+<p>For the above model, the steps are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="mf">2.</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="mf">3.</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.25</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
+   <span class="n">x</span><span class="p">[</span><span class="n">A</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.2</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+   <span class="n">x</span><span class="p">[</span><span class="n">B</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Thus, our final ancestry proportions for deme <code class="docutils literal notranslate"><span class="pre">C</span></code> after time 10 are <code class="docutils literal notranslate"><span class="pre">[0.2,</span> <span class="pre">0.2,</span> <span class="pre">0.6]</span></code>.</p>
+</div>
+<div class="section" id="important-considerations">
+<h4>Important considerations<a class="headerlink" href="#important-considerations" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>The final ancestry proportions depend on the order of the pulses in the model!
+If we reverse the above model such that:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.25</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We get <code class="docutils literal notranslate"><span class="pre">[0.25,</span> <span class="pre">0.15,</span> <span class="pre">0.6]</span></code> as our ancestry proportions due to pulses.</p>
+<p>The fact that the outcome of applying sequential pulses depends on
+the order is why <code class="docutils literal notranslate"><span class="pre">demes-python</span></code> emits a warning when resolving such models.</p>
+</li>
+<li><p>Given the procedure used to apply sequential pulses at the same time,
+the followng two sets of <code class="docutils literal notranslate"><span class="pre">Pulses</span></code> are not equivalent:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Therefore, we strongly recommend that models be represented using the following
+syntax that makes the intended outcome of the model explicit:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="migration">

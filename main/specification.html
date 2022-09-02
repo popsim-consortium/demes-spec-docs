@@ -688,6 +688,18 @@
    Reference parser implementation
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   Appendix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-backwards-time-to-forwards-time">
+     Converting backwards time to forwards time
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -1196,6 +1208,18 @@
   <a class="reference internal nav-link" href="#reference-parser-implementation">
    Reference parser implementation
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   Appendix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-backwards-time-to-forwards-time">
+     Converting backwards time to forwards time
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -3545,6 +3569,30 @@ valid instances of the Demes standard.</p>
         <span class="c1"># the spec).</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pulse</span><span class="p">:</span> <span class="n">pulse</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="appendix">
+<span id="sec-appendix"></span><h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="converting-backwards-time-to-forwards-time">
+<span id="sec-appendix-backwards-to-forwards"></span><h3>Converting backwards time to forwards time<a class="headerlink" href="#converting-backwards-time-to-forwards-time" title="Permalink to this headline">¶</a></h3>
+<p>Times in Demes models use a backwards-time convention, where the value <code class="docutils literal notranslate"><span class="pre">0</span></code> represents
+now and time values increase towards the past.
+However, many simulators use the opposite convention, where time <code class="docutils literal notranslate"><span class="pre">0</span></code> represents
+some time in the past and time values increase towards the present.</p>
+<p>To convert times in a Demes model into a forward-time representation:</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">y</span></code> equal to the minimum epoch end time in the resolved graph.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">x</span></code> equal to the most ancient, finite, value out of epoch <code class="docutils literal notranslate"><span class="pre">start_time</span></code>,
+epoch <code class="docutils literal notranslate"><span class="pre">end_time</span></code>, migration <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, or pulse <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+<li><p>The model duration is <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code>;</p></li>
+<li><p>Using the convention of starting a forward-in-time model at time zero (
+representing the parental generation at the beginning of a model), the model
+runs forward in time from <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">d]</span></code>.</p></li>
+<li><p>For explicit simulations involving a “burn in time”, the previous interval is shifted by that length.
+The duration of the burn-in period is <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">b]</span></code>
+and the events in the Demes graph occur from <code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">d]</span></code>.</p></li>
+<li><p>Given these definitions, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">-</span> <span class="pre">t</span></code>, where <code class="docutils literal notranslate"><span class="pre">t</span></code> is a backwards time in the Demes model and <code class="docutils literal notranslate"><span class="pre">f</span></code> is the forwards-time equivalent.</p></li>
+</ul>
 </div>
 </div>
 </div>

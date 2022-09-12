@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Specification &#8212; Demes Specification</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >let toggleHintShow = 'Click to show';</script>
-    <script >let toggleHintHide = 'Click to hide';</script>
-    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,7 +61,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +84,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -87,14 +100,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="tutorial.html">
    Tutorial
@@ -113,92 +127,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  demes-spec 0.9
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/specification.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/popsim-consortium/demes-spec"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/popsim-consortium/demes-spec/issues/new?title=Issue%20on%20page%20%2Fspecification.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/popsim-consortium/demes-spec/edit/main/docs/specification.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            demes-spec 0.9
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/popsim-consortium/demes-spec"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/popsim-consortium/demes-spec/issues/new?title=Issue%20on%20page%20%2Fspecification.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/popsim-consortium/demes-spec/edit/main/docs/specification.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/specification.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    Introduction
@@ -702,12 +821,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Specification</h1>
@@ -1227,13 +1345,14 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="specification">
-<span id="sec-spec"></span><h1>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="specification">
+<span id="sec-spec"></span><h1>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Demes is a specification for describing population genetic models
 of demographic history. This specification precisely defines the
 population genetics model and its assumptions, along with
@@ -1255,14 +1374,14 @@ interesting to most users.
 If you wish to learn how to understand and create your own
 Demes models, please see the <a class="reference internal" href="tutorial.html#sec-tutorial"><span class="std std-ref">Tutorial</span></a> instead.</p>
 </div>
-</div>
-<div class="section" id="note-to-readers">
-<h2>Note to Readers<a class="headerlink" href="#note-to-readers" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="note-to-readers">
+<h2>Note to Readers<a class="headerlink" href="#note-to-readers" title="Permalink to this headline">#</a></h2>
 <p>To provide feedback on this specification, please use the
 <a class="reference external" href="https://github.com/popsim-consortium/demes-spec/issues">issue tracker</a>.</p>
-</div>
-<div class="section" id="conventions-and-terminology">
-<span id="sec-spec-terminology"></span><h2>Conventions and Terminology<a class="headerlink" href="#conventions-and-terminology" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conventions-and-terminology">
+<span id="sec-spec-terminology"></span><h2>Conventions and Terminology<a class="headerlink" href="#conventions-and-terminology" title="Permalink to this headline">#</a></h2>
 <p>The term “Demes” in this document is to be interpreted as a
 reference to this specification. A <a class="reference internal" href="#sec-spec-mdm-deme"><span class="std std-ref">deme</span></a>
 refers to a set of individuals that can be modelled by a fixed
@@ -1283,8 +1402,8 @@ document are to be interpreted as defined in
 <p>The term “JSON Schema” in this document is to be interpreted as defined
 in the JSON Schema
 <a class="reference external" href="https://json-schema.org/draft/2020-12/json-schema-core.html">core specification</a>.</p>
-<div class="section" id="infinity">
-<span id="sec-spec-infinity"></span><h3>Infinity<a class="headerlink" href="#infinity" title="Permalink to this headline">¶</a></h3>
+<section id="infinity">
+<span id="sec-spec-infinity"></span><h3>Infinity<a class="headerlink" href="#infinity" title="Permalink to this headline">#</a></h3>
 <p>JSON does not define an encoding for infinite-valued numbers.
 However, infinite values are used in Demes for start times.
 When <strong>writing</strong> a Demes model to a format that does not permit infinity,
@@ -1295,10 +1414,10 @@ When <strong>reading</strong> a Demes model, the string “Infinity” must be d
 an infinite-valued number. When reading from formats that do support infinity,
 the format’s native encoding for infinite-valued numbers must also be
 supported.</p>
-</div>
-</div>
-<div class="section" id="machine-data-model">
-<span id="sec-spec-mdm"></span><h2>Machine Data Model<a class="headerlink" href="#machine-data-model" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="machine-data-model">
+<span id="sec-spec-mdm"></span><h2>Machine Data Model<a class="headerlink" href="#machine-data-model" title="Permalink to this headline">#</a></h2>
 <p>The Demes Machine Data Model (MDM) is a
 formal representation of the Demes model as
 a JSON document.
@@ -1315,12 +1434,12 @@ to be easily human-readable and writable.
 An MDM document is also a valid HDM document.
 An MDM document is constructed by <a class="reference internal" href="#sec-spec-hdm-resolution"><span class="std std-ref">resolving</span></a>
 and <a class="reference internal" href="#sec-spec-hdm-validation"><span class="std std-ref">validating</span></a> an HDM document.</p>
-<div class="section" id="common-concepts">
-<span id="sec-spec-defs-common"></span><h3>Common concepts<a class="headerlink" href="#common-concepts" title="Permalink to this headline">¶</a></h3>
+<section id="common-concepts">
+<span id="sec-spec-defs-common"></span><h3>Common concepts<a class="headerlink" href="#common-concepts" title="Permalink to this headline">#</a></h3>
 <p>This section provides details on properties that occur in multiple
 contexts.</p>
-<div class="section" id="time">
-<span id="sec-spec-mdm-time"></span><h4>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h4>
+<section id="time">
+<span id="sec-spec-mdm-time"></span><h4>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h4>
 <p>Times are specified as units in the past, so that time zero
 corresponds to the final generation or “now”, and event times in the past are
 values greater than zero with larger values for events that occur in the more
@@ -1333,9 +1452,9 @@ that times can be converted into generations. In general, as time flows from
 the past to the present, populations, epochs, and migration events should be
 specified in their order of appearance, so that their times are in descending
 order.</p>
-</div>
-<div class="section" id="population-sizes">
-<span id="sec-spec-mdm-population-sizes"></span><h4>Population sizes<a class="headerlink" href="#population-sizes" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="population-sizes">
+<span id="sec-spec-mdm-population-sizes"></span><h4>Population sizes<a class="headerlink" href="#population-sizes" title="Permalink to this headline">#</a></h4>
 <p>A fundamental concept in demes is the population size.</p>
 <div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
@@ -1351,63 +1470,63 @@ pointers to sections we mention proportions in.</p></li>
 <li><p>What do we mean by migration of individuals? Forward pointers to sections.</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="metadata">
-<span id="sec-spec-mdm-metadata"></span><h4>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="metadata">
+<span id="sec-spec-mdm-metadata"></span><h4>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h4>
 <div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>Discussion of metadata. What’s it for?</p>
 </div>
-</div>
-</div>
-<div class="section" id="mdm-documents">
-<h3>MDM documents<a class="headerlink" href="#mdm-documents" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="mdm-documents">
+<h3>MDM documents<a class="headerlink" href="#mdm-documents" title="Permalink to this headline">#</a></h3>
 <p>The top-level MDM document describes a single instance of a Demes model.</p>
 <p>Each MDM document contains the following list of properties. All
 properties MUST be specified, and additional properties MUST NOT be
 included in these documents. Please see the <a class="reference internal" href="#sec-spec-mdm-schema"><span class="std std-ref">Schema</span></a>
 for definitive details on the types and structure of these properties.</p>
-<div class="section" id="description">
-<h4>description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<section id="description">
+<h4>description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h4>
 <p>A concise description of the demographic model.</p>
-</div>
-<div class="section" id="doi">
-<h4>doi<a class="headerlink" href="#doi" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="doi">
+<h4>doi<a class="headerlink" href="#doi" title="Permalink to this headline">#</a></h4>
 <p>The DOI(s) of the publication(s) in which the model was inferred or
 originally described.</p>
-</div>
-<div class="section" id="id4">
-<h4>metadata<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id4">
+<h4>metadata<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>An object containing arbitrary additional properties and values.
 May be empty.</p>
-</div>
-<div class="section" id="time-units">
-<span id="sec-spec-mdm-time-units"></span><h4>time_units<a class="headerlink" href="#time-units" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="time-units">
+<span id="sec-spec-mdm-time-units"></span><h4>time_units<a class="headerlink" href="#time-units" title="Permalink to this headline">#</a></h4>
 <p>The units of time used to specify times and time intervals. These
 SHOULD be one of “generations” or “years”.</p>
-</div>
-<div class="section" id="generation-time">
-<h4>generation_time<a class="headerlink" href="#generation-time" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="generation-time">
+<h4>generation_time<a class="headerlink" href="#generation-time" title="Permalink to this headline">#</a></h4>
 <p>The number by which times must be divided, to convert them to have
 units of generations.
 Hence <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> uses the same time units specified by <code class="docutils literal notranslate"><span class="pre">time_units</span></code>.</p>
-</div>
-<div class="section" id="demes">
-<h4>demes<a class="headerlink" href="#demes" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="demes">
+<h4>demes<a class="headerlink" href="#demes" title="Permalink to this headline">#</a></h4>
 <p>The list of <a class="reference internal" href="#sec-spec-mdm-deme"><span class="std std-ref">demes</span></a> in the model.
 At least one deme MUST be specified.</p>
-</div>
-<div class="section" id="pulses">
-<h4>pulses<a class="headerlink" href="#pulses" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="pulses">
+<h4>pulses<a class="headerlink" href="#pulses" title="Permalink to this headline">#</a></h4>
 <p>The list of <a class="reference internal" href="#sec-spec-mdm-pulse"><span class="std std-ref">pulses</span></a> in the model.</p>
-</div>
-<div class="section" id="migrations">
-<h4>migrations<a class="headerlink" href="#migrations" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="migrations">
+<h4>migrations<a class="headerlink" href="#migrations" title="Permalink to this headline">#</a></h4>
 <p>The list of <a class="reference internal" href="#sec-spec-mdm-migration"><span class="std std-ref">migrations</span></a> in the model.</p>
-</div>
-</div>
-<div class="section" id="deme">
-<span id="sec-spec-mdm-deme"></span><h3>Deme<a class="headerlink" href="#deme" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="deme">
+<span id="sec-spec-mdm-deme"></span><h3>Deme<a class="headerlink" href="#deme" title="Permalink to this headline">#</a></h3>
 <p>A Deme is a single population (see the <a class="reference internal" href="#sec-spec-terminology"><span class="std std-ref">Conventions and Terminology</span></a> for
 clarification of these two terms) that exists for some non-empty
 time interval. A population is defined operationally as some set
@@ -1432,26 +1551,26 @@ be an ancestor to others. The deme exists over the half-open time interval
 contributing ancestry to a descendant deme. The deme’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is
 implicit (there is no <code class="docutils literal notranslate"><span class="pre">end_time</span></code> deme property), but for convenience we
 define it as the <code class="docutils literal notranslate"><span class="pre">end_time</span></code> of the deme’s last epoch.</p>
-<div class="section" id="name">
-<h4>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
+<section id="name">
+<h4>name<a class="headerlink" href="#name" title="Permalink to this headline">#</a></h4>
 <p>A string identifier for a deme, which MUST be unique among all demes in a document.
 Must be a valid
 <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">python identifier</a></p>
-</div>
-<div class="section" id="id5">
-<h4>description<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id5">
+<h4>description<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <p>A concise description of the deme.</p>
-</div>
-<div class="section" id="ancestors">
-<span id="sec-spec-mdm-deme-ancestors"></span><h4>ancestors<a class="headerlink" href="#ancestors" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ancestors">
+<span id="sec-spec-mdm-deme-ancestors"></span><h4>ancestors<a class="headerlink" href="#ancestors" title="Permalink to this headline">#</a></h4>
 <p>The list of ancestors of the deme at the start of the deme’s first epoch.
 May be an empty list if the deme has no ancestors in the graph,
 in which case the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be infinite.
 Each ancestor must be in the graph, and each ancestor must be
 specified only once. A deme must not be one of its own ancestors.</p>
-</div>
-<div class="section" id="proportions">
-<span id="sec-spec-mdm-deme-proportions"></span><h4>proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="proportions">
+<span id="sec-spec-mdm-deme-proportions"></span><h4>proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">#</a></h4>
 <p>The proportions of ancestry derived from each of the <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>
 at the start of the deme’s first epoch.
 The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the
@@ -1459,9 +1578,9 @@ order of <code class="docutils literal notranslate"><span class="pre">ancestors<
 (within a reasonable tolerance, e.g. 1e-9). See the
 <a class="reference internal" href="#sec-spec-mdm-population-sizes"><span class="std std-ref">Population sizes</span></a> section for more details on
 how these proportions should be interpreted.</p>
-</div>
-<div class="section" id="start-time">
-<span id="sec-spec-mdm-deme-start-time"></span><h4>start_time<a class="headerlink" href="#start-time" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="start-time">
+<span id="sec-spec-mdm-deme-start-time"></span><h4>start_time<a class="headerlink" href="#start-time" title="Permalink to this headline">#</a></h4>
 <p>The most ancient <a class="reference internal" href="#sec-spec-mdm-time"><span class="std std-ref">time</span></a>
 at which the deme exists, in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a>
 before the present. Demes with no ancestors are root demes and must
@@ -1470,15 +1589,15 @@ correspond with the interval of existence
 for each of the deme’s <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>. I.e. the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must
 be within the half-open interval <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code>
 for each deme in <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>.</p>
-</div>
-<div class="section" id="epochs">
-<h4>epochs<a class="headerlink" href="#epochs" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="epochs">
+<h4>epochs<a class="headerlink" href="#epochs" title="Permalink to this headline">#</a></h4>
 <p>The list of <a class="reference internal" href="#sec-spec-mdm-epoch"><span class="std std-ref">epochs</span></a> for this deme.
 There MUST be at least one epoch for each deme.</p>
-</div>
-</div>
-<div class="section" id="epoch">
-<span id="sec-spec-mdm-epoch"></span><h3>Epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="epoch">
+<span id="sec-spec-mdm-epoch"></span><h3>Epoch<a class="headerlink" href="#epoch" title="Permalink to this headline">#</a></h3>
 <p>A deme-specific period of time spanning the half-open interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, in which a fixed set of population parameters
 apply. The epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is implicit (there is no <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
@@ -1493,21 +1612,21 @@ specify parameters for nonrandom mating, such as selfing or cloning rates,
 which give the probability that offspring are generated from one generation to
 the next by self-fertilisation or cloning of an individual. Selfing and cloning
 rates take values between zero and one.</p>
-<div class="section" id="end-time">
-<h4>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">¶</a></h4>
+<section id="end-time">
+<h4>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">#</a></h4>
 <p>The most recent <a class="reference internal" href="#sec-spec-mdm-time"><span class="std std-ref">time</span></a> of the epoch,
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.</p>
-</div>
-<div class="section" id="start-size">
-<h4>start_size<a class="headerlink" href="#start-size" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="start-size">
+<h4>start_size<a class="headerlink" href="#start-size" title="Permalink to this headline">#</a></h4>
 <p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
-</div>
-<div class="section" id="end-size">
-<h4>end_size<a class="headerlink" href="#end-size" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="end-size">
+<h4>end_size<a class="headerlink" href="#end-size" title="Permalink to this headline">#</a></h4>
 <p>The population size at the epoch’s <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.</p>
-</div>
-<div class="section" id="size-function">
-<h4>size_function<a class="headerlink" href="#size-function" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="size-function">
+<h4>size_function<a class="headerlink" href="#size-function" title="Permalink to this headline">#</a></h4>
 <p>A function describing the population size change between
 <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">end_time</span></code>.
 This may be any string, but the values “constant” and “exponential”
@@ -1527,15 +1646,15 @@ the deme size <code class="docutils literal notranslate"><span class="pre">N</sp
 </li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">size_function</span></code> must be <code class="docutils literal notranslate"><span class="pre">constant</span></code> if the epoch has an infinite <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
-</div>
-<div class="section" id="cloning-rate">
-<h4>cloning_rate<a class="headerlink" href="#cloning-rate" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="cloning-rate">
+<h4>cloning_rate<a class="headerlink" href="#cloning-rate" title="Permalink to this headline">#</a></h4>
 <p>The proportion of offspring in each generation that
 are expected to be generated through clonal reproduction.
 <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">cloning_rate</span></code> are expected to arise through sexual reproduction.</p>
-</div>
-<div class="section" id="selfing-rate">
-<h4>selfing_rate<a class="headerlink" href="#selfing-rate" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="selfing-rate">
+<h4>selfing_rate<a class="headerlink" href="#selfing-rate" title="Permalink to this headline">#</a></h4>
 <p>Within the sexually-reproduced offspring,
 <code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> are born via self-fertilisation while the rest
 have parents drawn at random from the previous generation.</p>
@@ -1548,10 +1667,10 @@ and <code class="docutils literal notranslate"><span class="pre">selfing_rate=0<
 Simulators that allow variable rates of selfing are expected to clearly
 document their behaviour.</p>
 </div>
-</div>
-</div>
-<div class="section" id="pulse">
-<span id="sec-spec-mdm-pulse"></span><h3>Pulse<a class="headerlink" href="#pulse" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="pulse">
+<span id="sec-spec-mdm-pulse"></span><h3>Pulse<a class="headerlink" href="#pulse" title="Permalink to this headline">#</a></h3>
 <p>An instantaneous pulse of migration at <code class="docutils literal notranslate"><span class="pre">time</span></code>, from a list of source demes
 (<code class="docutils literal notranslate"><span class="pre">sources</span></code>) into the destination deme (<code class="docutils literal notranslate"><span class="pre">dest</span></code>).</p>
 <p>Pulse
@@ -1561,25 +1680,25 @@ a source population.  The fraction must be between zero and one, and if more
 than one pulse occurs at the same time, those replacement events are applied
 sequentially in the order that they are specified in the model.
 The list of pulses must be sorted in time-descending order.</p>
-<div class="section" id="sources">
-<h4>sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h4>
+<section id="sources">
+<h4>sources<a class="headerlink" href="#sources" title="Permalink to this headline">#</a></h4>
 <p>The list of deme names of the migration sources.</p>
-</div>
-<div class="section" id="dest">
-<h4>dest<a class="headerlink" href="#dest" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="dest">
+<h4>dest<a class="headerlink" href="#dest" title="Permalink to this headline">#</a></h4>
 <p>The deme name of the migration destination.</p>
-</div>
-<div class="section" id="id6">
-<h4>time<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id6">
+<h4>time<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <p>The time of migration, in
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The demes defined by <code class="docutils literal notranslate"><span class="pre">sources</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> must both exist at the given
 <code class="docutils literal notranslate"><span class="pre">time</span></code>.  I.e. <code class="docutils literal notranslate"><span class="pre">time</span></code> must be contained in the
 <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">sources</span></code>
 demes and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
-</div>
-<div class="section" id="id7">
-<h4>proportions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id7">
+<h4>proportions<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
 <p>The proportions of ancestry in the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme derived from the demes
 in <code class="docutils literal notranslate"><span class="pre">sources</span></code> immediately after the <code class="docutils literal notranslate"><span class="pre">time</span></code> of migration.
 The <code class="docutils literal notranslate"><span class="pre">proportions</span></code> must be ordered to correspond with the order of
@@ -1588,9 +1707,9 @@ The <code class="docutils literal notranslate"><span class="pre">proportions</sp
 See the
 <a class="reference internal" href="#sec-spec-mdm-population-sizes"><span class="std std-ref">Population sizes</span></a> section for more details on
 how proportions should be interpreted.</p>
-</div>
-<div class="section" id="example-sequential-application-of-pulses">
-<h4>Example: sequential application of pulses<a class="headerlink" href="#example-sequential-application-of-pulses" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="example-sequential-application-of-pulses">
+<h4>Example: sequential application of pulses<a class="headerlink" href="#example-sequential-application-of-pulses" title="Permalink to this headline">#</a></h4>
 <p>Consider the following model:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
 <span class="nt">demes</span><span class="p">:</span><span class="w"></span>
@@ -1639,9 +1758,9 @@ b. For each source, add its proportion to the array.</p></li>
 </pre></div>
 </div>
 <p>Thus, our final ancestry proportions for deme <code class="docutils literal notranslate"><span class="pre">C</span></code> after time 10 are <code class="docutils literal notranslate"><span class="pre">[0.2,</span> <span class="pre">0.2,</span> <span class="pre">0.6]</span></code>.</p>
-</div>
-<div class="section" id="important-considerations">
-<h4>Important considerations<a class="headerlink" href="#important-considerations" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="important-considerations">
+<h4>Important considerations<a class="headerlink" href="#important-considerations" title="Permalink to this headline">#</a></h4>
 <ul>
 <li><p>The final ancestry proportions depend on the order of the pulses in the model!
 If we reverse the above model such that:</p>
@@ -1692,10 +1811,10 @@ syntax that makes the intended outcome of the model explicit:</p>
 </div>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="migration">
-<span id="sec-spec-mdm-migration"></span><h3>Migration<a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="migration">
+<span id="sec-spec-mdm-migration"></span><h3>Migration<a class="headerlink" href="#migration" title="Permalink to this headline">#</a></h3>
 <p>Continuous asymmetric migration over the half-open time interval
 <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code>, from the deme with name <code class="docutils literal notranslate"><span class="pre">source</span></code> to the
 deme with name <code class="docutils literal notranslate"><span class="pre">dest</span></code>.
@@ -1715,37 +1834,37 @@ just one minus the sum of incoming migration rates.</p>
 the continuous migration probabilities define the probability of choosing
 parents from each deme conditional on individuals not arriving via the pulse.</p>
 </div>
-<div class="section" id="source">
-<h4>source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h4>
+<section id="source">
+<h4>source<a class="headerlink" href="#source" title="Permalink to this headline">#</a></h4>
 <p>The deme name of the asymmetric migration source.</p>
-</div>
-<div class="section" id="id8">
-<h4>dest<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id8">
+<h4>dest<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <p>The deme name of the asymmetric migration destination.</p>
-</div>
-<div class="section" id="id9">
-<h4>start_time<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id9">
+<h4>start_time<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
 <p>The time at which migration begins,
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The <code class="docutils literal notranslate"><span class="pre">start_time</span></code> must be contained in the
 <code class="docutils literal notranslate"><span class="pre">[deme.start_time,</span> <span class="pre">deme.end_time)</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
 and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
-</div>
-<div class="section" id="id10">
-<h4>end_time<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id10">
+<h4>end_time<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
 <p>The time at which migration stops,
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> must be contained in the
 <code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">source</span></code> deme
 and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
-</div>
-<div class="section" id="rate">
-<h4>rate<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="rate">
+<h4>rate<a class="headerlink" href="#rate" title="Permalink to this headline">#</a></h4>
 <p>The rate of migration per generation.</p>
-</div>
-</div>
-<div class="section" id="schema">
-<span id="sec-spec-mdm-schema"></span><h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="schema">
+<span id="sec-spec-mdm-schema"></span><h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">#</a></h3>
 <p>The schema listed here is definitive in terms of types and the
 structure of the JSON documents that are considered to be
 valid instances of the MDM</p>
@@ -1927,10 +2046,10 @@ valid instances of the MDM</p>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="human-data-model">
-<span id="sec-spec-hdm"></span><h2>Human Data Model<a class="headerlink" href="#human-data-model" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="human-data-model">
+<span id="sec-spec-hdm"></span><h2>Human Data Model<a class="headerlink" href="#human-data-model" title="Permalink to this headline">#</a></h2>
 <p>The Demes Human Data Model (HDM) is an extension of the <a class="reference internal" href="#sec-spec-mdm"><span class="std std-ref">Machine Data Model</span></a>
 that is designed for human readability. The HDM provides default values
 for many parameters, removes redundant information in the MDM via rules described
@@ -1946,9 +2065,9 @@ for the HDM (which also parses the MDM, by definition) written in Python.
 This implementation
 is intended to clarify any ambiguities there may be in this specification,
 but is not intended to be used directly in downstream software. Please
-use the <a class="reference internal" href="introduction.html"><span class="doc">demes</span></a> Python library instead.</p>
-<div class="section" id="defaults">
-<span id="sec-spec-hdm-defaults"></span><h3>Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h3>
+use the <a class="reference external" href="https://popsim-consortium.github.io/demes-docs/main/introduction.html" title="(in Python)"><span class="xref std std-doc">demes</span></a> Python library instead.</p>
+<section id="defaults">
+<span id="sec-spec-hdm-defaults"></span><h3>Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">#</a></h3>
 <p>Repeated values such as shared population sizes represent a significant opportunity
 for error in human-generated models. The HDM provides the default value
 propagation mechanism to avoid this repetition. The essential idea is that
@@ -1967,8 +2086,8 @@ for examples of how the defaults section can be used.</p>
 <p>See the <a class="reference internal" href="#sec-spec-reference-implementation"><span class="std std-ref">reference implementation</span></a>
 for a practical example of how defaults in the HDM can be implemented.</p>
 </div>
-<div class="section" id="top-level-defaults">
-<span id="sec-spec-hdm-defaults-top-level"></span><h4>Top-level defaults<a class="headerlink" href="#top-level-defaults" title="Permalink to this headline">¶</a></h4>
+<section id="top-level-defaults">
+<span id="sec-spec-hdm-defaults-top-level"></span><h4>Top-level defaults<a class="headerlink" href="#top-level-defaults" title="Permalink to this headline">#</a></h4>
 <p>The top-level HDM document may contain a propery <code class="docutils literal notranslate"><span class="pre">defaults</span></code>,
 which defines values to use for entities within rest of the document
 <em>unless otherwise specified</em>. The <code class="docutils literal notranslate"><span class="pre">defaults</span></code> object can have
@@ -1996,9 +2115,9 @@ within the pulse itself.</p></li>
 for definitive information on the structural properties of the
 top level <code class="docutils literal notranslate"><span class="pre">defaults</span></code> section.</p>
 </div>
-</div>
-<div class="section" id="deme-defaults">
-<span id="sec-spec-hdm-defaults-deme"></span><h4>Deme defaults<a class="headerlink" href="#deme-defaults" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="deme-defaults">
+<span id="sec-spec-hdm-defaults-deme"></span><h4>Deme defaults<a class="headerlink" href="#deme-defaults" title="Permalink to this headline">#</a></h4>
 <p>Deme defaults operate in the same manner as
 <a class="reference internal" href="#sec-spec-hdm-defaults-top-level"><span class="std std-ref">top-level defaults</span></a>: the specified
 values will be used if omitted in any epochs within the deme. Defaults
@@ -2014,10 +2133,10 @@ within an epoch itself.</p>
 for definitive information on the structural properties of the
 deme <code class="docutils literal notranslate"><span class="pre">defaults</span></code> section.</p>
 </div>
-</div>
-</div>
-<div class="section" id="resolution">
-<span id="sec-spec-hdm-resolution"></span><h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="resolution">
+<span id="sec-spec-hdm-resolution"></span><h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">#</a></h3>
 <p>The Demes <a class="reference internal" href="#sec-spec-mdm"><span class="std std-ref">machine data model</span></a> contains many
 values that are technically redundant, in that they can be reliably
 inferred from other values in the model. For example, if a deme’s
@@ -2059,13 +2178,13 @@ Thus a parser need not know if a model is in HDM or MDM form a priori.</p>
 <p>Resolution order matters for some things, but not for others.
 Clarify where order matters (and why).</p>
 </div>
-<div class="section" id="sec-spec-hdm-resolution-time-units">
-<span id="id12"></span><h4>time_units<a class="headerlink" href="#sec-spec-hdm-resolution-time-units" title="Permalink to this headline">¶</a></h4>
+<section id="sec-spec-hdm-resolution-time-units">
+<span id="id12"></span><h4>time_units<a class="headerlink" href="#sec-spec-hdm-resolution-time-units" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">time_units</span></code> must be specified. The value “generations” is special,
 in that it implies that the <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> will be 1 and may thus be omitted.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-generation-time">
-<span id="id13"></span><h4>generation_time<a class="headerlink" href="#sec-spec-hdm-resolution-generation-time" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sec-spec-hdm-resolution-generation-time">
+<span id="id13"></span><h4>generation_time<a class="headerlink" href="#sec-spec-hdm-resolution-generation-time" title="Permalink to this headline">#</a></h4>
 <p>If <code class="docutils literal notranslate"><span class="pre">time_units</span></code> is not “generations”, then <code class="docutils literal notranslate"><span class="pre">generation_time</span></code>
 MUST be specified.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">time_units</span></code> is “generations”, then</p>
@@ -2074,9 +2193,9 @@ MUST be specified.</p>
 shall be given the value 1.</p></li>
 <li><p>an error shall be raised if <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> is not 1.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-metadata">
-<span id="id14"></span><h4>metadata<a class="headerlink" href="#sec-spec-hdm-resolution-metadata" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sec-spec-hdm-resolution-metadata">
+<span id="id14"></span><h4>metadata<a class="headerlink" href="#sec-spec-hdm-resolution-metadata" title="Permalink to this headline">#</a></h4>
 <p>If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is omitted, it shall be given the value of an
 empty dictionary.
 If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is present, the value must be a dictionary,
@@ -2084,23 +2203,23 @@ but metadata is otherwise transferred to the output
 without further processing. Errors may be raised if metadata is not
 parsable (e.g. invalid YAML), but the parser shall not attempt
 to validate fields within the metdata.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-description">
-<span id="id15"></span><h4>description<a class="headerlink" href="#sec-spec-hdm-resolution-description" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sec-spec-hdm-resolution-description">
+<span id="id15"></span><h4>description<a class="headerlink" href="#sec-spec-hdm-resolution-description" title="Permalink to this headline">#</a></h4>
 <p>If <code class="docutils literal notranslate"><span class="pre">description</span></code> is omitted, it shall be given the value of an empty string.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-doi">
-<span id="id16"></span><h4>doi<a class="headerlink" href="#sec-spec-hdm-resolution-doi" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sec-spec-hdm-resolution-doi">
+<span id="id16"></span><h4>doi<a class="headerlink" href="#sec-spec-hdm-resolution-doi" title="Permalink to this headline">#</a></h4>
 <p>If <code class="docutils literal notranslate"><span class="pre">doi</span></code> is omitted, it shall be given the value of an empty list.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-defaults">
-<span id="id17"></span><h4>defaults<a class="headerlink" href="#sec-spec-hdm-resolution-defaults" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sec-spec-hdm-resolution-defaults">
+<span id="id17"></span><h4>defaults<a class="headerlink" href="#sec-spec-hdm-resolution-defaults" title="Permalink to this headline">#</a></h4>
 <p>If top-level <code class="docutils literal notranslate"><span class="pre">defaults</span></code> is provided, default values shall be validated
 to the extent possible, to avoid propagating invalid values.
 E.g. <code class="docutils literal notranslate"><span class="pre">defaults.epoch.start_size</span></code> cannot be negative.</p>
-</div>
-<div class="section" id="deme-resolution">
-<span id="sec-spec-hdm-resolution-deme"></span><h4>Deme resolution<a class="headerlink" href="#deme-resolution" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="deme-resolution">
+<span id="sec-spec-hdm-resolution-deme"></span><h4>Deme resolution<a class="headerlink" href="#deme-resolution" title="Permalink to this headline">#</a></h4>
 <p>Each deme is resolved in the order that
 it occurs in the input. A deme can only be resolved if its
 ancestor demes have already been resolved,
@@ -2117,33 +2236,33 @@ ancestors are listed before their descendants.</p>
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-deme-start-time"><span class="std std-ref">start_time</span></a></p></li>
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-epoch"><span class="std std-ref">epochs</span></a></p></li>
 </ul>
-<div class="section" id="sec-spec-hdm-resolution-deme-defaults">
-<span id="id18"></span><h5>defaults<a class="headerlink" href="#sec-spec-hdm-resolution-deme-defaults" title="Permalink to this headline">¶</a></h5>
+<section id="sec-spec-hdm-resolution-deme-defaults">
+<span id="id18"></span><h5>defaults<a class="headerlink" href="#sec-spec-hdm-resolution-deme-defaults" title="Permalink to this headline">#</a></h5>
 <p>If deme-level <code class="docutils literal notranslate"><span class="pre">defaults</span></code> is provided, default values shall be validated
 to the extent possible, to avoid propagating invalid values.
 E.g. <code class="docutils literal notranslate"><span class="pre">defaults.epoch.start_size</span></code> cannot be negative.</p>
 <p>For each deme, deme-level <code class="docutils literal notranslate"><span class="pre">defaults</span></code> override top-level defaults.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-deme-description">
-<span id="id19"></span><h5>description<a class="headerlink" href="#sec-spec-hdm-resolution-deme-description" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-deme-description">
+<span id="id19"></span><h5>description<a class="headerlink" href="#sec-spec-hdm-resolution-deme-description" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">description</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">deme.description</span></code> defaults field is present, <code class="docutils literal notranslate"><span class="pre">description</span></code>
 shall be given this value.</p></li>
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">description</span></code> shall be given the value of the empty string.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-deme-ancestors">
-<span id="id20"></span><h5>ancestors<a class="headerlink" href="#sec-spec-hdm-resolution-deme-ancestors" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-deme-ancestors">
+<span id="id20"></span><h5>ancestors<a class="headerlink" href="#sec-spec-hdm-resolution-deme-ancestors" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">deme.ancestors</span></code> defaults field is present, <code class="docutils literal notranslate"><span class="pre">ancestors</span></code>
 shall be given this value.</p></li>
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">ancestors</span></code> shall be given the value of the empty list.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-deme-proportions">
-<span id="id21"></span><h5>proportions<a class="headerlink" href="#sec-spec-hdm-resolution-deme-proportions" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-deme-proportions">
+<span id="id21"></span><h5>proportions<a class="headerlink" href="#sec-spec-hdm-resolution-deme-proportions" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">proportions</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">deme.proportions</span></code> defaults field is present, <code class="docutils literal notranslate"><span class="pre">proportions</span></code>
@@ -2155,9 +2274,9 @@ a single-element list containing the element <code class="docutils literal notra
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">proportions</span></code> cannot be determined and an error
 MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-deme-start-time">
-<span id="id22"></span><h5>start_time<a class="headerlink" href="#sec-spec-hdm-resolution-deme-start-time" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-deme-start-time">
+<span id="id22"></span><h5>start_time<a class="headerlink" href="#sec-spec-hdm-resolution-deme-start-time" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">epoch.start_time</span></code> defaults field is present, <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
@@ -2169,9 +2288,9 @@ given the value <code class="docutils literal notranslate"><span class="pre">inf
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">start_time</span></code> cannot be determined and an
 error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="epoch-resolution">
-<span id="sec-spec-hdm-resolution-epoch"></span><h5>Epoch resolution<a class="headerlink" href="#epoch-resolution" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="epoch-resolution">
+<span id="sec-spec-hdm-resolution-epoch"></span><h5>Epoch resolution<a class="headerlink" href="#epoch-resolution" title="Permalink to this headline">#</a></h5>
 <p>Epochs are listed in time-descending order (from oldest to youngest),
 and population sizes are inherited from older epochs.
 Resolution order:</p>
@@ -2186,8 +2305,8 @@ Resolution order:</p>
 a single-element list, where the list element has the value of an epoch with
 all fields omitted. This may produce a valid epoch during subsequent resolution,
 e.g. if the <code class="docutils literal notranslate"><span class="pre">epoch.start_size</span></code> defaults field has a value.</p>
-<div class="section" id="sec-spec-hdm-resolution-epoch-end-time">
-<span id="id23"></span><h6>end_time<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-end-time" title="Permalink to this headline">¶</a></h6>
+<section id="sec-spec-hdm-resolution-epoch-end-time">
+<span id="id23"></span><h6>end_time<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-end-time" title="Permalink to this headline">#</a></h6>
 <p>If <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">epoch.end_time</span></code> defaults field is present, <code class="docutils literal notranslate"><span class="pre">end_time</span></code>
@@ -2200,9 +2319,9 @@ be raised.</p></li>
 <p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> value of the first epoch MUST be strictly
 smaller than the deme’s <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> values of successive epochs MUST be strictly decreasing.</p>
-</div>
-<div class="section" id="start-size-end-size">
-<span id="sec-spec-hdm-resolution-epoch-size"></span><h6>start_size, end_size<a class="headerlink" href="#start-size-end-size" title="Permalink to this headline">¶</a></h6>
+</section>
+<section id="start-size-end-size">
+<span id="sec-spec-hdm-resolution-epoch-size"></span><h6>start_size, end_size<a class="headerlink" href="#start-size-end-size" title="Permalink to this headline">#</a></h6>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Sizes are never inherited from ancestors.</p>
@@ -2229,9 +2348,9 @@ it shall be given the same value as the previous epoch’s <code class="docutils
 <li><p>If <code class="docutils literal notranslate"><span class="pre">end_size</span></code> is omitted (and no defaults exist),
 it shall be given the same value as <code class="docutils literal notranslate"><span class="pre">start_size</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-epoch-size-function">
-<span id="id24"></span><h6>size_function<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-size-function" title="Permalink to this headline">¶</a></h6>
+</section>
+<section id="sec-spec-hdm-resolution-epoch-size-function">
+<span id="id24"></span><h6>size_function<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-size-function" title="Permalink to this headline">#</a></h6>
 <p>If <code class="docutils literal notranslate"><span class="pre">size_function</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">epoch.size_function</span></code> defaults field is present,
@@ -2240,29 +2359,29 @@ it shall be given the same value as <code class="docutils literal notranslate"><
 <code class="docutils literal notranslate"><span class="pre">size_function</span></code> will be given the value <code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code>.</p></li>
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">size_function</span></code> will be given the value <code class="docutils literal notranslate"><span class="pre">&quot;exponential&quot;</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-epoch-selfing-rate">
-<span id="id25"></span><h6>selfing_rate<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-selfing-rate" title="Permalink to this headline">¶</a></h6>
+</section>
+<section id="sec-spec-hdm-resolution-epoch-selfing-rate">
+<span id="id25"></span><h6>selfing_rate<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-selfing-rate" title="Permalink to this headline">#</a></h6>
 <p>If <code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">epoch.selfing_rate</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> shall be given the value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-epoch-cloning-rate">
-<span id="id26"></span><h6>cloning_rate<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-cloning-rate" title="Permalink to this headline">¶</a></h6>
+</section>
+<section id="sec-spec-hdm-resolution-epoch-cloning-rate">
+<span id="id26"></span><h6>cloning_rate<a class="headerlink" href="#sec-spec-hdm-resolution-epoch-cloning-rate" title="Permalink to this headline">#</a></h6>
 <p>If <code class="docutils literal notranslate"><span class="pre">cloning_rate</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">epoch.cloning_rate</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">cloning_rate</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, <code class="docutils literal notranslate"><span class="pre">cloning_rate</span></code> shall be given the value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="migration-resolution">
-<span id="sec-spec-hdm-resolution-migration"></span><h4>Migration resolution<a class="headerlink" href="#migration-resolution" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="migration-resolution">
+<span id="sec-spec-hdm-resolution-migration"></span><h4>Migration resolution<a class="headerlink" href="#migration-resolution" title="Permalink to this headline">#</a></h4>
 <p>Migrations must be resolved after all demes are resolved.
 Asymmetric migration can be specified using the <code class="docutils literal notranslate"><span class="pre">source</span></code>
 and <code class="docutils literal notranslate"><span class="pre">dest</span></code> properties, or symmetric migration can be
@@ -2280,32 +2399,32 @@ pair of participating demes.</p>
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-start-time"><span class="std std-ref">start_time</span></a></p></li>
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-migration-end-time"><span class="std std-ref">end_time</span></a></p></li>
 </ul>
-<div class="section" id="sec-spec-hdm-resolution-migration-rate">
-<span id="id27"></span><h5>rate<a class="headerlink" href="#sec-spec-hdm-resolution-migration-rate" title="Permalink to this headline">¶</a></h5>
+<section id="sec-spec-hdm-resolution-migration-rate">
+<span id="id27"></span><h5>rate<a class="headerlink" href="#sec-spec-hdm-resolution-migration-rate" title="Permalink to this headline">#</a></h5>
 <p>If the <code class="docutils literal notranslate"><span class="pre">rate</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">migration.rate</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">rate</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, an error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-migration-source">
-<span id="id28"></span><h5>source<a class="headerlink" href="#sec-spec-hdm-resolution-migration-source" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-migration-source">
+<span id="id28"></span><h5>source<a class="headerlink" href="#sec-spec-hdm-resolution-migration-source" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">source</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.source</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">source</span></code> shall be given this value.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-migration-dest">
-<span id="id29"></span><h5>dest<a class="headerlink" href="#sec-spec-hdm-resolution-migration-dest" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-migration-dest">
+<span id="id29"></span><h5>dest<a class="headerlink" href="#sec-spec-hdm-resolution-migration-dest" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.dest</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">dest</span></code> shall be given this value.</p>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-migration-demes">
-<span id="id30"></span><h5>demes<a class="headerlink" href="#sec-spec-hdm-resolution-migration-demes" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-migration-demes">
+<span id="id30"></span><h5>demes<a class="headerlink" href="#sec-spec-hdm-resolution-migration-demes" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">demes</span></code> is omitted and the <code class="docutils literal notranslate"><span class="pre">migration.demes</span></code> defaults field is present,
 <code class="docutils literal notranslate"><span class="pre">demes</span></code> shall be given this value.</p>
-</div>
-<div class="section" id="symmetric-migration">
-<span id="sec-spec-hdm-resolution-migration-symmetric"></span><h5>Symmetric migration<a class="headerlink" href="#symmetric-migration" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="symmetric-migration">
+<span id="sec-spec-hdm-resolution-migration-symmetric"></span><h5>Symmetric migration<a class="headerlink" href="#symmetric-migration" title="Permalink to this headline">#</a></h5>
 <p>The following rules shall determine the mode of migration
 (either asymmetric or symmetric):</p>
 <ul class="simple">
@@ -2348,9 +2467,9 @@ Resolution now proceeds separately for each distinct asymmetric migration.</p>
 Once the symmetric migration has been resolved into the corresponding
 asymmetric migrations, the symmetric migration may be discarded.</p>
 </div>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-migration-start-time">
-<span id="id31"></span><h5>start_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-start-time" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-migration-start-time">
+<span id="id31"></span><h5>start_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-start-time" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">start_time</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">migration.start_time</span></code> defaults field has a value,
@@ -2359,9 +2478,9 @@ asymmetric migrations, the symmetric migration may be discarded.</p>
 both the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes exist.
 I.e. <code class="docutils literal notranslate"><span class="pre">min(source.start_time,</span> <span class="pre">dest.start_time)</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-migration-end-time">
-<span id="id32"></span><h5>end_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-end-time" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-migration-end-time">
+<span id="id32"></span><h5>end_time<a class="headerlink" href="#sec-spec-hdm-resolution-migration-end-time" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">end_time</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">migration.end_time</span></code> defaults field has a value,
@@ -2370,10 +2489,10 @@ I.e. <code class="docutils literal notranslate"><span class="pre">min(source.sta
 both the <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> demes exist.
 I.e. <code class="docutils literal notranslate"><span class="pre">max(source.end_time,</span> <span class="pre">dest.end_time)</span></code>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="pulse-resolution">
-<span id="sec-spec-hdm-resolution-pulse"></span><h4>Pulse resolution<a class="headerlink" href="#pulse-resolution" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="pulse-resolution">
+<span id="sec-spec-hdm-resolution-pulse"></span><h4>Pulse resolution<a class="headerlink" href="#pulse-resolution" title="Permalink to this headline">#</a></h4>
 <p>Pulses must be resolved after all demes are resolved.</p>
 <p>Resolution order:</p>
 <ul class="simple">
@@ -2383,44 +2502,44 @@ I.e. <code class="docutils literal notranslate"><span class="pre">max(source.end
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-pulse-time"><span class="std std-ref">time</span></a></p></li>
 <li><p><a class="reference internal" href="#sec-spec-hdm-resolution-pulse-sort"><span class="std std-ref">Sort pulses</span></a></p></li>
 </ul>
-<div class="section" id="sec-spec-hdm-resolution-pulse-sources">
-<span id="id33"></span><h5>sources<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-sources" title="Permalink to this headline">¶</a></h5>
+<section id="sec-spec-hdm-resolution-pulse-sources">
+<span id="id33"></span><h5>sources<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-sources" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">sources</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">pulse.sources</span></code> defaults field has a value,
 <code class="docutils literal notranslate"><span class="pre">sources</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, an error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-pulse-proportions">
-<span id="id34"></span><h5>proportions<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-proportions" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-pulse-proportions">
+<span id="id34"></span><h5>proportions<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-proportions" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">proportions</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">pulse.proportions</span></code> defaults field has a value,
 <code class="docutils literal notranslate"><span class="pre">proportions</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, an error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-pulse-dest">
-<span id="id35"></span><h5>dest<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-dest" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-pulse-dest">
+<span id="id35"></span><h5>dest<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-dest" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">dest</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">pulse.dest</span></code> defaults field has a value,
 <code class="docutils literal notranslate"><span class="pre">dest</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, an error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sec-spec-hdm-resolution-pulse-time">
-<span id="id36"></span><h5>time<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-time" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sec-spec-hdm-resolution-pulse-time">
+<span id="id36"></span><h5>time<a class="headerlink" href="#sec-spec-hdm-resolution-pulse-time" title="Permalink to this headline">#</a></h5>
 <p>If <code class="docutils literal notranslate"><span class="pre">time</span></code> is omitted,</p>
 <ul class="simple">
 <li><p>if the <code class="docutils literal notranslate"><span class="pre">pulse.time</span></code> defaults field has a value,
 <code class="docutils literal notranslate"><span class="pre">time</span></code> shall be given this value.</p></li>
 <li><p>Otherwise, an error MUST be raised.</p></li>
 </ul>
-</div>
-<div class="section" id="sort-pulses">
-<span id="sec-spec-hdm-resolution-pulse-sort"></span><h5>Sort pulses<a class="headerlink" href="#sort-pulses" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="sort-pulses">
+<span id="sec-spec-hdm-resolution-pulse-sort"></span><h5>Sort pulses<a class="headerlink" href="#sort-pulses" title="Permalink to this headline">#</a></h5>
 <p>Pulses MUST be sorted in time-descending order (from oldest to youngest).
 A <a class="reference external" href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability">stable</a>
 sorting algorithm MUST be used to avoid changing the model interpretation
@@ -2433,11 +2552,11 @@ order when times are rounded, then the pulses would be applied
 in the opposite order compared to a continuous-time setting.
 Sorting in time-descending order avoids this discrepancy.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="validation">
-<span id="sec-spec-hdm-validation"></span><h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="validation">
+<span id="sec-spec-hdm-validation"></span><h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It may be convenient to perform some or all validation during model resolution.
@@ -2456,12 +2575,12 @@ and for migration <code class="docutils literal notranslate"><span class="pre">s
 <p>In addition to validation against the schema, the following constraints
 must be checked to ensure overall consistency of the model.
 If any condition is not met, an error must be raised.</p>
-<div class="section" id="id37">
-<h4>generation_time<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
+<section id="id37">
+<h4>generation_time<a class="headerlink" href="#id37" title="Permalink to this headline">#</a></h4>
 <p>If <code class="docutils literal notranslate"><span class="pre">time_units</span></code> is “generations”, then <code class="docutils literal notranslate"><span class="pre">generation_time</span></code> must be 1.</p>
-</div>
-<div class="section" id="id38">
-<h4>demes<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id38">
+<h4>demes<a class="headerlink" href="#id38" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>There must be at least one deme.</p></li>
 <li><p>Each deme’s <code class="docutils literal notranslate"><span class="pre">name</span></code> must be unique in the model.</p></li>
@@ -2474,8 +2593,8 @@ If any condition is not met, an error must be raised.</p>
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list is not empty, then the values must sum to 1
 (within a reasonable tolerance, e.g. 1e-9).</p></li>
 </ul>
-<div class="section" id="id39">
-<h5>epochs<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h5>
+<section id="id39">
+<h5>epochs<a class="headerlink" href="#id39" title="Permalink to this headline">#</a></h5>
 <ul class="simple">
 <li><p>Each deme must have at least one epoch.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> values of successive epochs must be strictly descending
@@ -2486,10 +2605,10 @@ must have the value “constant”.</p></li>
 <li><p>If the <code class="docutils literal notranslate"><span class="pre">size_function</span></code> is “constant”, the <code class="docutils literal notranslate"><span class="pre">start_size</span></code> and <code class="docutils literal notranslate"><span class="pre">end_size</span></code>
 must be equal.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id40">
-<h4>migrations<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="id40">
+<h4>migrations<a class="headerlink" href="#id40" title="Permalink to this headline">#</a></h4>
 <p>This section assumes that symmetric migrations have been resolved into
 pairs of asymmetric migrations and validated as per the
 <a class="reference internal" href="#sec-spec-hdm-resolution-migration"><span class="std std-ref">migration resolution</span></a>
@@ -2509,9 +2628,9 @@ destination population, the sum of those migration rates must also be less
 than or equal to 1
 (within a reasonable tolerance, e.g. 1e-9).</p></li>
 </ul>
-</div>
-<div class="section" id="id41">
-<h4>pulses<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id41">
+<h4>pulses<a class="headerlink" href="#id41" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sources</span></code> must be list containing at least one element.</p></li>
 <li><p>Each element of <code class="docutils literal notranslate"><span class="pre">sources</span></code> must be unique.</p></li>
@@ -2526,10 +2645,10 @@ defined by the existence interval of the <code class="docutils literal notransla
 <li><p>The sum of values in the <code class="docutils literal notranslate"><span class="pre">proportions</span></code> list must be less than or equal to 1
 (within a reasonable tolerance, e.g. 1e-9).</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="sec-spec-hdm-schema">
-<span id="id42"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="sec-spec-hdm-schema">
+<span id="id42"></span><h3>Schema<a class="headerlink" href="#sec-spec-hdm-schema" title="Permalink to this headline">#</a></h3>
 <p>The schema listed here is definitive in terms of types and the
 structure of the JSON documents that are considered to be
 valid instances of the Demes standard.</p>
@@ -2742,10 +2861,10 @@ valid instances of the Demes standard.</p>
 <span class="w">          </span><span class="nt">$ref</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#/definitions/rate&#39;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="reference-parser-implementation">
-<span id="sec-spec-reference-implementation"></span><h2>Reference parser implementation<a class="headerlink" href="#reference-parser-implementation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="reference-parser-implementation">
+<span id="sec-spec-reference-implementation"></span><h2>Reference parser implementation<a class="headerlink" href="#reference-parser-implementation" title="Permalink to this headline">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple parser that builds a fully-qualified Demes Graph from an input JSON</span>
 <span class="c1"># string.</span>
 <span class="c1">#</span>
@@ -3570,11 +3689,11 @@ valid instances of the Demes standard.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">pulses</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pulse</span><span class="p">:</span> <span class="n">pulse</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="appendix">
-<span id="sec-appendix"></span><h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="converting-backwards-time-to-forwards-time">
-<span id="sec-appendix-backwards-to-forwards"></span><h3>Converting backwards time to forwards time<a class="headerlink" href="#converting-backwards-time-to-forwards-time" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="appendix">
+<span id="sec-appendix"></span><h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">#</a></h2>
+<section id="converting-backwards-time-to-forwards-time">
+<span id="sec-appendix-backwards-to-forwards"></span><h3>Converting backwards time to forwards time<a class="headerlink" href="#converting-backwards-time-to-forwards-time" title="Permalink to this headline">#</a></h3>
 <p>Times in Demes models use a backwards-time convention, where the value <code class="docutils literal notranslate"><span class="pre">0</span></code> represents
 now and time values increase towards the past.
 However, many simulators use the opposite convention, where time <code class="docutils literal notranslate"><span class="pre">0</span></code> represents
@@ -3593,9 +3712,9 @@ The duration of the burn-in period is <code class="docutils literal notranslate"
 and the events in the Demes graph occur from <code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">d]</span></code>.</p></li>
 <li><p>Given these definitions, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">-</span> <span class="pre">t</span></code>, where <code class="docutils literal notranslate"><span class="pre">t</span></code> is a backwards time in the Demes model and <code class="docutils literal notranslate"><span class="pre">f</span></code> is the forwards-time equivalent.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3619,9 +3738,11 @@ and the events in the Demes graph occur from <code class="docutils literal notra
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="gallery.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -3630,27 +3751,31 @@ and the events in the Demes graph occur from <code class="docutils literal notra
         </div>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PopSim Consortium<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      demes-spec 0.9
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By PopSim Consortium<br/>
-    
-        &copy; Copyright 2022.<br/>
-      <div class="extra_footer">
-        demes-spec 0.9
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

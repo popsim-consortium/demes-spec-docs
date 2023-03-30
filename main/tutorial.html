@@ -125,6 +125,11 @@ const thebe_selector_output = ".output, .cell_output"
    Specification
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://popsim-consortium.github.io/demes-docs/latest/CITATION.html">
+   Citing Demes
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -605,38 +610,38 @@ of the demographic model.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="858819ed-c8f6-4724-aa47-141f6c1efc74" name="40b9105c-f42f-4d26-8553-34d6ad4397dc" type="radio">
-</input><label class="sd-tab-label pt-0" for="858819ed-c8f6-4724-aa47-141f6c1efc74">
+<input checked="checked" id="14d8c1b2-bdea-49c8-ac71-ccb033616fd7" name="bdb94943-4942-4c8e-adbf-f4fef1f86a08" type="radio">
+</input><label class="sd-tab-label pt-0" for="14d8c1b2-bdea-49c8-ac71-ccb033616fd7">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments start with a hash.</span><span class="w"></span>
-<span class="nt">description</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Asymmetric migration between two extant demes.</span><span class="w"></span>
-<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">400</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments start with a hash.</span>
+<span class="nt">description</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Asymmetric migration between two extant demes.</span>
+<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">400</span>
+<span class="w">        </span><span class="nt">end_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="2512205a-4682-4f71-95de-b31e4c729236" name="40b9105c-f42f-4d26-8553-34d6ad4397dc" type="radio">
-</input><label class="sd-tab-label pt-0" for="2512205a-4682-4f71-95de-b31e4c729236">
+<input id="60e217ba-a91f-4d9e-9276-1084928403d7" name="bdb94943-4942-4c8e-adbf-f4fef1f86a08" type="radio">
+</input><label class="sd-tab-label pt-0" for="60e217ba-a91f-4d9e-9276-1084928403d7">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_2_0.svg" src="_images/tutorial_2_0.svg" /></div>
@@ -669,21 +674,21 @@ a single deme with constant population size.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input id="bc4e95d3-b866-4a70-9046-5fdc187b8bb3" name="9234a3a1-63ee-4c5b-bc88-25c795f69fc1" type="radio">
-</input><label class="sd-tab-label pt-0" for="bc4e95d3-b866-4a70-9046-5fdc187b8bb3">
+<input id="bdfbf126-65d1-4aa1-8549-82bff6f807be" name="789b1f8c-0f39-4e9f-b09d-f09d30b4009b" type="radio">
+</input><label class="sd-tab-label pt-0" for="bdfbf126-65d1-4aa1-8549-82bff6f807be">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 </div>
-<input checked="checked" id="78af3dfd-5f0c-4b7f-8622-5302ebdfe833" name="9234a3a1-63ee-4c5b-bc88-25c795f69fc1" type="radio">
-</input><label class="sd-tab-label pt-0" for="78af3dfd-5f0c-4b7f-8622-5302ebdfe833">
+<input checked="checked" id="5505a93b-615b-4b36-a76f-3a251fff68c2" name="789b1f8c-0f39-4e9f-b09d-f09d30b4009b" type="radio">
+</input><label class="sd-tab-label pt-0" for="5505a93b-615b-4b36-a76f-3a251fff68c2">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_4_0.svg" src="_images/tutorial_4_0.svg" /></div>
@@ -716,19 +721,19 @@ The following Demes file describes an equivalent model.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="a32cd9a5-815d-4a6e-841d-dcaab4ee44f1" name="9e41c907-6fbf-4bdd-af0c-567e61c3e69a" type="radio">
-</input><label class="sd-tab-label pt-0" for="a32cd9a5-815d-4a6e-841d-dcaab4ee44f1">
+<input checked="checked" id="ba4b9059-2f64-4ab4-a36b-cabe3924806e" name="9a7f065c-11df-445e-9d0d-7bc4baa033c6" type="radio">
+</input><label class="sd-tab-label pt-0" for="ba4b9059-2f64-4ab4-a36b-cabe3924806e">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 </pre></div>
 </div>
 </div>
-<input id="5299377c-b0c8-45af-9e69-3df4ffa9b81f" name="9e41c907-6fbf-4bdd-af0c-567e61c3e69a" type="radio">
-</input><label class="sd-tab-label pt-0" for="5299377c-b0c8-45af-9e69-3df4ffa9b81f">
+<input id="fd310eed-e212-4846-a935-5023d9b5de11" name="9a7f065c-11df-445e-9d0d-7bc4baa033c6" type="radio">
+</input><label class="sd-tab-label pt-0" for="fd310eed-e212-4846-a935-5023d9b5de11">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_6_0.svg" src="_images/tutorial_6_0.svg" /></div>
@@ -750,23 +755,23 @@ Consider a single deme that suffered a bottleneck 50 generations ago.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input id="48a873e2-7210-4bfa-8303-37986adfba33" name="5ec3d8e8-a318-4278-8837-1bbcbac45c3c" type="radio">
-</input><label class="sd-tab-label pt-0" for="48a873e2-7210-4bfa-8303-37986adfba33">
+<input id="d845c4f6-daba-47ea-a21f-273248c2653e" name="1bf46860-a6b3-4d2a-b032-56f01e971d5f" type="radio">
+</input><label class="sd-tab-label pt-0" for="d845c4f6-daba-47ea-a21f-273248c2653e">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 </div>
-<input checked="checked" id="66a7fdb9-9dcd-42de-8baf-522edb333e02" name="5ec3d8e8-a318-4278-8837-1bbcbac45c3c" type="radio">
-</input><label class="sd-tab-label pt-0" for="66a7fdb9-9dcd-42de-8baf-522edb333e02">
+<input checked="checked" id="248b4cfe-7386-440c-8378-6a59d8af7f3d" name="1bf46860-a6b3-4d2a-b032-56f01e971d5f" type="radio">
+</input><label class="sd-tab-label pt-0" for="248b4cfe-7386-440c-8378-6a59d8af7f3d">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_8_0.svg" src="_images/tutorial_8_0.svg" /></div>
@@ -788,21 +793,21 @@ order (from the past towards the present).</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="d7c07b64-7c15-4d87-a341-02873d7eb7ec" name="f56e5f42-9467-441c-aa3f-279258217c34" type="radio">
-</input><label class="sd-tab-label pt-0" for="d7c07b64-7c15-4d87-a341-02873d7eb7ec">
+<input checked="checked" id="4bccb284-82ab-4ad4-843d-2826b9810bf7" name="9be23c6c-8f62-42b7-ad3b-f58928414dc2" type="radio">
+</input><label class="sd-tab-label pt-0" for="4bccb284-82ab-4ad4-843d-2826b9810bf7">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
 </pre></div>
 </div>
 </div>
-<input id="59bb728b-adc9-4744-a644-4471a65f4504" name="f56e5f42-9467-441c-aa3f-279258217c34" type="radio">
-</input><label class="sd-tab-label pt-0" for="59bb728b-adc9-4744-a644-4471a65f4504">
+<input id="d6421b31-6fa5-43a0-b206-c2789ad9d8fd" name="9be23c6c-8f62-42b7-ad3b-f58928414dc2" type="radio">
+</input><label class="sd-tab-label pt-0" for="d6421b31-6fa5-43a0-b206-c2789ad9d8fd">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_10_0.svg" src="_images/tutorial_10_0.svg" /></div>
@@ -845,28 +850,28 @@ the well-known ZigZag model from
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="96e61fa4-6bb2-4c4a-b523-1cbc43552497" name="f02160d7-b615-4ce7-9f4e-580b1b8ddfa2" type="radio">
-</input><label class="sd-tab-label pt-0" for="96e61fa4-6bb2-4c4a-b523-1cbc43552497">
+<input checked="checked" id="06715b93-d56a-4a23-a5b9-a83491b3632d" name="7b9af6d6-feb3-405b-af73-e06b9636dfb8" type="radio">
+</input><label class="sd-tab-label pt-0" for="06715b93-d56a-4a23-a5b9-a83491b3632d">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A single population model with epochs of exponential growth and decay.</span><span class="w"></span>
-<span class="nt">doi</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1038/ng.3015</span><span class="w"></span>
-<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generic</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">34133.31</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">8533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">2133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">33.333</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A single population model with epochs of exponential growth and decay.</span>
+<span class="nt">doi</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1038/ng.3015</span>
+<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generic</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">34133.31</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">8533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">2133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">533.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">133.33</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7156</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">33.333</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">71560</span><span class="p p-Indicator">}</span>
 </pre></div>
 </div>
 </div>
-<input id="9a7572d0-097b-40d3-8ffa-b869e0addf3f" name="f02160d7-b615-4ce7-9f4e-580b1b8ddfa2" type="radio">
-</input><label class="sd-tab-label pt-0" for="9a7572d0-097b-40d3-8ffa-b869e0addf3f">
+<input id="8047f543-4a59-4311-be0e-27f1a37ccd78" name="7b9af6d6-feb3-405b-af73-e06b9636dfb8" type="radio">
+</input><label class="sd-tab-label pt-0" for="8047f543-4a59-4311-be0e-27f1a37ccd78">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_12_0.svg" src="_images/tutorial_12_0.svg" /></div>
@@ -920,30 +925,30 @@ which is a list of deme names.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="67209f93-ddca-48b7-98d3-bc2c5340b1ce" name="227947f8-0681-43c7-8571-a57526a30d8c" type="radio">
-</input><label class="sd-tab-label pt-0" for="67209f93-ddca-48b7-98d3-bc2c5340b1ce">
+<input checked="checked" id="d762b9ec-068e-4e3a-9a8a-bea261533b42" name="1b051dd3-bcb1-40fb-a3a6-c170e6968044" type="radio">
+</input><label class="sd-tab-label pt-0" for="d762b9ec-068e-4e3a-9a8a-bea261533b42">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
 </pre></div>
 </div>
 </div>
-<input id="5264b116-2c05-4161-873d-e5b6410a85d4" name="227947f8-0681-43c7-8571-a57526a30d8c" type="radio">
-</input><label class="sd-tab-label pt-0" for="5264b116-2c05-4161-873d-e5b6410a85d4">
+<input id="676631bd-64c5-4c59-8aa0-86dbf738a2ff" name="1b051dd3-bcb1-40fb-a3a6-c170e6968044" type="radio">
+</input><label class="sd-tab-label pt-0" for="676631bd-64c5-4c59-8aa0-86dbf738a2ff">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_14_0.svg" src="_images/tutorial_14_0.svg" /></div>
@@ -973,28 +978,28 @@ The following Demes file describes an equivalent model.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="ee5e6b99-4b47-40d2-9b4d-eb67020443c5" name="e50ee66f-a1b4-478d-ab7b-eaff44b6dba7" type="radio">
-</input><label class="sd-tab-label pt-0" for="ee5e6b99-4b47-40d2-9b4d-eb67020443c5">
+<input checked="checked" id="bee4e5ea-181e-4fb0-a33e-881addd29a88" name="03d9e2ca-73ff-420e-9ad3-76977bd30485" type="radio">
+</input><label class="sd-tab-label pt-0" for="bee4e5ea-181e-4fb0-a33e-881addd29a88">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
 </pre></div>
 </div>
 </div>
-<input id="7dce4ecc-134a-4282-845a-ea89a8112f1d" name="e50ee66f-a1b4-478d-ab7b-eaff44b6dba7" type="radio">
-</input><label class="sd-tab-label pt-0" for="7dce4ecc-134a-4282-845a-ea89a8112f1d">
+<input id="cbcfc8ad-6cec-4939-80df-92b20fa95c8a" name="03d9e2ca-73ff-420e-9ad3-76977bd30485" type="radio">
+</input><label class="sd-tab-label pt-0" for="cbcfc8ad-6cec-4939-80df-92b20fa95c8a">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_16_0.svg" src="_images/tutorial_16_0.svg" /></div>
@@ -1019,24 +1024,24 @@ explicitly provide a <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="80f7c3e9-da4c-4deb-bb80-15beb2d8cc8e" name="72361a5b-89e8-4c64-a585-f16da0048497" type="radio">
-</input><label class="sd-tab-label pt-0" for="80f7c3e9-da4c-4deb-bb80-15beb2d8cc8e">
+<input checked="checked" id="34942736-efdf-4bf7-af81-bfbd7dc41e71" name="508d9264-9114-4637-bcd8-59fba15d7478" type="radio">
+</input><label class="sd-tab-label pt-0" for="34942736-efdf-4bf7-af81-bfbd7dc41e71">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
 </pre></div>
 </div>
 </div>
-<input id="561971a3-6005-49e0-8791-77f50d0fdcdb" name="72361a5b-89e8-4c64-a585-f16da0048497" type="radio">
-</input><label class="sd-tab-label pt-0" for="561971a3-6005-49e0-8791-77f50d0fdcdb">
+<input id="84ce754b-ad7c-41d3-8daf-9cdfaee952bc" name="508d9264-9114-4637-bcd8-59fba15d7478" type="radio">
+</input><label class="sd-tab-label pt-0" for="84ce754b-ad7c-41d3-8daf-9cdfaee952bc">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_18_0.svg" src="_images/tutorial_18_0.svg" /></div>
@@ -1062,29 +1067,29 @@ the descendant’s <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="ea033a54-969a-4d31-ad10-9e3866a2f664" name="de8c0532-574f-4d5e-9d97-23cc02b9a757" type="radio">
-</input><label class="sd-tab-label pt-0" for="ea033a54-969a-4d31-ad10-9e3866a2f664">
+<input checked="checked" id="cb9555b6-a3e9-4fed-8f75-f7ba45aaa2ca" name="8dafebc8-f38e-49e0-9e29-90be67baa646" type="radio">
+</input><label class="sd-tab-label pt-0" for="cb9555b6-a3e9-4fed-8f75-f7ba45aaa2ca">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Y</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.9</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Y</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.9</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
 </pre></div>
 </div>
 </div>
-<input id="3f1219f3-3f44-49eb-a0c6-4468482a0b8c" name="de8c0532-574f-4d5e-9d97-23cc02b9a757" type="radio">
-</input><label class="sd-tab-label pt-0" for="3f1219f3-3f44-49eb-a0c6-4468482a0b8c">
+<input id="cd38bd1c-5511-4921-9c2e-b032c5e8634f" name="8dafebc8-f38e-49e0-9e29-90be67baa646" type="radio">
+</input><label class="sd-tab-label pt-0" for="cd38bd1c-5511-4921-9c2e-b032c5e8634f">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_20_0.svg" src="_images/tutorial_20_0.svg" /></div>
@@ -1115,32 +1120,32 @@ who (potentially) have offspring in deme <code class="docutils literal notransla
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="5c6f8ec5-82e7-4c46-add4-ca13ee7ae994" name="d7ac1c26-54f3-430d-8550-96df245c19cc" type="radio">
-</input><label class="sd-tab-label pt-0" for="5c6f8ec5-82e7-4c46-add4-ca13ee7ae994">
+<input checked="checked" id="557d448a-813a-4647-83b7-1362dc688021" name="0284135c-fb88-43be-8746-ed6fa4b99dc3" type="radio">
+</input><label class="sd-tab-label pt-0" for="557d448a-813a-4647-83b7-1362dc688021">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="330907da-225f-4572-8c8f-a6764187bb3b" name="d7ac1c26-54f3-430d-8550-96df245c19cc" type="radio">
-</input><label class="sd-tab-label pt-0" for="330907da-225f-4572-8c8f-a6764187bb3b">
+<input id="821b2ffc-7cd3-4050-b061-9ad1116df65e" name="0284135c-fb88-43be-8746-ed6fa4b99dc3" type="radio">
+</input><label class="sd-tab-label pt-0" for="821b2ffc-7cd3-4050-b061-9ad1116df65e">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_22_0.svg" src="_images/tutorial_22_0.svg" /></div>
@@ -1165,28 +1170,28 @@ the period of time when both demes exist simultaneously.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="30eaea1b-5322-48d4-8048-4ae1133a5199" name="2770a3fd-20d3-44df-88a4-f0251deb9a11" type="radio">
-</input><label class="sd-tab-label pt-0" for="30eaea1b-5322-48d4-8048-4ae1133a5199">
+<input checked="checked" id="0fbc2fac-fadb-4373-9605-0c3ec5d2c40b" name="ee92ab6a-7554-484c-a8e2-3bcc41e17915" type="radio">
+</input><label class="sd-tab-label pt-0" for="0fbc2fac-fadb-4373-9605-0c3ec5d2c40b">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="4a9fb91f-b1ce-4670-8e37-f1062790072f" name="2770a3fd-20d3-44df-88a4-f0251deb9a11" type="radio">
-</input><label class="sd-tab-label pt-0" for="4a9fb91f-b1ce-4670-8e37-f1062790072f">
+<input id="ca3d1db1-20b0-4adb-be73-41777696bdbb" name="ee92ab6a-7554-484c-a8e2-3bcc41e17915" type="radio">
+</input><label class="sd-tab-label pt-0" for="ca3d1db1-20b0-4adb-be73-41777696bdbb">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_24_0.svg" src="_images/tutorial_24_0.svg" /></div>
@@ -1203,32 +1208,32 @@ Below we model three periods of continuous migration.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="af0b0986-048b-4a40-bb71-ba851d57e85a" name="6b687f0e-e20f-4a62-b630-6ca93fa7581a" type="radio">
-</input><label class="sd-tab-label pt-0" for="af0b0986-048b-4a40-bb71-ba851d57e85a">
+<input checked="checked" id="4f4171fc-6a36-486e-9515-8ca89e689f59" name="988b630e-82c6-4e74-954c-b01b26a5b108" type="radio">
+</input><label class="sd-tab-label pt-0" for="4f4171fc-6a36-486e-9515-8ca89e689f59">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-4</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">800</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-3</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">500</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-5</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">}</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-4</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">800</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-3</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">500</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="nt"> dest</span><span class="p">:</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1e-5</span><span class="p p-Indicator">,</span><span class="nt"> start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="nt"> end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">}</span>
 </pre></div>
 </div>
 </div>
-<input id="5bbedd61-d229-4077-ad9b-f96de76925a2" name="6b687f0e-e20f-4a62-b630-6ca93fa7581a" type="radio">
-</input><label class="sd-tab-label pt-0" for="5bbedd61-d229-4077-ad9b-f96de76925a2">
+<input id="21b1fffe-8855-46a0-b8cb-8a6e701fba68" name="988b630e-82c6-4e74-954c-b01b26a5b108" type="radio">
+</input><label class="sd-tab-label pt-0" for="21b1fffe-8855-46a0-b8cb-8a6e701fba68">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_26_0.svg" src="_images/tutorial_26_0.svg" /></div>
@@ -1262,31 +1267,31 @@ but it’s simpler to specify a list of deme names (the migration’s
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="b8190712-8fbd-45b5-8b5d-05a0b9c60b4c" name="c025dfc0-b077-4769-bac4-bf2574295e1d" type="radio">
-</input><label class="sd-tab-label pt-0" for="b8190712-8fbd-45b5-8b5d-05a0b9c60b4c">
+<input checked="checked" id="8716d41d-1b0b-449c-b4e3-b95a3bf5642e" name="55c918e0-e608-4667-9c0c-6d95f6854a95" type="radio">
+</input><label class="sd-tab-label pt-0" for="8716d41d-1b0b-449c-b4e3-b95a3bf5642e">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="df695c3c-6f85-4085-8467-7d3f8ac185c4" name="c025dfc0-b077-4769-bac4-bf2574295e1d" type="radio">
-</input><label class="sd-tab-label pt-0" for="df695c3c-6f85-4085-8467-7d3f8ac185c4">
+<input id="d008b077-46d3-4476-813b-e340ea3ec3e6" name="55c918e0-e608-4667-9c0c-6d95f6854a95" type="radio">
+</input><label class="sd-tab-label pt-0" for="d008b077-46d3-4476-813b-e340ea3ec3e6">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_28_0.svg" src="_images/tutorial_28_0.svg" /></div>
@@ -1303,31 +1308,31 @@ of four demes.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="b1603404-2a14-4391-b589-4dac4c9d0561" name="03f0d015-3936-4235-91e5-5c8cce3d244d" type="radio">
-</input><label class="sd-tab-label pt-0" for="b1603404-2a14-4391-b589-4dac4c9d0561">
+<input checked="checked" id="ba9b0303-acd0-4bea-b0cc-1de1c586d9ff" name="5fc34785-feed-4594-b559-e969f7df1434" type="radio">
+</input><label class="sd-tab-label pt-0" for="ba9b0303-acd0-4bea-b0cc-1de1c586d9ff">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
 <span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span>
 <span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span>
 <span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span>
 <span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="b431abab-3867-4424-8ee2-8f1420484a0f" name="03f0d015-3936-4235-91e5-5c8cce3d244d" type="radio">
-</input><label class="sd-tab-label pt-0" for="b431abab-3867-4424-8ee2-8f1420484a0f">
+<input id="92724b82-9951-4965-9f57-2d7192e13164" name="5fc34785-feed-4594-b559-e969f7df1434" type="radio">
+</input><label class="sd-tab-label pt-0" for="92724b82-9951-4965-9f57-2d7192e13164">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_30_0.svg" src="_images/tutorial_30_0.svg" /></div>
@@ -1353,30 +1358,30 @@ because <code class="docutils literal notranslate"><span class="pre">C</span></c
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="2710e1a5-674f-450d-bd73-c9aefe55b5ad" name="b6b0dd50-6f06-401e-8557-8de2681b4fb3" type="radio">
-</input><label class="sd-tab-label pt-0" for="2710e1a5-674f-450d-bd73-c9aefe55b5ad">
+<input checked="checked" id="5098d471-d1d9-4705-ade2-2c0f1bbd1a79" name="35f3ae44-65bc-49c6-9992-0601f9a843f8" type="radio">
+</input><label class="sd-tab-label pt-0" for="5098d471-d1d9-4705-ade2-2c0f1bbd1a79">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
-<span class="w">  </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-5</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="w">  </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-5</span>
 </pre></div>
 </div>
 </div>
-<input id="1ed11181-abfe-4ebd-a60c-902756f927a6" name="b6b0dd50-6f06-401e-8557-8de2681b4fb3" type="radio">
-</input><label class="sd-tab-label pt-0" for="1ed11181-abfe-4ebd-a60c-902756f927a6">
+<input id="5fdd82e8-92b4-4d16-827f-ae9aeeb8385b" name="35f3ae44-65bc-49c6-9992-0601f9a843f8" type="radio">
+</input><label class="sd-tab-label pt-0" for="5fdd82e8-92b4-4d16-827f-ae9aeeb8385b">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_32_0.svg" src="_images/tutorial_32_0.svg" /></div>
@@ -1410,33 +1415,33 @@ the pulse as occurring over a single time step (such as a single generation).</p
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="8de1bb43-2cea-4c60-9b6b-3ade5f8b4e64" name="3a231414-35e0-468f-bbd4-2ca1a9d87c2a" type="radio">
-</input><label class="sd-tab-label pt-0" for="8de1bb43-2cea-4c60-9b6b-3ade5f8b4e64">
+<input checked="checked" id="4c643e0f-502e-4212-a217-cd9d3d14ae7a" name="2ad8a183-11cd-487c-9b57-aed9f93d30c1" type="radio">
+</input><label class="sd-tab-label pt-0" for="4c643e0f-502e-4212-a217-cd9d3d14ae7a">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w"></span>
-<span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w"></span>
-<span class="w">    </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.05</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="nt">pulses</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span>
+<span class="w">    </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.05</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
 </pre></div>
 </div>
 </div>
-<input id="2a706164-adad-4e10-aad1-530de7e821ad" name="3a231414-35e0-468f-bbd4-2ca1a9d87c2a" type="radio">
-</input><label class="sd-tab-label pt-0" for="2a706164-adad-4e10-aad1-530de7e821ad">
+<input id="174275e2-aaf6-4a5a-8a90-2a2eb9a2305c" name="2ad8a183-11cd-487c-9b57-aed9f93d30c1" type="radio">
+</input><label class="sd-tab-label pt-0" for="174275e2-aaf6-4a5a-8a90-2a2eb9a2305c">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_34_0.svg" src="_images/tutorial_34_0.svg" /></div>
@@ -1462,15 +1467,15 @@ each pulse?</p>
 <p>When multiple pulses are specified with the same <code class="docutils literal notranslate"><span class="pre">time</span></code>,
 the migration pulses occur in the order in which they are written.
 Consider the following two pulses into deme <code class="docutils literal notranslate"><span class="pre">A</span></code> at time 100.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">C</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.1</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">C</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.2</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>The second pulse replaces 20% of <code class="docutils literal notranslate"><span class="pre">A</span></code>’s ancestry, including 20% of the ancestry
@@ -1480,11 +1485,11 @@ ancestry from <code class="docutils literal notranslate"><span class="pre">B</sp
 As this may be confusing, we recommend avoiding the use of multiple pulses
 in this way, and instead implement the model using multiple <code class="docutils literal notranslate"><span class="pre">sources</span></code> with
 the desired final ancestry <code class="docutils literal notranslate"><span class="pre">proportions</span></code>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span><span class="w"></span>
-<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.08</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.2</span><span class="p p-Indicator">]</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pulses</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">B</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="nt">proportions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.08</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.2</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>More complex models involving multiple simultaneous pulses are possible,
@@ -1503,27 +1508,27 @@ population size.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="045af7a1-69b9-4817-ac60-958937c10ec0" name="70ac268a-d31b-4733-90c6-f3bd1c08e0b9" type="radio">
-</input><label class="sd-tab-label pt-0" for="045af7a1-69b9-4817-ac60-958937c10ec0">
+<input checked="checked" id="679026b0-dd22-4d45-a70b-0605f5e97d70" name="c4ebee20-8cb3-4a09-b489-605ec477f716" type="radio">
+</input><label class="sd-tab-label pt-0" for="679026b0-dd22-4d45-a70b-0605f5e97d70">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># Note: this is spelled &quot;epoch&quot;, as distinct from the &quot;epochs&quot; list.</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Note: this is spelled &quot;epoch&quot;, as distinct from the &quot;epochs&quot; list.</span>
+<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="897c366d-2393-499f-9abd-892dd79c7f8d" name="70ac268a-d31b-4733-90c6-f3bd1c08e0b9" type="radio">
-</input><label class="sd-tab-label pt-0" for="897c366d-2393-499f-9abd-892dd79c7f8d">
+<input id="c8ddf1e1-3926-41fc-b67d-3abd26204852" name="c4ebee20-8cb3-4a09-b489-605ec477f716" type="radio">
+</input><label class="sd-tab-label pt-0" for="c8ddf1e1-3926-41fc-b67d-3abd26204852">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_36_0.svg" src="_images/tutorial_36_0.svg" /></div>
@@ -1539,30 +1544,30 @@ the desired epoch.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="d9c8828e-0aed-4677-b2ab-671d43c0740e" name="7599f4b4-60d1-44c5-b138-8f3960ef3285" type="radio">
-</input><label class="sd-tab-label pt-0" for="d9c8828e-0aed-4677-b2ab-671d43c0740e">
+<input checked="checked" id="46c02cb5-f04a-40be-8400-09c74a7d5a59" name="bcb0c238-feab-476a-8670-cd6712272932" type="radio">
+</input><label class="sd-tab-label pt-0" for="46c02cb5-f04a-40be-8400-09c74a7d5a59">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="8df9ea5a-667c-4f05-be71-715060619874" name="7599f4b4-60d1-44c5-b138-8f3960ef3285" type="radio">
-</input><label class="sd-tab-label pt-0" for="8df9ea5a-667c-4f05-be71-715060619874">
+<input id="8b437726-a18b-4840-8ee7-27448a02b80c" name="bcb0c238-feab-476a-8670-cd6712272932" type="radio">
+</input><label class="sd-tab-label pt-0" for="8b437726-a18b-4840-8ee7-27448a02b80c">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_38_0.svg" src="_images/tutorial_38_0.svg" /></div>
@@ -1578,35 +1583,35 @@ such as the <code class="docutils literal notranslate"><span class="pre">start_t
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="e617ddf3-cd93-4e3b-af83-c95fd47ad0a3" name="b68239e6-84d4-413c-a54f-15113cffaa42" type="radio">
-</input><label class="sd-tab-label pt-0" for="e617ddf3-cd93-4e3b-af83-c95fd47ad0a3">
+<input checked="checked" id="f3843f99-cc39-4655-be37-1233a7f65a6e" name="a31a4bfc-64f0-4ff9-8c32-47417ca33716" type="radio">
+</input><label class="sd-tab-label pt-0" for="f3843f99-cc39-4655-be37-1233a7f65a6e">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span><span class="w"></span>
-<span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">deme</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"></span>
-<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span><span class="w"></span>
-<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w"></span>
-<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generations</span>
+<span class="nt">defaults</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deme</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">X</span><span class="p p-Indicator">]}</span>
+<span class="w">  </span><span class="nt">epoch</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">}</span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">start_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.inf</span>
+<span class="w">    </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpha</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beta</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gamma</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delta</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">        </span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alpha</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">beta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gamma</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">delta</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-4</span>
 </pre></div>
 </div>
 </div>
-<input id="f98be518-e450-4a19-8b29-2bca3cfa5a81" name="b68239e6-84d4-413c-a54f-15113cffaa42" type="radio">
-</input><label class="sd-tab-label pt-0" for="f98be518-e450-4a19-8b29-2bca3cfa5a81">
+<input id="fd3bfd64-a90d-4c82-a3ce-133a283eca25" name="a31a4bfc-64f0-4ff9-8c32-47417ca33716" type="radio">
+</input><label class="sd-tab-label pt-0" for="fd3bfd64-a90d-4c82-a3ce-133a283eca25">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_40_0.svg" src="_images/tutorial_40_0.svg" /></div>
@@ -1659,56 +1664,56 @@ match the <code class="docutils literal notranslate"><span class="pre">time_unit
 </div>
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="308345fa-1507-4215-8079-6e7663fc960f" name="495be1b3-3dc6-4ee8-b285-1902e964a81f" type="radio">
-</input><label class="sd-tab-label pt-0" for="308345fa-1507-4215-8079-6e7663fc960f">
+<input checked="checked" id="00056419-2255-47fc-801b-d1a318b347c3" name="eea8f853-9449-4052-9bd2-95206c2b8566" type="radio">
+</input><label class="sd-tab-label pt-0" for="00056419-2255-47fc-801b-d1a318b347c3">
 YAML</label><div class="sd-tab-content docutils">
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The Gutenkunst et al. (2009) OOA model.</span><span class="w"></span>
-<span class="nt">doi</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1371/journal.pgen.1000695</span><span class="w"></span>
-<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">years</span><span class="w"></span>
-<span class="nt">generation_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The Gutenkunst et al. (2009) OOA model.</span>
+<span class="nt">doi</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://doi.org/10.1371/journal.pgen.1000695</span>
+<span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">years</span>
+<span class="nt">generation_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span>
 
-<span class="nt">demes</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ancestral</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Equilibrium/root population</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">220e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7300</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AMH</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Anatomically modern humans</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ancestral</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">140e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">12300</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OOA</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bottleneck out-of-Africa population</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">21.2e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">2100</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YRI</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yoruba in Ibadan, Nigeria</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12300</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CEU</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Utah Residents (CEPH) with Northern and Western European Ancestry</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">29725</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHB</span><span class="w"></span>
-<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Han Chinese in Beijing, China</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">510</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">54090</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="nt">demes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ancestral</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Equilibrium/root population</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">220e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">7300</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AMH</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Anatomically modern humans</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ancestral</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">140e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">12300</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OOA</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bottleneck out-of-Africa population</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">end_time</span><span class="p">:</span><span class="w"> </span><span class="nv">21.2e3</span><span class="p p-Indicator">,</span><span class="nt"> start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">2100</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YRI</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yoruba in Ibadan, Nigeria</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">AMH</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12300</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CEU</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Utah Residents (CEPH) with Northern and Western European Ancestry</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">29725</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHB</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Han Chinese in Beijing, China</span>
+<span class="w">  </span><span class="nt">ancestors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">OOA</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">epochs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">start_size</span><span class="p">:</span><span class="w"> </span><span class="nv">510</span><span class="p p-Indicator">,</span><span class="nt"> end_size</span><span class="p">:</span><span class="w"> </span><span class="nv">54090</span><span class="p p-Indicator">}</span>
 
-<span class="nt">migrations</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">OOA</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">25e-5</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CEU</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">3e-5</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1.9e-5</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">CEU</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">9.6e-5</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="nt">migrations</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">OOA</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">25e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CEU</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">3e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">YRI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">1.9e-5</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">demes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">CEU</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">CHB</span><span class="p p-Indicator">],</span><span class="nt"> rate</span><span class="p">:</span><span class="w"> </span><span class="nv">9.6e-5</span><span class="p p-Indicator">}</span>
 </pre></div>
 </div>
 </div>
-<input id="f6d789d4-8250-4b59-b1df-e6b1143a252e" name="495be1b3-3dc6-4ee8-b285-1902e964a81f" type="radio">
-</input><label class="sd-tab-label pt-0" for="f6d789d4-8250-4b59-b1df-e6b1143a252e">
+<input id="1dc1177a-49d9-4b81-9fd4-4672130553f4" name="eea8f853-9449-4052-9bd2-95206c2b8566" type="radio">
+</input><label class="sd-tab-label pt-0" for="1dc1177a-49d9-4b81-9fd4-4672130553f4">
 Drawing</label><div class="sd-tab-content docutils">
 <div class="cell_output docutils container">
 <img alt="_images/tutorial_42_0.svg" src="_images/tutorial_42_0.svg" /></div>

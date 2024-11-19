@@ -2102,7 +2102,7 @@ valid instances of the Demes standard.</p>
             <span class="n">description</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
             <span class="n">start_time</span><span class="o">=</span><span class="p">((</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">),</span> <span class="n">is_positive_or_json_infinity</span><span class="p">),</span>
             <span class="n">ancestors</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_identifiers</span><span class="p">),</span>
-            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_fractions</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_list_of_proportions</span><span class="p">),</span>
         <span class="p">),</span>
     <span class="p">)</span>
 
@@ -2110,8 +2110,8 @@ valid instances of the Demes standard.</p>
         <span class="n">end_time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span><span class="p">),</span>
         <span class="n">start_size</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
         <span class="n">end_size</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
-        <span class="n">selfing_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
-        <span class="n">cloning_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+        <span class="n">selfing_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_rate</span><span class="p">),</span>
+        <span class="n">cloning_rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_rate</span><span class="p">),</span>
         <span class="n">size_function</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="n">check_defaults</span><span class="p">(</span><span class="n">global_epoch_defaults</span><span class="p">,</span> <span class="n">allowed_epoch_defaults</span><span class="p">)</span>
@@ -2130,7 +2130,7 @@ valid instances of the Demes standard.</p>
             <span class="p">),</span>
             <span class="n">ancestors</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span><span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;ancestors&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
             <span class="n">proportions</span><span class="o">=</span><span class="n">pop_list</span><span class="p">(</span>
-                <span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;proportions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span>
+                <span class="n">deme_data</span><span class="p">,</span> <span class="s2">&quot;proportions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_proportion</span>
             <span class="p">),</span>
         <span class="p">)</span>
 
@@ -2155,8 +2155,8 @@ valid instances of the Demes standard.</p>
                 <span class="n">end_size</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
                     <span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;end_size&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_positive_and_finite</span>
                 <span class="p">),</span>
-                <span class="n">selfing_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;selfing_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
-                <span class="n">cloning_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;cloning_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+                <span class="n">selfing_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;selfing_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_rate</span><span class="p">),</span>
+                <span class="n">cloning_rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;cloning_rate&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_rate</span><span class="p">),</span>
                 <span class="n">size_function</span><span class="o">=</span><span class="n">pop_string</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">,</span> <span class="s2">&quot;size_function&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
             <span class="p">)</span>
             <span class="n">check_empty</span><span class="p">(</span><span class="n">epoch_data</span><span class="p">)</span>
@@ -2171,7 +2171,7 @@ valid instances of the Demes standard.</p>
     <span class="n">check_defaults</span><span class="p">(</span>
         <span class="n">migration_defaults</span><span class="p">,</span>
         <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_fraction</span><span class="p">),</span>
+            <span class="n">rate</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_rate</span><span class="p">),</span>
             <span class="n">start_time</span><span class="o">=</span><span class="p">((</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="n">is_positive_or_json_infinity</span><span class="p">),</span>
             <span class="n">end_time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_non_negative_and_finite</span><span class="p">),</span>
             <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
@@ -2182,7 +2182,7 @@ valid instances of the Demes standard.</p>
     <span class="k">for</span> <span class="n">migration_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;migrations&quot;</span><span class="p">,</span> <span class="p">[]):</span>
         <span class="n">insert_defaults</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="n">migration_defaults</span><span class="p">)</span>
         <span class="n">graph</span><span class="o">.</span><span class="n">add_migration</span><span class="p">(</span>
-            <span class="n">rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_fraction</span><span class="p">),</span>
+            <span class="n">rate</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span><span class="n">migration_data</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="n">is_rate</span><span class="p">),</span>
             <span class="n">start_time</span><span class="o">=</span><span class="n">pop_number</span><span class="p">(</span>
                 <span class="n">migration_data</span><span class="p">,</span>
                 <span class="s2">&quot;start_time&quot;</span><span class="p">,</span>
@@ -2211,7 +2211,7 @@ valid instances of the Demes standard.</p>
             <span class="n">sources</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_nonempty_list_of_identifiers</span><span class="p">),</span>
             <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">is_identifier</span><span class="p">),</span>
             <span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">is_positive_and_finite</span><span class="p">),</span>
-            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_nonempty_list_of_fractions_with_sum_less_than_1</span><span class="p">),</span>
+            <span class="n">proportions</span><span class="o">=</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">is_nonempty_list_of_proportions_with_sum_less_than_1</span><span class="p">),</span>
         <span class="p">),</span>
     <span class="p">)</span>
     <span class="k">for</span> <span class="n">pulse_data</span> <span class="ow">in</span> <span class="n">pop_list</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;pulses&quot;</span><span class="p">,</span> <span class="p">[]):</span>
@@ -2231,7 +2231,7 @@ valid instances of the Demes standard.</p>
                 <span class="s2">&quot;proportions&quot;</span><span class="p">,</span>
                 <span class="n">default</span><span class="o">=</span><span class="p">[],</span>
                 <span class="n">required_type</span><span class="o">=</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
-                <span class="n">validator</span><span class="o">=</span><span class="n">is_fraction</span><span class="p">,</span>
+                <span class="n">validator</span><span class="o">=</span><span class="n">is_proportion</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">check_empty</span><span class="p">(</span><span class="n">pulse_data</span><span class="p">)</span>
@@ -2275,8 +2275,12 @@ valid instances of the Demes standard.</p>
     <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_fraction</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">is_rate</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">is_proportion</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
 
 <span class="k">def</span> <span class="nf">is_nonempty</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
@@ -2295,12 +2299,12 @@ valid instances of the Demes standard.</p>
     <span class="k">return</span> <span class="n">is_list_of_identifiers</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
 
-<span class="k">def</span> <span class="nf">is_list_of_fractions</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_fraction</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">is_list_of_proportions</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_proportion</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_nonempty_list_of_fractions_with_sum_less_than_1</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">is_list_of_fractions</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">is_nonempty_list_of_proportions_with_sum_less_than_1</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">is_list_of_proportions</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
 
 <span class="k">def</span> <span class="nf">validate_item</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">required_type</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

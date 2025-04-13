@@ -855,9 +855,9 @@ The list of pulses must be sorted in time-descending order.</p>
 <p>The time of migration, in
 in <a class="reference internal" href="#sec-spec-mdm-time-units"><span class="std std-ref">time_units</span></a> before the present.
 The demes defined by <code class="docutils literal notranslate"><span class="pre">sources</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> must both exist at the given
-<code class="docutils literal notranslate"><span class="pre">time</span></code>.  I.e. <code class="docutils literal notranslate"><span class="pre">time</span></code> must be contained in the
-<code class="docutils literal notranslate"><span class="pre">(deme.start_time,</span> <span class="pre">deme.end_time]</span></code> interval of the <code class="docutils literal notranslate"><span class="pre">sources</span></code>
-demes and the <code class="docutils literal notranslate"><span class="pre">dest</span></code> deme.</p>
+<code class="docutils literal notranslate"><span class="pre">time</span></code>.
+The pulse time must be in <code class="docutils literal notranslate"><span class="pre">(start_time,</span> <span class="pre">end_time]</span></code> with respect to each deme in <code class="docutils literal notranslate"><span class="pre">sources</span></code>
+and in <code class="docutils literal notranslate"><span class="pre">[start_time,</span> <span class="pre">end_time)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p>
 </section>
 <section id="id7">
 <h4>proportions<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
